@@ -135,26 +135,40 @@
     ],
     "decisionMakers": [
       {
-        "name": "Sök: VD / Ägare",
-        "title": "VD / Ägare",
+        "name": "Michael Ärlebrandt",
+        "title": "VD",
         "role": "Executive",
+        "role_label_sv": "VD / CEO",
         "priority": "high",
-        "email": null,
-        "phone": null,
+        "email": "ma@vrena.se",
+        "phone": "+46 70 389 44 02",
         "linkedin": null,
-        "note": null,
-        "source": "placeholder"
+        "note": "Hand-curaterad från vrena.se/kontakt 2026-05-21",
+        "source": "fixture-curated"
       },
       {
-        "name": "Sök: Produktionschef",
-        "title": "Produktionschef",
+        "name": "Rickard Stenholm",
+        "title": "Produktionschef (Bearbetning) — primär CNC-kontakt",
         "role": "Technical",
+        "role_label_sv": "COO / Produktionschef",
         "priority": "high",
-        "email": null,
-        "phone": null,
+        "email": "rs@vrena.se",
+        "phone": "+46 73 588 78 55",
         "linkedin": null,
-        "note": null,
-        "source": "placeholder"
+        "note": "Ansvarig för bearbetning + production development → mest CNC-relevant",
+        "source": "fixture-curated"
+      },
+      {
+        "name": "Joakim Jakobsson",
+        "title": "Produktionschef (Svets/Montering)",
+        "role": "Technical",
+        "role_label_sv": "Fabrikschef",
+        "priority": "medium",
+        "email": "jj@vrena.se",
+        "phone": "+46 73 080 46 19",
+        "linkedin": null,
+        "note": "Andra produktionschef-rollen — svets-/monteringssidan",
+        "source": "fixture-curated"
       }
     ],
     "entryAngles": [
@@ -239,15 +253,28 @@
         "source": "apollo+lusha"
       },
       {
-        "name": "Sök: Produktionschef",
+        "name": "Peter Karlsson",
         "title": "Produktionschef",
         "role": "Technical",
+        "role_label_sv": "COO / Produktionschef",
         "priority": "high",
-        "email": null,
-        "phone": null,
+        "email": "peter.karlsson@lkprecision.com",
+        "phone": "+46 8 409 333 88",
         "linkedin": null,
-        "note": null,
-        "source": "placeholder"
+        "note": "Hand-curaterad från lkprecision.com/se/kontakt 2026-05-21",
+        "source": "fixture-curated"
+      },
+      {
+        "name": "Ronny Jansson",
+        "title": "Teknisk säljare (saknar dedikerad Teknikchef-roll)",
+        "role": "Technical",
+        "role_label_sv": "Teknikchef",
+        "priority": "medium",
+        "email": "ronny.jansson@lkprecision.com",
+        "phone": "+46 73 341 49 11",
+        "linkedin": null,
+        "note": "LK har ingen dedikerad Teknikchef — Ronny är närmast tekniskt ansvarig",
+        "source": "fixture-curated"
       }
     ],
     "entryAngles": [
