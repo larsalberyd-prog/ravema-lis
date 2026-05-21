@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { useParams, Link } from "wouter";
 import { useCompanies, type Company } from "@/hooks/useCompanies";
+import IntelligencePack, { getBrief } from "@/components/IntelligencePack";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -213,6 +214,12 @@ Ravema AB`;
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 space-y-6">
+        {/* Intelligence Pack (top section — matches spec/Intelligence pack.png) */}
+        {(() => {
+          const brief = getBrief(company.id);
+          return brief ? <IntelligencePack brief={brief} /> : null;
+        })()}
+
         {/* LIS Score panel */}
         {lis && (
           <Card className="border-red-100 bg-gradient-to-br from-red-50/40 to-white">
