@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1771676334039,
+      "tag": "0000_luxuriant_lenny_balinger",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1772218985273,
+      "tag": "0001_absent_fixer",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1772221991988,
+      "tag": "0002_aromatic_moira_mactaggert",
+      "breakpoints": true
+    }
+  ]
+}

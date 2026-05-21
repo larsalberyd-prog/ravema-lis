@@ -1,0 +1,792 @@
+[
+  {
+    "id": "acc-innovation",
+    "name": "ACC Innovation",
+    "country": "Sverige",
+    "city": "Linköping",
+    "segment": "SE-DEF-AERO",
+    "priority": "AAA",
+    "status": "new",
+    "assignedTo": "Per-Ola Karlsson",
+    "deadline": null,
+    "description": "Utvecklar avancerade luft- och sjödrönare, heavy-lift och ROV-system för\nindustri och försvar. Tillväxtfas efter 125 MSEK nyemission dec 2025\nfrån TomEnterprise AB för produktutveckling, produktion och global expansion.\nCross-sell-potential till Pronect och Addinor.",
+    "sowPotential": "€800K–1.5M (multi-maskin + automation + mätrum)",
+    "triggers": [
+      "125 MSEK nyemission dec 2025 för produktion/global expansion — investeringsfönster öppet",
+      "Försvars/aerospace-segment med ökande efterfrågan post-2022",
+      "CEO Alexander Olander personligen prioriterat detta konto",
+      "Cross-sell-möjlighet till Pronect och Addinor i samma grupp"
+    ],
+    "decisionMakers": [
+      {
+        "name": "Alexander Olander",
+        "title": "CEO",
+        "role": "Executive",
+        "priority": "high",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "email_patterns": [
+          "förnamn.efternamn@accinnovation.se",
+          "f.efternamn@accinnovation.se"
+        ],
+        "linkedin_search": "https://www.linkedin.com/search/results/people/?keywords=Alexander%20Olander%20ACC%20Innovation",
+        "note": "CEO-flaggade kontot till Klas direkt"
+      },
+      {
+        "name": "Sök: VP Produktion / Operations Director",
+        "title": "VP Produktion / Operations Director",
+        "role": "Technical",
+        "priority": "high",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "email_patterns": [
+          "förnamn.efternamn@accinnovation.se",
+          "f.efternamn@accinnovation.se"
+        ],
+        "note": null
+      },
+      {
+        "name": "Sök: CFO",
+        "title": "CFO",
+        "role": "Buyer",
+        "priority": "medium",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "email_patterns": [
+          "förnamn.efternamn@accinnovation.se",
+          "f.efternamn@accinnovation.se"
+        ],
+        "note": null
+      }
+    ],
+    "entryAngles": [
+      "Capex-vinkel: Nyemissionen är öronmärkt för produktionskapacitet — vi har Mazak Integrex multi-task som halverar genomloppstiden för småserie-precisionsdetaljer.",
+      "Försvars-vinkel: Mazak används av FMV/Saab-leverantörskedjan — vi har track-record på spårbarhet och materialcertifikat.",
+      "Automation-vinkel: Fastems palletsystem ger 24/7-drift även med begränsad personal under expansionsfas."
+    ],
+    "qualifyingQuestions": [
+      "Vilka maskiner används idag för era heavy-lift- och drönar-detaljer?",
+      "Hur stor andel av nyemissionen är öronmärkt för produktionsutrustning?",
+      "Har ni krav på FMV-godkända leverantörskedjor?",
+      "Vilken roll spelar Pronect och Addinor i er materialförsörjning?"
+    ],
+    "notes": "Rationale: CEO-flaggat av Alexander Olander. Strategisk för Ravema — försvars/aerospace\nhör till de högstvärderade SE-segmenten. Måste finnas på pilotlistan.\n\nScore overrides: FLOOR = AAA: CEO/management-flaggad",
+    "nextSteps": null,
+    "qualifierAnswers": [],
+    "lis": {
+      "tier": "AAA",
+      "scoreTotal": 46,
+      "scoreBreakdown": {
+        "firmographic": 30,
+        "capacity": 0,
+        "signals": 10,
+        "engagement": 0,
+        "strategic": 6
+      },
+      "reasons": [
+        "+25 p (partial): segment-fit för SE-DEF-AERO",
+        "+5 p: dubbel-curated av Klas + Nejra",
+        "+10 p: CAPEX_ANNOUNCEMENT — 125 MSEK nyemission från TomEnterprise AB",
+        "+3 p: strategiskt segment SE-DEF-AERO",
+        "+3 p: CEO-flaggad (management_priority)"
+      ],
+      "overrides": [
+        "FLOOR = AAA: CEO/management-flaggad"
+      ],
+      "confidence": "medium",
+      "signals": [
+        {
+          "type": "CAPEX_ANNOUNCEMENT",
+          "detail": "125 MSEK nyemission från TomEnterprise AB",
+          "date": "2025-12",
+          "evidenceSource": "Nejras e-post 2026-05-20 (verifiera via cision/MyNewsdesk)"
+        },
+        {
+          "type": "MANAGEMENT_PRIORITY",
+          "detail": "CEO Alexander Olander personligen flaggat",
+          "date": "2026-05-20",
+          "evidenceSource": "Mejlspår"
+        }
+      ],
+      "district": "D2",
+      "competitorIncumbent": null,
+      "managementPriority": true,
+      "rationaleKlas": "CEO-flaggat av Alexander Olander. Strategisk för Ravema — försvars/aerospace\nhör till de högstvärderade SE-segmenten. Måste finnas på pilotlistan."
+    }
+  },
+  {
+    "id": "vrea-mek",
+    "name": "Vrea Mek",
+    "country": "Sverige",
+    "city": "Bettna",
+    "segment": "SE-PRECISION",
+    "priority": "AAA",
+    "status": "new",
+    "assignedTo": "Per Gabrielsson",
+    "deadline": null,
+    "description": "Mekanisk verkstad i Bettna. Aktiv diskussion pågår om en större Mazak Integrex.\nKunden uttrycker tydligt intresse för \"Done in One\"-strategi — minska\nuppdelning mellan svarvning och fräsning för komplexa detaljer.",
+    "sowPotential": "€450K–600K (Integrex i-Series)",
+    "triggers": [
+      "Aktiv dialog om Integrex i-Series igång",
+      "Kunden uttalat 'Done in One'-strategi — exakt Mazaks USP",
+      "Lokal premium-verkstad i Bettna med komplex small-batch-mix"
+    ],
+    "decisionMakers": [
+      {
+        "name": "Sök: VD / Ägare",
+        "title": "VD / Ägare",
+        "role": "Executive",
+        "priority": "high",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "email_patterns": [
+          "förnamn.efternamn@vreamek.se",
+          "f.efternamn@vreamek.se"
+        ],
+        "note": null
+      },
+      {
+        "name": "Sök: Produktionschef",
+        "title": "Produktionschef",
+        "role": "Technical",
+        "priority": "high",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "email_patterns": [
+          "förnamn.efternamn@vreamek.se",
+          "f.efternamn@vreamek.se"
+        ],
+        "note": null
+      }
+    ],
+    "entryAngles": [
+      "Integrex-vinkel: 5-axlig multi-task i en uppspänning halverar genomloppstid och tar bort en operatörsstation.",
+      "ROI-vinkel: Mazaks egna benchmark visar 35-50% kortare cykeltid för Done-In-One vs separat svarv+fräs.",
+      "Automation-vinkel: Erowa-paletter kan läggas på Integrex för obemannad drift."
+    ],
+    "qualifyingQuestions": [
+      "Vilken Integrex-modell är i fokus — i-200, i-400 eller större?",
+      "Vilken volym/mix har ni på de komplexa detaljerna idag?",
+      "Krav på automation från start eller fas 2?",
+      "Tidsplan för beslut och installation?"
+    ],
+    "notes": "Rationale: Aktiv dialog → högsta tier oavsett vektor-fit. Done-In-One är Mazaks\nstarkaste vinkel mot manuell uppdelning av svarv/fräs.\n\nScore overrides: FLOOR = AAA: aktiv affär pågår",
+    "nextSteps": null,
+    "qualifierAnswers": [],
+    "lis": {
+      "tier": "AAA",
+      "scoreTotal": 28,
+      "scoreBreakdown": {
+        "firmographic": 13,
+        "capacity": 0,
+        "signals": 15,
+        "engagement": 0,
+        "strategic": 0
+      },
+      "reasons": [
+        "+8 p (partial): okänt segment, neutral baseline",
+        "+5 p: dubbel-curated av Klas + Nejra",
+        "+15 p: ACTIVE_SALES_DIALOGUE — Pågående diskussion om större Integrex"
+      ],
+      "overrides": [
+        "FLOOR = AAA: aktiv affär pågår"
+      ],
+      "confidence": "medium",
+      "signals": [
+        {
+          "type": "ACTIVE_SALES_DIALOGUE",
+          "detail": "Pågående diskussion om större Integrex",
+          "date": "2026-05-15",
+          "evidenceSource": "Per Gabrielsson via Nejra"
+        }
+      ],
+      "district": "D8",
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Aktiv dialog → högsta tier oavsett vektor-fit. Done-In-One är Mazaks\nstarkaste vinkel mot manuell uppdelning av svarv/fräs."
+    }
+  },
+  {
+    "id": "lk-precision",
+    "name": "LK Precision",
+    "country": "Sverige",
+    "city": "Skogås",
+    "segment": "SE-PRECISION",
+    "priority": "AAA",
+    "status": "new",
+    "assignedTo": "Per Gabrielsson",
+    "deadline": null,
+    "description": "Premium precisionsverkstad i Skogås. Avancerade detaljer med höga\ntoleranskrav. Kör idag Hermle (fräs) + Nakamura (svarv).\nGod personlig kontakt finns sedan tidigare.",
+    "sowPotential": "€300K–500K (per maskin, 1-2 maskiner/2-3 år)",
+    "triggers": [
+      "Höga toleranskrav passar Mazaks high-end-segment (Variaxis)",
+      "Etablerad kontakt — säljcykeln kan kortas",
+      "Hermle+Nakamura-mix tyder på avancerad detaljmix"
+    ],
+    "decisionMakers": [
+      {
+        "name": "Sök: VD / Tekniskt ansvarig",
+        "title": "VD / Tekniskt ansvarig",
+        "role": "Executive",
+        "priority": "high",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "email_patterns": [
+          "förnamn.efternamn@lkprecision.se",
+          "f.efternamn@lkprecision.se"
+        ],
+        "note": null
+      },
+      {
+        "name": "Sök: Produktionschef",
+        "title": "Produktionschef",
+        "role": "Technical",
+        "priority": "high",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "email_patterns": [
+          "förnamn.efternamn@lkprecision.se",
+          "f.efternamn@lkprecision.se"
+        ],
+        "note": null
+      }
+    ],
+    "entryAngles": [
+      "Konsolidering-vinkel: Två maskinmärken → ökade reservdels- och utbildningskostnader. Mazak en leverantör för svarv+fräs.",
+      "Variaxis-vinkel: 5-axlig fräs med svarvfunktion — högre stelhet än Hermle för titanium/Inconel.",
+      "Relations-vinkel: Använd befintlig kontakt för att boka teknisk demo på Bettna eller Värnamo-showroom."
+    ],
+    "qualifyingQuestions": [
+      "Vilka detaljer är mest tidskritiska just nu?",
+      "Är det aktuellt med automation eller obemannad drift?",
+      "Hur ser maskinparkens åldersprofil ut — finns ersättningskandidater?"
+    ],
+    "notes": "Rationale: Premium-segment, höga toleranskrav. Hermle+Nakamura är båda\nrespektabla — displacement kräver tydlig vinkel (Done-In-One eller automation).\n\nScore overrides: FLOOR = AAA: Klas+Nejra dual-curated + signal/displacement",
+    "nextSteps": null,
+    "qualifierAnswers": [],
+    "lis": {
+      "tier": "AAA",
+      "scoreTotal": 19,
+      "scoreBreakdown": {
+        "firmographic": 13,
+        "capacity": 0,
+        "signals": 6,
+        "engagement": 0,
+        "strategic": 0
+      },
+      "reasons": [
+        "+8 p (partial): okänt segment, neutral baseline",
+        "+5 p: dubbel-curated av Klas + Nejra",
+        "+6 p: displacement-fönster vs Hermle (fräs) + Nakamura (svarv) (Konsolidering-vinkel: Två maskinmärken → ökade reservdels- och utbildningskostnader. Mazak en leverantör för svarv+fräs.)"
+      ],
+      "overrides": [
+        "FLOOR = AAA: Klas+Nejra dual-curated + signal/displacement"
+      ],
+      "confidence": "medium",
+      "signals": [
+        {
+          "type": "COMPETITOR_INCUMBENT_KNOWN",
+          "detail": "Hermle (fräs) + Nakamura (svarv)",
+          "date": "2026-05-20",
+          "evidenceSource": "Nejras e-post"
+        }
+      ],
+      "district": "D8",
+      "competitorIncumbent": "Hermle (fräs) + Nakamura (svarv)",
+      "managementPriority": false,
+      "rationaleKlas": "Premium-segment, höga toleranskrav. Hermle+Nakamura är båda\nrespektabla — displacement kräver tydlig vinkel (Done-In-One eller automation)."
+    }
+  },
+  {
+    "id": "axido",
+    "name": "Axido",
+    "country": "Sverige",
+    "city": "Linköping",
+    "segment": "SE-GROWTH",
+    "priority": "AAA",
+    "status": "new",
+    "assignedTo": "Mattias Banelind",
+    "deadline": null,
+    "description": "Mindre men spännande bolag i tillväxtfas. Byter till större lokaler\n(~1500 kvm extra) och har nyligen anställt produktionschef med\nMazak-bakgrund. Två starka samtidiga signaler = öppet fönster.",
+    "sowPotential": "€250K–400K (initial maskin, expansion sannolik)",
+    "triggers": [
+      "+1500 kvm extra produktionsyta = investeringsfönster för ny utrustning",
+      "Ny produktionschef har Mazak-erfarenhet — intern champion redan på plats",
+      "Tillväxtfas → första-maskin-investering med möjlig expansion"
+    ],
+    "decisionMakers": [
+      {
+        "name": "Sök: VD / Grundare",
+        "title": "VD / Grundare",
+        "role": "Executive",
+        "priority": "high",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "email_patterns": [
+          "förnamn.efternamn@axido.se",
+          "f.efternamn@axido.se"
+        ],
+        "note": null
+      },
+      {
+        "name": "Sök: Produktionschef (ny, Mazak-bakgrund)",
+        "title": "Produktionschef (ny, Mazak-bakgrund)",
+        "role": "Technical",
+        "priority": "high",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "email_patterns": [
+          "förnamn.efternamn@axido.se",
+          "f.efternamn@axido.se"
+        ],
+        "note": "Sannolik intern champion"
+      }
+    ],
+    "entryAngles": [
+      "Champion-vinkel: Bygg på produktionschefens existerande Mazak-erfarenhet — visa Smart Factory-konfiguration han redan känner.",
+      "Expansion-vinkel: 1500 kvm fri yta = möjlighet att layout-optimera för automation från dag 1 (Fastems palett).",
+      "Tillväxt-vinkel: Skalbar konfiguration — börja med en VTC eller QT, lägg på automation när volym växer."
+    ],
+    "qualifyingQuestions": [
+      "När står den nya lokalen klar för utrustning?",
+      "Vilka maskiner har produktionschefen tidigare jobbat med?",
+      "Är expansionen kopplad till en specifik ny kund eller bredare tillväxt?",
+      "Hur ser kapitalbehovet och finansieringen ut?"
+    ],
+    "notes": "Rationale: Dubbla signaler (PLANT_EXPANSION + HIRE_PRODUCTION_MANAGER med Mazak-bakgrund)\n= perfekt timing. Ny produktionschef med Mazak-erfarenhet är de facto\nen intern champion.\n\nScore overrides: FLOOR = AAA: Klas+Nejra dual-curated + signal/displacement",
+    "nextSteps": null,
+    "qualifierAnswers": [],
+    "lis": {
+      "tier": "AAA",
+      "scoreTotal": 27,
+      "scoreBreakdown": {
+        "firmographic": 13,
+        "capacity": 0,
+        "signals": 14,
+        "engagement": 0,
+        "strategic": 0
+      },
+      "reasons": [
+        "+8 p (partial): okänt segment, neutral baseline",
+        "+5 p: dubbel-curated av Klas + Nejra",
+        "+7 p: PLANT_EXPANSION — +1500 kvm nya lokaler",
+        "+7 p: HIRE_PRODUCTION_MANAGER — Produktionschef med Mazak-bakgrund"
+      ],
+      "overrides": [
+        "FLOOR = AAA: Klas+Nejra dual-curated + signal/displacement"
+      ],
+      "confidence": "medium",
+      "signals": [
+        {
+          "type": "PLANT_EXPANSION",
+          "detail": "+1500 kvm nya lokaler",
+          "date": "2026-04",
+          "evidenceSource": "Nejras e-post 2026-05-20"
+        },
+        {
+          "type": "HIRE_PRODUCTION_MANAGER",
+          "detail": "Produktionschef med Mazak-bakgrund",
+          "date": "2026-04",
+          "evidenceSource": "Nejras e-post 2026-05-20"
+        }
+      ],
+      "district": "D2",
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Dubbla signaler (PLANT_EXPANSION + HIRE_PRODUCTION_MANAGER med Mazak-bakgrund)\n= perfekt timing. Ny produktionschef med Mazak-erfarenhet är de facto\nen intern champion."
+    }
+  },
+  {
+    "id": "kinnex",
+    "name": "Kinnex",
+    "country": "Sverige",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "AAA",
+    "status": "new",
+    "assignedTo": "Tomas Wilson",
+    "deadline": null,
+    "description": "Del av RZ-gruppen (reprogruppen). Kör DMG idag. Klas och Nejra\nföreslår att starta här — DMG-displacement är prioriterat mål för\nRZ-gruppen som helhet.",
+    "sowPotential": "€400K–700K (per maskin, multi-maskin grupp-potential)",
+    "triggers": [
+      "DMG-land — aktivt displacement-mål från Ravemas commercial leadership",
+      "Del av RZ-gruppen → grupp-multiplier på vunnen affär",
+      "Klas+Nejra dubbel-validering = säljkår-intern prioritering"
+    ],
+    "decisionMakers": [
+      {
+        "name": "Sök: VD Kinnex",
+        "title": "VD Kinnex",
+        "role": "Executive",
+        "priority": "high",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "email_patterns": [
+          "förnamn.efternamn@kinnex.se",
+          "f.efternamn@kinnex.se"
+        ],
+        "note": null
+      },
+      {
+        "name": "Sök: Produktionschef",
+        "title": "Produktionschef",
+        "role": "Technical",
+        "priority": "high",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "email_patterns": [
+          "förnamn.efternamn@kinnex.se",
+          "f.efternamn@kinnex.se"
+        ],
+        "note": null
+      },
+      {
+        "name": "Sök: VD RZ-gruppen",
+        "title": "VD RZ-gruppen",
+        "role": "Executive",
+        "priority": "medium",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "email_patterns": [
+          "förnamn.efternamn@kinnex.se",
+          "f.efternamn@kinnex.se"
+        ],
+        "note": "Grupp-nivå beslutsfattare"
+      }
+    ],
+    "entryAngles": [
+      "Displacement-vinkel: DMG vs Mazak — TCO och serviceavtals-jämförelse (Mazak-iSMART vs DMG-NETservice).",
+      "Grupp-vinkel: Vinst i Kinnex öppnar Zampart + övriga RZ-bolag.",
+      "Service-vinkel: Ravemas tekniker-täckning i D7 är överlägsen DMG:s — uppmätt utrycknings-tid."
+    ],
+    "qualifyingQuestions": [
+      "Hur nöjda är ni med DMG:s servicerespons i D7?",
+      "Finns det specifika DMG-modeller där prestanda inte räcker till?",
+      "Hur ser beslutsmandaten ut — Kinnex självständigt eller RZ-gruppen samordnat?"
+    ],
+    "notes": "Rationale: DMG-land = aktivt displacement-mål. RZ-gruppen som helhet är ett\nstrategiskt expansion-konto. Kinnex är ingång.\n\nScore overrides: FLOOR = AAA: Klas+Nejra dual-curated + signal/displacement",
+    "nextSteps": null,
+    "qualifierAnswers": [],
+    "lis": {
+      "tier": "AAA",
+      "scoreTotal": 19,
+      "scoreBreakdown": {
+        "firmographic": 13,
+        "capacity": 0,
+        "signals": 6,
+        "engagement": 0,
+        "strategic": 0
+      },
+      "reasons": [
+        "+8 p (partial): okänt segment, neutral baseline",
+        "+5 p: dubbel-curated av Klas + Nejra",
+        "+6 p: displacement-fönster vs DMG (Displacement-vinkel: DMG vs Mazak — TCO och serviceavtals-jämförelse (Mazak-iSMART vs DMG-NETservice).)"
+      ],
+      "overrides": [
+        "FLOOR = AAA: Klas+Nejra dual-curated + signal/displacement"
+      ],
+      "confidence": "medium",
+      "signals": [
+        {
+          "type": "COMPETITOR_DISPLACEMENT_TARGET",
+          "detail": "DMG-incumbent — displacement-prioritet av Klas+Nejra",
+          "date": "2026-05-20",
+          "evidenceSource": "Klas Excel + Nejras e-post"
+        }
+      ],
+      "district": "D7",
+      "competitorIncumbent": "DMG",
+      "managementPriority": false,
+      "rationaleKlas": "DMG-land = aktivt displacement-mål. RZ-gruppen som helhet är ett\nstrategiskt expansion-konto. Kinnex är ingång."
+    }
+  },
+  {
+    "id": "zampart",
+    "name": "Zampart",
+    "country": "Sverige",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "AAA",
+    "status": "new",
+    "assignedTo": "Tomas Wilson",
+    "deadline": null,
+    "description": "Också del av RZ-gruppen. Kör Okuma idag. Andra ben i RZ-displacement-\nstrategin. Klas+Nejra föreslår parallell bearbetning med Kinnex.",
+    "sowPotential": "€400K–700K",
+    "triggers": [
+      "Okuma-land — displacement-mål",
+      "RZ-grupp grupp-multiplier (samkörs med Kinnex)",
+      "Klas+Nejra dubbel-validering"
+    ],
+    "decisionMakers": [
+      {
+        "name": "Sök: VD Zampart",
+        "title": "VD Zampart",
+        "role": "Executive",
+        "priority": "high",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "email_patterns": [
+          "förnamn.efternamn@zampart.se",
+          "f.efternamn@zampart.se"
+        ],
+        "note": null
+      },
+      {
+        "name": "Sök: Produktionschef",
+        "title": "Produktionschef",
+        "role": "Technical",
+        "priority": "high",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "email_patterns": [
+          "förnamn.efternamn@zampart.se",
+          "f.efternamn@zampart.se"
+        ],
+        "note": null
+      }
+    ],
+    "entryAngles": [
+      "Displacement-vinkel: Okuma OSP-styrning vs Mazak MAZATROL — produktivitets-benchmark på lång cykel.",
+      "Grupp-vinkel: Samtidig dialog med Kinnex stärker grupp-trovärdighet.",
+      "Automation-vinkel: Mazak + Fastems vs Okuma + Okuma-automation — pris/prestanda-jämförelse."
+    ],
+    "qualifyingQuestions": [
+      "Vilka Okuma-modeller används idag och i vilken livscykel-fas?",
+      "Finns det specifika produktivitetsproblem med nuvarande maskinpark?",
+      "Hur koordineras inköp inom RZ-gruppen?"
+    ],
+    "notes": "Rationale: Okuma-displacement. RZ-gruppen multiplier (se Kinnex). Parallellbearbetning\nmed Kinnex ger snabbare grupp-baserad penetration.\n\nScore overrides: FLOOR = AAA: Klas+Nejra dual-curated + signal/displacement",
+    "nextSteps": null,
+    "qualifierAnswers": [],
+    "lis": {
+      "tier": "AAA",
+      "scoreTotal": 19,
+      "scoreBreakdown": {
+        "firmographic": 13,
+        "capacity": 0,
+        "signals": 6,
+        "engagement": 0,
+        "strategic": 0
+      },
+      "reasons": [
+        "+8 p (partial): okänt segment, neutral baseline",
+        "+5 p: dubbel-curated av Klas + Nejra",
+        "+6 p: displacement-fönster vs Okuma (Displacement-vinkel: Okuma OSP-styrning vs Mazak MAZATROL — produktivitets-benchmark på lång cykel.)"
+      ],
+      "overrides": [
+        "FLOOR = AAA: Klas+Nejra dual-curated + signal/displacement"
+      ],
+      "confidence": "medium",
+      "signals": [
+        {
+          "type": "COMPETITOR_DISPLACEMENT_TARGET",
+          "detail": "Okuma-incumbent — displacement-prioritet",
+          "date": "2026-05-20",
+          "evidenceSource": "Klas Excel + Nejras e-post"
+        }
+      ],
+      "district": "D7",
+      "competitorIncumbent": "Okuma",
+      "managementPriority": false,
+      "rationaleKlas": "Okuma-displacement. RZ-gruppen multiplier (se Kinnex). Parallellbearbetning\nmed Kinnex ger snabbare grupp-baserad penetration."
+    }
+  },
+  {
+    "id": "aker-solutions",
+    "name": "Aker Solutions",
+    "country": "Norge",
+    "city": "Fornebu",
+    "segment": "NO-OG-SUBSEA",
+    "priority": "AA",
+    "status": "new",
+    "assignedTo": "NO-Sales-1",
+    "deadline": null,
+    "description": "Stor norsk leverantör till olja/gas. Equinor M&M-ramavtal NOK 100 mdr/5 år.\nYggdrasil + Castberg-utbyggnader skapar produktions-pull. Klassisk\nNO-strategisk kund — låg frekvens men stor SOW per affär.",
+    "sowPotential": "€600K–1.2M (specialmaskiner subsea, 1 maskin per 1-2 år)",
+    "triggers": [
+      "Equinor M&M-ramavtal NOK 100 mdr/5 år = produktions-pull 2026-2030",
+      "Yggdrasil + Castberg-utbyggnader → specifika maskinkrav på undervatten-komponenter",
+      "Subsea är högstvärderade NO-segmentet enligt marknadsanalysen"
+    ],
+    "decisionMakers": [
+      {
+        "name": "Sök: VP Manufacturing",
+        "title": "VP Manufacturing",
+        "role": "Technical",
+        "priority": "high",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "email_patterns": [
+          "förnamn.efternamn@akersolutions.se",
+          "f.efternamn@akersolutions.se"
+        ],
+        "note": null
+      },
+      {
+        "name": "Sök: Procurement Director",
+        "title": "Procurement Director",
+        "role": "Buyer",
+        "priority": "high",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "email_patterns": [
+          "förnamn.efternamn@akersolutions.se",
+          "f.efternamn@akersolutions.se"
+        ],
+        "note": null
+      },
+      {
+        "name": "Sök: Subsea Operations Manager",
+        "title": "Subsea Operations Manager",
+        "role": "Technical",
+        "priority": "medium",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "email_patterns": [
+          "förnamn.efternamn@akersolutions.se",
+          "f.efternamn@akersolutions.se"
+        ],
+        "note": null
+      }
+    ],
+    "entryAngles": [
+      "Subsea-vinkel: Mazak Variaxis + Integrex för exotiska legeringar (Inconel, duplex) i undervattens-ventiler.",
+      "Ramavtal-vinkel: Långsiktig produktions-pull kräver investering i kapacitet — vi har track record på offshore-leverantörer (Nymo, Vard).",
+      "Spårbarhet-vinkel: Mazaks iSMART Factory loggar varje detalj — krav från Equinor på materialspårbarhet."
+    ],
+    "qualifyingQuestions": [
+      "Vilka komponenter ska produceras specifikt för Yggdrasil och Castberg?",
+      "Hur stor andel av Equinor-volymen är kapacitetskritisk?",
+      "Vilken roll spelar materialspårbarhet och iSMART-loggar?",
+      "Vilka är de norska konkurrenterna i denna upphandling?"
+    ],
+    "notes": "Rationale: Equinor M&M-ramavtal = långsiktig produktions-pull. NO subsea/OG hör till\nde högstvärderade segmenten i marknadsanalysen.\n\nScore overrides: FLOOR = AA: Klas+Nejra dual-curated",
+    "nextSteps": null,
+    "qualifierAnswers": [],
+    "lis": {
+      "tier": "AA",
+      "scoreTotal": 21,
+      "scoreBreakdown": {
+        "firmographic": 13,
+        "capacity": 0,
+        "signals": 5,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+8 p (partial): okänt segment, neutral baseline",
+        "+5 p: dubbel-curated av Klas + Nejra",
+        "+5 p: MAJOR_CUSTOMER_WIN — Equinor M&M-ramavtal NOK 100 mdr/5 år (Yggdrasil + Castberg)",
+        "+3 p: referensbar logo"
+      ],
+      "overrides": [
+        "FLOOR = AA: Klas+Nejra dual-curated"
+      ],
+      "confidence": "medium",
+      "signals": [
+        {
+          "type": "CUSTOMER_WIN_DOWNSTREAM",
+          "detail": "Equinor M&M-ramavtal NOK 100 mdr/5 år (Yggdrasil + Castberg)",
+          "date": "2025-Q4",
+          "evidenceSource": "Markedsanalys NO-OG-rapport"
+        }
+      ],
+      "district": "NO-OG",
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Equinor M&M-ramavtal = långsiktig produktions-pull. NO subsea/OG hör till\nde högstvärderade segmenten i marknadsanalysen."
+    }
+  },
+  {
+    "id": "volvo-koping",
+    "name": "Volvo Köping",
+    "country": "Sverige",
+    "city": "Köping",
+    "segment": "SE-AUTO-EV",
+    "priority": "B",
+    "status": "new",
+    "assignedTo": "Tomas Wilson",
+    "deadline": null,
+    "description": "Volvos transmissionsfabrik i Köping. På pappret ett stort konto, men:\nteknikchefen är ex-EMAG-säljare och dissar Mazak öppet. Volvo TS\n(Tier-System-godkännande) blockerar dessutom non-godkända leverantörer.\nVisas i pilot board som kontroll att scoring säger NEJ rätt.",
+    "sowPotential": "n/a (blockerat)",
+    "triggers": [],
+    "decisionMakers": [
+      {
+        "name": "Sök: Teknikchef (ex-EMAG, anti-Mazak)",
+        "title": "Teknikchef (ex-EMAG, anti-Mazak)",
+        "role": "Technical",
+        "priority": "low",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "email_patterns": [
+          "förnamn.efternamn@volvoköping.se",
+          "f.efternamn@volvoköping.se"
+        ],
+        "note": "RELATIONSHIP BLOCKER — undvik kontakt utan ny strategi"
+      }
+    ],
+    "entryAngles": [
+      "Ingen aktiv angle — kontot är blockerat. Anti-fit kontroll i pilot board."
+    ],
+    "qualifyingQuestions": [],
+    "notes": "Rationale: ANTI-FIT FIXTURE. Får INTE rankas över B. Om LIS rankar AA/AAA = scoring\nmissar disqualification-signaler.\n\nDisqualification: Teknikchef ex-EMAG-säljare, anti-Mazak attityd; Volvo TS Tier-System blockerar non-godkända leverantörer; Teknikchef ex-EMAG-säljare, dissar Mazak öppet; Volvo TS Tier-System blockerar non-godkända leverantörer\n\nScore overrides: FLOOR = AA: Klas+Nejra dual-curated | CEILING → B: Teknikchef ex-EMAG-säljare, anti-Mazak attityd; Volvo TS Tier-System blockerar non-godkända leverantörer; Teknikchef ex-EMAG-säljare, dissar Mazak öppet; Volvo TS Tier-System blockerar non-godkända leverantörer",
+    "nextSteps": null,
+    "qualifierAnswers": [],
+    "lis": {
+      "tier": "B",
+      "scoreTotal": 25,
+      "scoreBreakdown": {
+        "firmographic": 25,
+        "capacity": 0,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 0
+      },
+      "reasons": [
+        "+20 p (partial): segment-fit för SE-AUTO-EV",
+        "+5 p: dubbel-curated av Klas + Nejra"
+      ],
+      "overrides": [
+        "FLOOR = AA: Klas+Nejra dual-curated",
+        "CEILING → B: Teknikchef ex-EMAG-säljare, anti-Mazak attityd; Volvo TS Tier-System blockerar non-godkända leverantörer; Teknikchef ex-EMAG-säljare, dissar Mazak öppet; Volvo TS Tier-System blockerar non-godkända leverantörer"
+      ],
+      "confidence": "low",
+      "signals": [
+        {
+          "type": "DISQUALIFICATION_BLOCKER",
+          "detail": "Teknikchef ex-EMAG-säljare, anti-Mazak attityd",
+          "date": "2026-05-20",
+          "evidenceSource": "Klas Excel kommentar"
+        },
+        {
+          "type": "PROCUREMENT_GATE_BLOCKER",
+          "detail": "Volvo TS Tier-System blockerar non-godkända leverantörer",
+          "date": "ongoing",
+          "evidenceSource": "Säljkår-kunskap"
+        }
+      ],
+      "district": "D7",
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "ANTI-FIT FIXTURE. Får INTE rankas över B. Om LIS rankar AA/AAA = scoring\nmissar disqualification-signaler."
+    }
+  }
+]
