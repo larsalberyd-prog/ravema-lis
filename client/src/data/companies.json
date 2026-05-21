@@ -14,23 +14,10 @@
     "triggers": [
       "125 MSEK nyemission dec 2025 för produktion/global expansion — investeringsfönster öppet",
       "Försvars/aerospace-segment med ökande efterfrågan post-2022",
-      "CEO Alexander Olander personligen prioriterat detta konto",
+      "Flaggat av Ravemas CEO Alexander Olander — högsta interna prioritet",
       "Cross-sell-möjlighet till Pronect och Addinor i samma grupp"
     ],
     "decisionMakers": [
-      {
-        "name": "Allan Andersen",
-        "title": "CEO",
-        "role": "Executive",
-        "role_label_sv": "VD / CEO",
-        "priority": "high",
-        "email": null,
-        "email_confidence": null,
-        "phone": "+46 72 240 41 50",
-        "linkedin": "http://www.linkedin.com/in/allan-andersen-b331626",
-        "country": "Sweden",
-        "seniority": "c_suite"
-      },
       {
         "name": "Max Drougge",
         "title": "Chief Technology Officer",
@@ -42,7 +29,30 @@
         "phone": "+46 76 161 86 43",
         "linkedin": "http://www.linkedin.com/in/max-drougge-74116884",
         "country": "Sweden",
-        "seniority": "c_suite"
+        "seniority": "c_suite",
+        "source": "apollo+lusha"
+      },
+      {
+        "name": "Sök: VD / CEO ACC Innovation",
+        "title": "VD / CEO ACC Innovation",
+        "role": "Executive",
+        "priority": "high",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "note": "Apollo föreslog \"Allan Andersen\" — verifiera via Allabolag-styrelseregister innan kontakt",
+        "source": "placeholder"
+      },
+      {
+        "name": "Sök: CFO",
+        "title": "CFO",
+        "role": "Buyer",
+        "priority": "medium",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "note": null,
+        "source": "placeholder"
       }
     ],
     "entryAngles": [
@@ -56,7 +66,7 @@
       "Har ni krav på FMV-godkända leverantörskedjor?",
       "Vilken roll spelar Pronect och Addinor i er materialförsörjning?"
     ],
-    "notes": "Rationale: CEO-flaggat av Alexander Olander. Strategisk för Ravema — försvars/aerospace\nhör till de högstvärderade SE-segmenten. Måste finnas på pilotlistan.\n\nScore overrides: FLOOR = AAA: CEO/management-flaggad",
+    "notes": "Rationale: Flaggat av Ravemas CEO Alexander Olander som strike-konto. Strategisk för\nRavema — försvars/aerospace hör till de högstvärderade SE-segmenten.\nMåste finnas på pilotlistan.\n\nScore overrides: FLOOR = AAA: CEO/management-flaggad",
     "nextSteps": null,
     "qualifierAnswers": [],
     "lis": {
@@ -89,15 +99,20 @@
         },
         {
           "type": "MANAGEMENT_PRIORITY",
-          "detail": "CEO Alexander Olander personligen flaggat",
+          "detail": "Flaggat av Ravemas CEO Alexander Olander",
           "date": "2026-05-20",
-          "evidenceSource": "Mejlspår"
+          "evidenceSource": "Mejlspår internt på Ravema"
         }
       ],
       "district": "D2",
       "competitorIncumbent": null,
       "managementPriority": true,
-      "rationaleKlas": "CEO-flaggat av Alexander Olander. Strategisk för Ravema — försvars/aerospace\nhör till de högstvärderade SE-segmenten. Måste finnas på pilotlistan.",
+      "rationaleKlas": "Flaggat av Ravemas CEO Alexander Olander som strike-konto. Strategisk för\nRavema — försvars/aerospace hör till de högstvärderade SE-segmenten.\nMåste finnas på pilotlistan.",
+      "flaggedBy": {
+        "name": "Alexander Olander",
+        "role": "Ravemas CEO",
+        "date": "2026-05-20"
+      },
       "hasBrief": true
     }
   },
@@ -127,7 +142,8 @@
         "email": null,
         "phone": null,
         "linkedin": null,
-        "note": null
+        "note": null,
+        "source": "placeholder"
       },
       {
         "name": "Sök: Produktionschef",
@@ -137,7 +153,8 @@
         "email": null,
         "phone": null,
         "linkedin": null,
-        "note": null
+        "note": null,
+        "source": "placeholder"
       }
     ],
     "entryAngles": [
@@ -185,6 +202,7 @@
       "competitorIncumbent": null,
       "managementPriority": false,
       "rationaleKlas": "Aktiv dialog → högsta tier oavsett vektor-fit. Done-In-One är Mazaks\nstarkaste vinkel mot manuell uppdelning av svarv/fräs.",
+      "flaggedBy": null,
       "hasBrief": true
     }
   },
@@ -217,7 +235,19 @@
         "phone": "+46 70 493 45 64",
         "linkedin": "http://www.linkedin.com/in/fredrik-mossberg-23888b15",
         "country": "Sweden",
-        "seniority": "director"
+        "seniority": "director",
+        "source": "apollo+lusha"
+      },
+      {
+        "name": "Sök: Produktionschef",
+        "title": "Produktionschef",
+        "role": "Technical",
+        "priority": "high",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "note": null,
+        "source": "placeholder"
       }
     ],
     "entryAngles": [
@@ -264,6 +294,7 @@
       "competitorIncumbent": "Hermle (fräs) + Nakamura (svarv)",
       "managementPriority": false,
       "rationaleKlas": "Premium-segment, höga toleranskrav. Hermle+Nakamura är båda\nrespektabla — displacement kräver tydlig vinkel (Done-In-One eller automation).",
+      "flaggedBy": null,
       "hasBrief": true
     }
   },
@@ -296,7 +327,8 @@
         "phone": "+46 70 432 65 01",
         "linkedin": "http://www.linkedin.com/in/jonas-borgstrom-94b994a",
         "country": "Sweden",
-        "seniority": "c_suite"
+        "seniority": "c_suite",
+        "source": "apollo+lusha"
       },
       {
         "name": "Abed Zeidan",
@@ -309,20 +341,8 @@
         "phone": "+46 70 233 31 19",
         "linkedin": "http://www.linkedin.com/in/abed-zeidan-411793103",
         "country": "Sweden",
-        "seniority": "entry"
-      },
-      {
-        "name": "Sebastien Lagrange",
-        "title": "System Administrator",
-        "role": "Technical",
-        "role_label_sv": "Teknikchef",
-        "priority": "medium",
-        "email": "s.lagrange@apogea.net",
-        "email_confidence": null,
-        "phone": "+33 6 69 76 17 17",
-        "linkedin": "http://www.linkedin.com/in/s%c3%a9bastien-lagrange-1582a0153",
-        "country": "France",
-        "seniority": "entry"
+        "seniority": "entry",
+        "source": "apollo+lusha"
       }
     ],
     "entryAngles": [
@@ -377,6 +397,7 @@
       "competitorIncumbent": null,
       "managementPriority": false,
       "rationaleKlas": "Dubbla signaler (PLANT_EXPANSION + HIRE_PRODUCTION_MANAGER med Mazak-bakgrund)\n= perfekt timing. Ny produktionschef med Mazak-erfarenhet är de facto\nen intern champion.",
+      "flaggedBy": null,
       "hasBrief": true
     }
   },
@@ -409,33 +430,8 @@
         "phone": null,
         "linkedin": "http://www.linkedin.com/in/muhammad-arham-siddiqui-9a088167",
         "country": null,
-        "seniority": "founder"
-      },
-      {
-        "name": "Muhammad Siddiqui",
-        "title": "Co-Founder & CEO",
-        "role": "Executive",
-        "role_label_sv": "VD / CEO",
-        "priority": "high",
-        "email": null,
-        "email_confidence": null,
-        "phone": null,
-        "linkedin": "http://www.linkedin.com/in/muhammad-arham-siddiqui-9a088167",
-        "country": null,
-        "seniority": "founder"
-      },
-      {
-        "name": "Vikram Singh",
-        "title": "Manager IT",
-        "role": "Technical",
-        "role_label_sv": "Teknikchef",
-        "priority": "medium",
-        "email": null,
-        "email_confidence": null,
-        "phone": null,
-        "linkedin": "http://www.linkedin.com/in/vikram-singh-359040160",
-        "country": null,
-        "seniority": "manager"
+        "seniority": "founder",
+        "source": "apollo+lusha"
       },
       {
         "name": "Henrik Oldin",
@@ -448,7 +444,41 @@
         "phone": "+46 511 303 34",
         "linkedin": "http://www.linkedin.com/in/henrik-oldin-261a2b13a",
         "country": "Sweden",
-        "seniority": "manager"
+        "seniority": "manager",
+        "source": "apollo+lusha"
+      },
+      {
+        "name": "Sök: VD Kinnex",
+        "title": "VD Kinnex",
+        "role": "Executive",
+        "priority": "high",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "note": null,
+        "source": "placeholder"
+      },
+      {
+        "name": "Sök: Produktionschef",
+        "title": "Produktionschef",
+        "role": "Technical",
+        "priority": "high",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "note": null,
+        "source": "placeholder"
+      },
+      {
+        "name": "Sök: VD RZ-gruppen",
+        "title": "VD RZ-gruppen",
+        "role": "Executive",
+        "priority": "medium",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "note": "Grupp-nivå beslutsfattare",
+        "source": "placeholder"
       }
     ],
     "entryAngles": [
@@ -495,6 +525,7 @@
       "competitorIncumbent": "DMG",
       "managementPriority": false,
       "rationaleKlas": "DMG-land = aktivt displacement-mål. RZ-gruppen som helhet är ett\nstrategiskt expansion-konto. Kinnex är ingång.",
+      "flaggedBy": null,
       "hasBrief": true
     }
   },
@@ -527,7 +558,8 @@
         "phone": null,
         "linkedin": "http://www.linkedin.com/in/filippa-lindberg-65140a73",
         "country": null,
-        "seniority": "c_suite"
+        "seniority": "c_suite",
+        "source": "apollo+lusha"
       },
       {
         "name": "Jon Werme",
@@ -540,20 +572,8 @@
         "phone": "+46 70 353 27 20",
         "linkedin": "http://www.linkedin.com/in/jon-werme-228a5188",
         "country": "Sweden",
-        "seniority": "manager"
-      },
-      {
-        "name": "Jon Werme",
-        "title": "Production Manager",
-        "role": "Technical",
-        "role_label_sv": "Fabrikschef",
-        "priority": "medium",
-        "email": "jon.werme@rzg.se",
-        "email_confidence": "A+",
-        "phone": "+46 70 353 27 20",
-        "linkedin": "http://www.linkedin.com/in/jon-werme-228a5188",
-        "country": "Sweden",
-        "seniority": "manager"
+        "seniority": "manager",
+        "source": "apollo+lusha"
       }
     ],
     "entryAngles": [
@@ -600,6 +620,7 @@
       "competitorIncumbent": "Okuma",
       "managementPriority": false,
       "rationaleKlas": "Okuma-displacement. RZ-gruppen multiplier (se Kinnex). Parallellbearbetning\nmed Kinnex ger snabbare grupp-baserad penetration.",
+      "flaggedBy": null,
       "hasBrief": true
     }
   },
@@ -622,19 +643,6 @@
     ],
     "decisionMakers": [
       {
-        "name": "Ger Manero",
-        "title": "Owner",
-        "role": "Executive",
-        "role_label_sv": "Ägare",
-        "priority": "high",
-        "email": null,
-        "email_confidence": null,
-        "phone": null,
-        "linkedin": "http://www.linkedin.com/in/ger-manero-391b2931",
-        "country": null,
-        "seniority": "owner"
-      },
-      {
         "name": "Kjetel Digre",
         "title": "President & Chief Executive Officer",
         "role": "Executive",
@@ -645,7 +653,8 @@
         "phone": null,
         "linkedin": "http://www.linkedin.com/in/kjetel-digre-a858412b5",
         "country": "Norway",
-        "seniority": "c_suite"
+        "seniority": "c_suite",
+        "source": "apollo+lusha"
       },
       {
         "name": "Thomas Wahlberg",
@@ -658,7 +667,8 @@
         "phone": null,
         "linkedin": "http://www.linkedin.com/in/thomas-wahlberg-b21a421b0",
         "country": null,
-        "seniority": "head"
+        "seniority": "head",
+        "source": "apollo+lusha"
       },
       {
         "name": "Parisa Bardouni",
@@ -671,7 +681,8 @@
         "phone": "+47 40 61 43 18",
         "linkedin": "http://www.linkedin.com/in/parisa-bardouni-432ab93",
         "country": "Norway",
-        "seniority": "c_suite"
+        "seniority": "c_suite",
+        "source": "apollo+lusha"
       },
       {
         "name": "Svein Vika",
@@ -684,7 +695,19 @@
         "phone": "+47 46 63 95 86",
         "linkedin": "http://www.linkedin.com/in/svein-vika-02326520",
         "country": "Norway",
-        "seniority": "manager"
+        "seniority": "manager",
+        "source": "apollo+lusha"
+      },
+      {
+        "name": "Sök: VP Manufacturing",
+        "title": "VP Manufacturing",
+        "role": "Technical",
+        "priority": "high",
+        "email": null,
+        "phone": null,
+        "linkedin": null,
+        "note": null,
+        "source": "placeholder"
       }
     ],
     "entryAngles": [
@@ -733,6 +756,7 @@
       "competitorIncumbent": null,
       "managementPriority": false,
       "rationaleKlas": "Equinor M&M-ramavtal = långsiktig produktions-pull. NO subsea/OG hör till\nde högstvärderade segmenten i marknadsanalysen.",
+      "flaggedBy": null,
       "hasBrief": true
     }
   },
@@ -758,7 +782,8 @@
         "email": null,
         "phone": null,
         "linkedin": null,
-        "note": "RELATIONSHIP BLOCKER — undvik kontakt utan ny strategi"
+        "note": "RELATIONSHIP BLOCKER — undvik kontakt utan ny strategi",
+        "source": "placeholder"
       }
     ],
     "entryAngles": [
@@ -805,6 +830,7 @@
       "competitorIncumbent": null,
       "managementPriority": false,
       "rationaleKlas": "ANTI-FIT FIXTURE. Får INTE rankas över B. Om LIS rankar AA/AAA = scoring\nmissar disqualification-signaler.",
+      "flaggedBy": null,
       "hasBrief": true
     }
   }
