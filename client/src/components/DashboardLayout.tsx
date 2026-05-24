@@ -21,15 +21,16 @@ import {
 } from "@/components/ui/sidebar";
 import { getLoginUrl } from "@/const";
 import { useIsMobile } from "@/hooks/useMobile";
-import { LayoutDashboard, LogOut, PanelLeft, Users } from "lucide-react";
+import { LayoutDashboard, LogOut, PanelLeft, Target, Settings } from "lucide-react";
 import { CSSProperties, useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { DashboardLayoutSkeleton } from './DashboardLayoutSkeleton';
 import { Button } from "./ui/button";
 
 const menuItems = [
-  { icon: LayoutDashboard, label: "Page 1", path: "/" },
-  { icon: Users, label: "Page 2", path: "/some-path" },
+  { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
+  { icon: Target, label: "Mina prospekt", path: "/my-sales" },
+  { icon: Settings, label: "Admin", path: "/admin" },
 ];
 
 const SIDEBAR_WIDTH_KEY = "sidebar-width";
@@ -57,25 +58,33 @@ export default function DashboardLayout({
   }
 
   if (!user) {
+    const demoLoginKey = import.meta.env.VITE_DEMO_LOGIN_KEY as string | undefined;
+    const isDemoMode = Boolean(demoLoginKey);
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="flex flex-col items-center gap-8 p-8 max-w-md w-full">
           <div className="flex flex-col items-center gap-6">
             <h1 className="text-2xl font-semibold tracking-tight text-center">
-              Sign in to continue
+              Logga in i Ravema LIS
             </h1>
             <p className="text-sm text-muted-foreground text-center max-w-sm">
-              Access to this dashboard requires authentication. Continue to launch the login flow.
+              {isDemoMode
+                ? "Demo-läge är aktivt. Klicka för att gå in som demo-admin."
+                : "Inloggning krävs för att komma åt dashboarden."}
             </p>
           </div>
           <Button
             onClick={() => {
-              window.location.href = getLoginUrl();
+              if (isDemoMode && demoLoginKey) {
+                window.location.href = `/api/oauth/demo-login?key=${encodeURIComponent(demoLoginKey)}`;
+              } else {
+                window.location.href = getLoginUrl();
+              }
             }}
             size="lg"
             className="w-full shadow-lg hover:shadow-xl transition-all"
           >
-            Sign in
+            {isDemoMode ? "Demo-inloggning" : "Logga in"}
           </Button>
         </div>
       </div>

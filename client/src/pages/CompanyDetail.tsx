@@ -228,7 +228,7 @@ Ravema AB`;
                 <TrendingUp className="w-5 h-5 text-red-600" />
                 LIS Score · Klas-vy
                 <Badge variant="outline" className="ml-auto text-xs">
-                  Confidence: {lis.confidence}
+                  Säkerhet: {({ high: "hög", medium: "medel", low: "låg" } as Record<string, string>)[lis.confidence] ?? lis.confidence}
                 </Badge>
               </CardTitle>
             </CardHeader>
@@ -242,11 +242,11 @@ Ravema AB`;
               {/* Breakdown bars */}
               <div className="space-y-1.5">
                 {[
-                  { label: "Firmographic", value: lis.scoreBreakdown.firmographic, max: 30 },
-                  { label: "Capacity", value: lis.scoreBreakdown.capacity, max: 20 },
-                  { label: "Signals", value: lis.scoreBreakdown.signals, max: 30 },
-                  { label: "Engagement", value: lis.scoreBreakdown.engagement, max: 10 },
-                  { label: "Strategic", value: lis.scoreBreakdown.strategic, max: 10 },
+                  { label: "Företagsdata", value: lis.scoreBreakdown.firmographic, max: 30 },
+                  { label: "Köpkapacitet", value: lis.scoreBreakdown.capacity, max: 20 },
+                  { label: "Köpsignaler", value: lis.scoreBreakdown.signals, max: 30 },
+                  { label: "Engagemang", value: lis.scoreBreakdown.engagement, max: 10 },
+                  { label: "Strategisk fit", value: lis.scoreBreakdown.strategic, max: 10 },
                 ].map(({ label, value, max }) => (
                   <div key={label} className="flex items-center gap-3 text-xs">
                     <span className="w-24 text-gray-500">{label}</span>

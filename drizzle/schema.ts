@@ -1,6 +1,7 @@
 import {
   boolean,
   int,
+  json,
   mysqlEnum,
   mysqlTable,
   text,
@@ -63,13 +64,39 @@ export const companies = mysqlTable("companies", {
   weeklyListId: int("weeklyListId"), // FK to weeklyAssignments.id
   notes: text("notes"),
 
+  // Ravema LIS scoring (DELTA §2.1)
+  scoreTotal: int("scoreTotal"),
+  scoreBreakdown: json("scoreBreakdown"),
+  icpSegment: varchar("icpSegment", { length: 64 }),
+
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
   enrichedAt: timestamp("enrichedAt"),
+  scoredAt: timestamp("scoredAt"),
 });
 
 export type Company = typeof companies.$inferSelect;
 export type InsertCompany = typeof companies.$inferInsert;
+
+/**
+ * Signals — autonomously detected events about a company (jobs, news, ownership, etc.).
+ * Drives the scoring engine. See DELTA §2.1 + §3.1.
+ */
+export const signals = mysqlTable("signals", {
+  id: int("id").autoincrement().primaryKey(),
+  companyId: int("companyId").notNull(),
+  signalType: mysqlEnum("signalType", ["job", "news", "funding", "ownership", "procurement", "engagement"]).notNull(),
+  source: varchar("source", { length: 100 }).notNull(),
+  title: varchar("title", { length: 500 }),
+  url: varchar("url", { length: 1000 }),
+  payload: json("payload"),
+  pointsAwarded: int("pointsAwarded").default(0),
+  detectedAt: timestamp("detectedAt").defaultNow().notNull(),
+  decaysAt: timestamp("decaysAt"),
+});
+
+export type Signal = typeof signals.$inferSelect;
+export type InsertSignal = typeof signals.$inferInsert;
 
 /**
  * Contacts table - decision makers found via Clay "Find People"

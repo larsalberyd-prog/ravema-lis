@@ -10,4 +10,6 @@ export const ENV = {
   clayApiKey: process.env.CLAY_API_KEY ?? "",
   clayTableId: process.env.CLAY_TABLE_ID ?? "",
   makeWebhookUrl: process.env.MAKE_WEBHOOK_URL ?? "",
+  demoMode: process.env.DEMO_MODE === "true",
+  demoLoginKey: process.env.DEMO_LOGIN_KEY ?? "",
 };
