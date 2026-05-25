@@ -1,0 +1,10 @@
+[Unit]
+Description=Ravema LIS — daily MySQL backup (kör 03:15 lokal tid)
+
+[Timer]
+OnCalendar=*-*-* 03:15:00
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target
