@@ -1,0 +1,30 @@
+# /etc/caddy/Caddyfile på OVH-VPS
+#
+# Två lager auth före appen:
+#   1) Caddy basic auth (Klas + Nejra-credentials) — port 443 entry
+#   2) Demo-login bakom (DEMO_LOGIN_KEY i query string) — egen session
+#
+# Static-mappen /var/www/ravema-lis/ (gammal frontend-only-deploy)
+# slänger vi när Docker-stacken är uppe — Caddy proxy:ar då allt till
+# Node-appen på 127.0.0.1:3000.
+
+{
+    admin localhost:2019
+}
+
+ravema.lis.7cgroup.com {
+    encode gzip
+
+    # Basic auth utanför hela appen (Klas + Nejra)
+    basicauth {
+        klas {$BASICAUTH_KLAS_HASH}
+        nejra {$BASICAUTH_NEJRA_HASH}
+    }
+
+    reverse_proxy 127.0.0.1:3000
+
+    log {
+        output file /var/log/caddy/ravema-lis.log
+        format console
+    }
+}

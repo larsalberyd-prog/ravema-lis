@@ -1,0 +1,66 @@
+# ravema-lis production stack — kör på OVH-VPS
+#
+# Caddy körs som existerande systemd-service på host (port 80/443) och
+# reverse-proxy:ar till app:3000 via host-network-port. Vi exponerar
+# bara 127.0.0.1:3000 så app inte är direktåtkomlig utifrån.
+#
+# MySQL persisterar i en namngiven volume — backup tas separat (P1-9).
+
+services:
+  mysql:
+    image: mysql:9.6
+    container_name: ravema-lis-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ravema_lis
+      MYSQL_USER: ravema
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - ravema-net
+    # Inte exponerad till host — bara åtkomlig från app-container
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ravema-lis-app
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DATABASE_URL: mysql://ravema:${MYSQL_PASSWORD}@mysql:3306/ravema_lis
+      JWT_SECRET: ${JWT_SECRET}
+      VITE_APP_ID: ravema-lis-pilot
+      OWNER_OPEN_ID: demo-admin
+      DEMO_MODE: "true"
+      DEMO_LOGIN_KEY: ${DEMO_LOGIN_KEY}
+      # OAuth/Forge/Clay/Make lämnas tomma — frontend-only login via demo-auth
+      OAUTH_SERVER_URL: ""
+      BUILT_IN_FORGE_API_URL: ""
+      BUILT_IN_FORGE_API_KEY: ""
+      CLAY_API_KEY: ""
+      CLAY_TABLE_ID: ""
+      MAKE_WEBHOOK_URL: ""
+    ports:
+      # Bara loopback — Caddy på host proxy:ar hit
+      - "127.0.0.1:3000:3000"
+    networks:
+      - ravema-net
+
+networks:
+  ravema-net:
+    driver: bridge
+
+volumes:
+  mysql-data:

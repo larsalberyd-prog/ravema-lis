@@ -1,0 +1,16 @@
+node_modules
+dist
+.git
+.env
+.env.*
+*.log
+.vscode
+.idea
+.DS_Store
+__pycache__
+*.pyc
+scripts/__pycache__
+/heidenhain-lead-intelligence
+/lis-core
+/market-analysis
+/spec
