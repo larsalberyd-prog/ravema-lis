@@ -80,6 +80,12 @@
         "strategic": 6
       },
       "reasons": [
+        "+Tier 1 ICP (STRATEGIC FUTURE ICP) — Lars curation",
+        "+aka: ACC Group",
+        "+ICP-logik: Försvar + avancerad tillverkning + kapitalisering",
+        "+driver: Defense industry exposure",
+        "+driver: Advanced drone manufacturing",
+        "+driver: Strong capitalization",
         "+25 p (partial): segment-fit för SE-DEF-AERO",
         "+5 p: dubbel-curated av Klas + Nejra",
         "+10 p: CAPEX_ANNOUNCEMENT — 125 MSEK nyemission från TomEnterprise AB",
@@ -102,18 +108,39 @@
           "detail": "Flaggat av Ravemas CEO Alexander Olander",
           "date": "2026-05-20",
           "evidenceSource": "Mejlspår internt på Ravema"
+        },
+        {
+          "type": "GROWTH_FUNDING",
+          "detail": "Growth funding",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        },
+        {
+          "type": "EXPANSION",
+          "detail": "Expansion",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        },
+        {
+          "type": "INDUSTRIAL_SCALING",
+          "detail": "Industrial scaling",
+          "date": null,
+          "evidenceSource": "Lars curation"
         }
       ],
       "district": "D2",
       "competitorIncumbent": null,
       "managementPriority": true,
-      "rationaleKlas": "Flaggat av Ravemas CEO Alexander Olander som strike-konto. Strategisk för\nRavema — försvars/aerospace hör till de högstvärderade SE-segmenten.\nMåste finnas på pilotlistan.",
+      "rationaleKlas": "Försvar + avancerad tillverkning + kapitalisering",
       "flaggedBy": {
         "name": "Alexander Olander",
         "role": "Ravemas CEO",
         "date": "2026-05-20"
       },
-      "hasBrief": true
+      "hasBrief": true,
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ]
     }
   },
   {
@@ -187,7 +214,7 @@
     "qualifierAnswers": [],
     "lis": {
       "tier": "AAA",
-      "scoreTotal": 28,
+      "scoreTotal": 42,
       "scoreBreakdown": {
         "firmographic": 13,
         "capacity": 0,
@@ -196,6 +223,11 @@
         "strategic": 0
       },
       "reasons": [
+        "+Tier 1 ICP (HIGH PRIORITY ICP) — Lars curation",
+        "+ICP-logik: Done-In-One, produktionsutveckling, avancerad bearbetning",
+        "+driver: Done-In-One manufacturing strategy",
+        "+driver: Advanced machining",
+        "+driver: Production transformation",
         "+8 p (partial): okänt segment, neutral baseline",
         "+5 p: dubbel-curated av Klas + Nejra",
         "+15 p: ACTIVE_SALES_DIALOGUE — Pågående diskussion om större Integrex"
@@ -210,14 +242,35 @@
           "detail": "Pågående diskussion om större Integrex",
           "date": "2026-05-15",
           "evidenceSource": "Per Gabrielsson via Nejra"
+        },
+        {
+          "type": "MANUFACTURING_OPTIMIZATION",
+          "detail": "Manufacturing optimization",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        },
+        {
+          "type": "AUTOMATION_OPPORTUNITIES",
+          "detail": "Automation opportunities",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        },
+        {
+          "type": "PRODUCTION_DEVELOPMENT",
+          "detail": "Production development",
+          "date": null,
+          "evidenceSource": "Lars curation"
         }
       ],
       "district": "D8",
       "competitorIncumbent": null,
-      "managementPriority": false,
-      "rationaleKlas": "Aktiv dialog → högsta tier oavsett vektor-fit. Done-In-One är Mazaks\nstarkaste vinkel mot manuell uppdelning av svarv/fräs.",
+      "managementPriority": true,
+      "rationaleKlas": "Done-In-One, produktionsutveckling, avancerad bearbetning",
       "flaggedBy": null,
-      "hasBrief": true
+      "hasBrief": true,
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ]
     }
   },
   {
@@ -292,7 +345,7 @@
     "qualifierAnswers": [],
     "lis": {
       "tier": "AAA",
-      "scoreTotal": 19,
+      "scoreTotal": 42,
       "scoreBreakdown": {
         "firmographic": 13,
         "capacity": 0,
@@ -301,6 +354,11 @@
         "strategic": 0
       },
       "reasons": [
+        "+Tier 1 ICP (HIGH PRIORITY ICP) — Lars curation",
+        "+ICP-logik: Premium precision manufacturing",
+        "+driver: Advanced precision manufacturing",
+        "+driver: High tolerance production",
+        "+driver: Premium machine environment",
         "+8 p (partial): okänt segment, neutral baseline",
         "+5 p: dubbel-curated av Klas + Nejra",
         "+6 p: displacement-fönster vs Hermle (fräs) + Nakamura (svarv) (Konsolidering-vinkel: Två maskinmärken → ökade reservdels- och utbildningskostnader. Mazak en leverantör för svarv+fräs.)"
@@ -315,14 +373,35 @@
           "detail": "Hermle (fräs) + Nakamura (svarv)",
           "date": "2026-05-20",
           "evidenceSource": "Nejras e-post"
+        },
+        {
+          "type": "EXISTING_ADVANCED_MACHINE_PARK",
+          "detail": "Existing advanced machine park",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        },
+        {
+          "type": "HIGH_PRECISION_PRODUCTION",
+          "detail": "High precision production",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        },
+        {
+          "type": "POTENTIAL_AUTOMATION_OPPORTUNITIES",
+          "detail": "Potential automation opportunities",
+          "date": null,
+          "evidenceSource": "Lars curation"
         }
       ],
       "district": "D8",
       "competitorIncumbent": "Hermle (fräs) + Nakamura (svarv)",
-      "managementPriority": false,
-      "rationaleKlas": "Premium-segment, höga toleranskrav. Hermle+Nakamura är båda\nrespektabla — displacement kräver tydlig vinkel (Done-In-One eller automation).",
+      "managementPriority": true,
+      "rationaleKlas": "Premium precision manufacturing",
       "flaggedBy": null,
-      "hasBrief": true
+      "hasBrief": true,
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ]
     }
   },
   {
@@ -388,7 +467,7 @@
     "qualifierAnswers": [],
     "lis": {
       "tier": "AAA",
-      "scoreTotal": 27,
+      "scoreTotal": 42,
       "scoreBreakdown": {
         "firmographic": 13,
         "capacity": 0,
@@ -397,6 +476,11 @@
         "strategic": 0
       },
       "reasons": [
+        "+Tier 1 ICP (HIGH PRIORITY ICP) — Lars curation",
+        "+ICP-logik: Expansion + ny produktionschef + tillväxt",
+        "+driver: Growth-stage company",
+        "+driver: Facility expansion",
+        "+driver: New production manager",
         "+8 p (partial): okänt segment, neutral baseline",
         "+5 p: dubbel-curated av Klas + Nejra",
         "+7 p: PLANT_EXPANSION — +1500 kvm nya lokaler",
@@ -418,14 +502,35 @@
           "detail": "Produktionschef med Mazak-bakgrund",
           "date": "2026-04",
           "evidenceSource": "Nejras e-post 2026-05-20"
+        },
+        {
+          "type": "RECRUITMENT",
+          "detail": "Recruitment",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        },
+        {
+          "type": "EXPANSION",
+          "detail": "Expansion",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        },
+        {
+          "type": "PRODUCTION_SCALING",
+          "detail": "Production scaling",
+          "date": null,
+          "evidenceSource": "Lars curation"
         }
       ],
       "district": "D2",
       "competitorIncumbent": null,
-      "managementPriority": false,
-      "rationaleKlas": "Dubbla signaler (PLANT_EXPANSION + HIRE_PRODUCTION_MANAGER med Mazak-bakgrund)\n= perfekt timing. Ny produktionschef med Mazak-erfarenhet är de facto\nen intern champion.",
+      "managementPriority": true,
+      "rationaleKlas": "Expansion + ny produktionschef + tillväxt",
       "flaggedBy": null,
-      "hasBrief": true
+      "hasBrief": true,
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ]
     }
   },
   {
@@ -523,7 +628,7 @@
     "qualifierAnswers": [],
     "lis": {
       "tier": "AAA",
-      "scoreTotal": 19,
+      "scoreTotal": 42,
       "scoreBreakdown": {
         "firmographic": 13,
         "capacity": 0,
@@ -532,6 +637,11 @@
         "strategic": 0
       },
       "reasons": [
+        "+Tier 1 ICP (COMPETITIVE REPLACEMENT ICP) — Lars curation",
+        "+ICP-logik: Teknisk miljö + konkurrensutmanare",
+        "+driver: Existing competitor machine environment",
+        "+driver: Technical production fit",
+        "+driver: Strategic competitive replacement potential",
         "+8 p (partial): okänt segment, neutral baseline",
         "+5 p: dubbel-curated av Klas + Nejra",
         "+6 p: displacement-fönster vs DMG (Displacement-vinkel: DMG vs Mazak — TCO och serviceavtals-jämförelse (Mazak-iSMART vs DMG-NETservice).)"
@@ -546,14 +656,23 @@
           "detail": "DMG-incumbent — displacement-prioritet av Klas+Nejra",
           "date": "2026-05-20",
           "evidenceSource": "Klas Excel + Nejras e-post"
+        },
+        {
+          "type": "EXISTING_DMG_ENVIRONMENT",
+          "detail": "Existing DMG environment",
+          "date": null,
+          "evidenceSource": "Lars curation"
         }
       ],
       "district": "D7",
       "competitorIncumbent": "DMG",
       "managementPriority": false,
-      "rationaleKlas": "DMG-land = aktivt displacement-mål. RZ-gruppen som helhet är ett\nstrategiskt expansion-konto. Kinnex är ingång.",
+      "rationaleKlas": "Teknisk miljö + konkurrensutmanare",
       "flaggedBy": null,
-      "hasBrief": true
+      "hasBrief": true,
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ]
     }
   },
   {
@@ -618,7 +737,7 @@
     "qualifierAnswers": [],
     "lis": {
       "tier": "AAA",
-      "scoreTotal": 19,
+      "scoreTotal": 42,
       "scoreBreakdown": {
         "firmographic": 13,
         "capacity": 0,
@@ -627,6 +746,12 @@
         "strategic": 0
       },
       "reasons": [
+        "+Tier 1 ICP (HIGH PRIORITY ICP) — Lars curation",
+        "+aka: Zampart",
+        "+ICP-logik: Ledningsaccess, offensiv grupp, expansionspotential",
+        "+driver: Strong leadership access",
+        "+driver: Offensive growth mindset",
+        "+driver: Multi-company industrial group",
         "+8 p (partial): okänt segment, neutral baseline",
         "+5 p: dubbel-curated av Klas + Nejra",
         "+6 p: displacement-fönster vs Okuma (Displacement-vinkel: Okuma OSP-styrning vs Mazak MAZATROL — produktivitets-benchmark på lång cykel.)"
@@ -641,14 +766,35 @@
           "detail": "Okuma-incumbent — displacement-prioritet",
           "date": "2026-05-20",
           "evidenceSource": "Klas Excel + Nejras e-post"
+        },
+        {
+          "type": "EXPANSION",
+          "detail": "Expansion",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        },
+        {
+          "type": "INVESTMENT_WILLINGNESS",
+          "detail": "Investment willingness",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        },
+        {
+          "type": "GROUP-WIDE_ACCOUNT_GROWTH_POTENTIAL",
+          "detail": "Group-wide account growth potential",
+          "date": null,
+          "evidenceSource": "Lars curation"
         }
       ],
       "district": "D7",
       "competitorIncumbent": "Okuma",
-      "managementPriority": false,
-      "rationaleKlas": "Okuma-displacement. RZ-gruppen multiplier (se Kinnex). Parallellbearbetning\nmed Kinnex ger snabbare grupp-baserad penetration.",
+      "managementPriority": true,
+      "rationaleKlas": "Ledningsaccess, offensiv grupp, expansionspotential",
       "flaggedBy": null,
-      "hasBrief": true
+      "hasBrief": true,
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ]
     }
   },
   {
@@ -835,6 +981,8 @@
         "+5 p: dubbel-curated av Klas + Nejra"
       ],
       "overrides": [
+        "CEILING → B: ICP anti-pattern — Hög barriär + låg sannolikhet",
+        "Looks like ICP men exkluderad av Lars curation — använd DNA för att inse varför",
         "FLOOR = AA: Klas+Nejra dual-curated",
         "CEILING → B: Teknikchef ex-EMAG-säljare, anti-Mazak attityd; Volvo TS Tier-System blockerar non-godkända leverantörer; Teknikchef ex-EMAG-säljare, dissar Mazak öppet; Volvo TS Tier-System blockerar non-godkända leverantörer"
       ],
@@ -856,9 +1004,2062 @@
       "district": "D7",
       "competitorIncumbent": null,
       "managementPriority": false,
-      "rationaleKlas": "ANTI-FIT FIXTURE. Får INTE rankas över B. Om LIS rankar AA/AAA = scoring\nmissar disqualification-signaler.",
+      "rationaleKlas": "ANTI-PATTERN: Hög barriär + låg sannolikhet",
       "flaggedBy": null,
-      "hasBrief": true
+      "hasBrief": true,
+      "icpFlaggedBy": [
+        "Lars / ICP anti-pattern v1"
+      ]
+    }
+  },
+  {
+    "id": "is-plat",
+    "name": "IS Plåt",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "AA",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "AA",
+      "scoreTotal": 28,
+      "scoreBreakdown": {
+        "firmographic": 18,
+        "capacity": 5,
+        "signals": 10,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 1 ICP (HIGH POTENTIAL ICP) — Lars curation",
+        "+ICP-logik: Stark ICP enligt säljarbedömning",
+        "+driver: Strong seller ICP recommendation",
+        "+driver: Industrial production fit",
+        "+driver: Potential strategic account"
+      ],
+      "overrides": [],
+      "confidence": "medel",
+      "signals": [
+        {
+          "type": "REQUIRES_DEEPER_RESEARCH",
+          "detail": "Requires deeper research",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        }
+      ],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Stark ICP enligt säljarbedömning",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "bergen-engines",
+    "name": "Bergen Engines",
+    "country": "NO",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 10,
+        "engagement": 0,
+        "strategic": 2
+      },
+      "reasons": [
+        "+Tier 1 ICP (LONG-TERM STRATEGIC ICP) — Lars curation",
+        "+ICP-logik: Tung industri + långsiktig strategisk potential",
+        "+driver: Large industrial operation",
+        "+driver: Long-term strategic value",
+        "+driver: Heavy industry manufacturing"
+      ],
+      "overrides": [],
+      "confidence": "medel",
+      "signals": [
+        {
+          "type": "STRATEGIC_MARKET_POSITION",
+          "detail": "Strategic market position",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        },
+        {
+          "type": "POTENTIAL_FUTURE_INVESTMENTS",
+          "detail": "Potential future investments",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        }
+      ],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Tung industri + långsiktig strategisk potential",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "sperre-as",
+    "name": "Sperre AS",
+    "country": "NO",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "AA",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "AA",
+      "scoreTotal": 28,
+      "scoreBreakdown": {
+        "firmographic": 18,
+        "capacity": 5,
+        "signals": 10,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 1 ICP (HIGH POTENTIAL ICP) — Lars curation",
+        "+ICP-logik: Potentiell 1–2 maskiner/år",
+        "+driver: Potential 1–2 machines/year",
+        "+driver: Industrial manufacturing",
+        "+driver: Long-term investment potential"
+      ],
+      "overrides": [],
+      "confidence": "medel",
+      "signals": [
+        {
+          "type": "REQUIRES_DEEPER_INTELLIGENCE_MAPPING",
+          "detail": "Requires deeper intelligence mapping",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        }
+      ],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Potentiell 1–2 maskiner/år",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "setech",
+    "name": "Setech",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "AA",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "AA",
+      "scoreTotal": 28,
+      "scoreBreakdown": {
+        "firmographic": 18,
+        "capacity": 5,
+        "signals": 10,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 1 ICP (HIGH POTENTIAL ICP) — Lars curation",
+        "+ICP-logik: Strategisk norsk industrikund",
+        "+driver: Strategic Norwegian industrial account",
+        "+driver: Potential machine investment profile"
+      ],
+      "overrides": [],
+      "confidence": "medel",
+      "signals": [
+        {
+          "type": "REQUIRES_FURTHER_VALIDATION",
+          "detail": "Requires further validation",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        }
+      ],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Strategisk norsk industrikund",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "pnm-pro",
+    "name": "PNM Pro",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "AA",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "AA",
+      "scoreTotal": 28,
+      "scoreBreakdown": {
+        "firmographic": 18,
+        "capacity": 5,
+        "signals": 10,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 1 ICP (HIGH POTENTIAL ICP) — Lars curation",
+        "+ICP-logik: Automation + Mazatrol-fit",
+        "+driver: Mazatrol fit",
+        "+driver: Robot/automation interest",
+        "+driver: Existing machining environment"
+      ],
+      "overrides": [],
+      "confidence": "medel",
+      "signals": [
+        {
+          "type": "3-AXIS_PROJECT",
+          "detail": "3-axis project",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        },
+        {
+          "type": "ROBOT_INTEREST",
+          "detail": "Robot interest",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        },
+        {
+          "type": "EXISTING_OKUMA_RELATIONSHIP",
+          "detail": "Existing Okuma relationship",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        }
+      ],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Automation + Mazatrol-fit",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "alfa-laval",
+    "name": "Alfa Laval",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "AAA",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "AAA",
+      "scoreTotal": 42,
+      "scoreBreakdown": {
+        "firmographic": 22,
+        "capacity": 8,
+        "signals": 10,
+        "engagement": 0,
+        "strategic": 5
+      },
+      "reasons": [
+        "+Tier 1 ICP (LIGHTHOUSE ICP) — Lars curation",
+        "+ICP-logik: Lighthouse account potential",
+        "+driver: Lighthouse account potential",
+        "+driver: Large-scale industrial production",
+        "+driver: Significant strategic upside"
+      ],
+      "overrides": [],
+      "confidence": "medel",
+      "signals": [
+        {
+          "type": "EXISTING_PRODUCTION_FOOTPRINT",
+          "detail": "Existing production footprint",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        },
+        {
+          "type": "POTENTIAL_HIGH-VALUE_ENTRY_POINT",
+          "detail": "Potential high-value entry point",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        }
+      ],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Lighthouse account potential",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "bharat-forge-kilsta",
+    "name": "Bharat Forge Kilsta",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "AA",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "AA",
+      "scoreTotal": 28,
+      "scoreBreakdown": {
+        "firmographic": 18,
+        "capacity": 5,
+        "signals": 5,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 1 ICP (Lars-curated) — Lars curation",
+        "+ICP-logik: Stor avancerad tillverkning"
+      ],
+      "overrides": [],
+      "confidence": "medel",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Stor avancerad tillverkning",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "leax-group",
+    "name": "Leax Group",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "AA",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "AA",
+      "scoreTotal": 28,
+      "scoreBreakdown": {
+        "firmographic": 18,
+        "capacity": 5,
+        "signals": 5,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 1 ICP (Lars-curated) — Lars curation",
+        "+ICP-logik: Flera fabriker + strategisk industrigrupp"
+      ],
+      "overrides": [],
+      "confidence": "medel",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Flera fabriker + strategisk industrigrupp",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "elme-spreader",
+    "name": "Elme Spreader",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "AA",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "AA",
+      "scoreTotal": 28,
+      "scoreBreakdown": {
+        "firmographic": 18,
+        "capacity": 5,
+        "signals": 5,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 1 ICP (Lars-curated) — Lars curation",
+        "+ICP-logik: Teknisk tillverkning + internationell profil"
+      ],
+      "overrides": [],
+      "confidence": "medel",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Teknisk tillverkning + internationell profil",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "spuhr",
+    "name": "Spuhr",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "AA",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "AA",
+      "scoreTotal": 28,
+      "scoreBreakdown": {
+        "firmographic": 18,
+        "capacity": 5,
+        "signals": 5,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 1 ICP (Lars-curated) — Lars curation",
+        "+ICP-logik: Premium precision manufacturing"
+      ],
+      "overrides": [],
+      "confidence": "medel",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Premium precision manufacturing",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "wallakra",
+    "name": "Wallåkra",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 2 ICP — validation set (DNA-fit ska bekräftas)",
+        "+kommentar: Stark ledning + framtidstro"
+      ],
+      "overrides": [],
+      "confidence": "låg",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Stark ledning + framtidstro",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "anva-tubes-och-components",
+    "name": "Anva Tubes & Components",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 2 ICP — validation set (DNA-fit ska bekräftas)",
+        "+kommentar: Ny kontaktperson + industrifit"
+      ],
+      "overrides": [],
+      "confidence": "låg",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Ny kontaktperson + industrifit",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "olme-mekaniska",
+    "name": "Ölme Mekaniska",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 2 ICP — validation set (DNA-fit ska bekräftas)",
+        "+kommentar: Del av RZ-logik"
+      ],
+      "overrides": [],
+      "confidence": "låg",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Del av RZ-logik",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "blomberg-och-stensson",
+    "name": "Blomberg & Stensson",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 2 ICP — validation set (DNA-fit ska bekräftas)",
+        "+kommentar: Industriell bearbetning"
+      ],
+      "overrides": [],
+      "confidence": "låg",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Industriell bearbetning",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "kils-mekaniska",
+    "name": "Kils Mekaniska",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 2 ICP — validation set (DNA-fit ska bekräftas)",
+        "+kommentar: Strategisk potential"
+      ],
+      "overrides": [],
+      "confidence": "låg",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Strategisk potential",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "skaraverken",
+    "name": "Skaraverken",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 2 ICP — validation set (DNA-fit ska bekräftas)",
+        "+kommentar: Produktionsmiljö"
+      ],
+      "overrides": [],
+      "confidence": "låg",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Produktionsmiljö",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "pds-mecan",
+    "name": "PDS Mecan",
+    "country": "NO",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 2 ICP — validation set (DNA-fit ska bekräftas)",
+        "+kommentar: Norsk tillverkningspotential"
+      ],
+      "overrides": [],
+      "confidence": "låg",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Norsk tillverkningspotential",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "finn-y-gear",
+    "name": "Finnøy Gear",
+    "country": "NO",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 2 ICP — validation set (DNA-fit ska bekräftas)",
+        "+kommentar: Gear/transmission-industri"
+      ],
+      "overrides": [],
+      "confidence": "låg",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Gear/transmission-industri",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "smv",
+    "name": "SMV",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 2 ICP — validation set (DNA-fit ska bekräftas)",
+        "+kommentar: Begränsad men stabil potential"
+      ],
+      "overrides": [],
+      "confidence": "låg",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Begränsad men stabil potential",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "kystdesign",
+    "name": "Kystdesign",
+    "country": "NO",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 2 ICP — validation set (DNA-fit ska bekräftas)",
+        "+kommentar: Offshore/industri"
+      ],
+      "overrides": [],
+      "confidence": "låg",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Offshore/industri",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "stryvo",
+    "name": "Stryvo",
+    "country": "NO",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 2 ICP — validation set (DNA-fit ska bekräftas)",
+        "+kommentar: Intressant industrigrupp"
+      ],
+      "overrides": [],
+      "confidence": "låg",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Intressant industrigrupp",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "tooltech",
+    "name": "Tooltech",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 2 ICP — validation set (DNA-fit ska bekräftas)",
+        "+kommentar: Teknisk tillverkning"
+      ],
+      "overrides": [],
+      "confidence": "låg",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Teknisk tillverkning",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "hultdins",
+    "name": "Hultdins",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 2 ICP — validation set (DNA-fit ska bekräftas)",
+        "+kommentar: Industrifit"
+      ],
+      "overrides": [],
+      "confidence": "låg",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Industrifit",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "huddig",
+    "name": "Huddig",
+    "country": "NO",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 2 ICP — validation set (DNA-fit ska bekräftas)",
+        "+kommentar: Strategisk OEM-potential"
+      ],
+      "overrides": [],
+      "confidence": "låg",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Strategisk OEM-potential",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "indexator",
+    "name": "Indexator",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 2 ICP — validation set (DNA-fit ska bekräftas)",
+        "+kommentar: Stark industriprofil"
+      ],
+      "overrides": [],
+      "confidence": "låg",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Stark industriprofil",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "hsp-gripen",
+    "name": "HSP Gripen",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 2 ICP — validation set (DNA-fit ska bekräftas)",
+        "+kommentar: Specialiserad tillverkning"
+      ],
+      "overrides": [],
+      "confidence": "låg",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Specialiserad tillverkning",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "pepab",
+    "name": "Pepab",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 2 ICP — validation set (DNA-fit ska bekräftas)",
+        "+kommentar: Potentiell tillväxt"
+      ],
+      "overrides": [],
+      "confidence": "låg",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Potentiell tillväxt",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "tramek",
+    "name": "Tramek",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 2 ICP — validation set (DNA-fit ska bekräftas)",
+        "+kommentar: Teknisk produktion"
+      ],
+      "overrides": [],
+      "confidence": "låg",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Teknisk produktion",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "spitze",
+    "name": "Spitze",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 2 ICP — validation set (DNA-fit ska bekräftas)",
+        "+kommentar: Precision/tillverkning"
+      ],
+      "overrides": [],
+      "confidence": "låg",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Precision/tillverkning",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "hyngarps-frasteknik",
+    "name": "Hyngarps Frästeknik",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 2 ICP — validation set (DNA-fit ska bekräftas)",
+        "+kommentar: Bearbetning"
+      ],
+      "overrides": [],
+      "confidence": "låg",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Bearbetning",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "tre-mek",
+    "name": "Tre-Mek",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "A",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "A",
+      "scoreTotal": 18,
+      "scoreBreakdown": {
+        "firmographic": 12,
+        "capacity": 3,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 3
+      },
+      "reasons": [
+        "+Tier 2 ICP — validation set (DNA-fit ska bekräftas)",
+        "+kommentar: Mekanisk produktion"
+      ],
+      "overrides": [],
+      "confidence": "låg",
+      "signals": [],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "Mekanisk produktion",
+      "icpFlaggedBy": [
+        "Lars / ICP seed v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "volvo-olofstrom",
+    "name": "Volvo Olofström",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "B",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "B",
+      "scoreTotal": 8,
+      "scoreBreakdown": {
+        "firmographic": 5,
+        "capacity": 1,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 2
+      },
+      "reasons": [],
+      "overrides": [
+        "CEILING → B: ICP anti-pattern — Tung OEM-struktur",
+        "Looks like ICP men exkluderad av Lars curation — använd DNA för att inse varför"
+      ],
+      "confidence": "hög",
+      "signals": [
+        {
+          "type": "DISQUALIFICATION_BLOCKER",
+          "detail": "Tung OEM-struktur",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        }
+      ],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "ANTI-PATTERN: Tung OEM-struktur",
+      "icpFlaggedBy": [
+        "Lars / ICP anti-pattern v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "a-teknik",
+    "name": "A-teknik",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "B",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "B",
+      "scoreTotal": 8,
+      "scoreBreakdown": {
+        "firmographic": 5,
+        "capacity": 1,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 2
+      },
+      "reasons": [],
+      "overrides": [
+        "CEILING → B: ICP anti-pattern — Oklart ICP-fit",
+        "Looks like ICP men exkluderad av Lars curation — använd DNA för att inse varför"
+      ],
+      "confidence": "hög",
+      "signals": [
+        {
+          "type": "DISQUALIFICATION_BLOCKER",
+          "detail": "Oklart ICP-fit",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        }
+      ],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "ANTI-PATTERN: Oklart ICP-fit",
+      "icpFlaggedBy": [
+        "Lars / ICP anti-pattern v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "ziwa",
+    "name": "ZIWA",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "B",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "B",
+      "scoreTotal": 8,
+      "scoreBreakdown": {
+        "firmographic": 5,
+        "capacity": 1,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 2
+      },
+      "reasons": [],
+      "overrides": [
+        "CEILING → B: ICP anti-pattern — Behöver valideras",
+        "Looks like ICP men exkluderad av Lars curation — använd DNA för att inse varför"
+      ],
+      "confidence": "hög",
+      "signals": [
+        {
+          "type": "DISQUALIFICATION_BLOCKER",
+          "detail": "Behöver valideras",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        }
+      ],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "ANTI-PATTERN: Behöver valideras",
+      "icpFlaggedBy": [
+        "Lars / ICP anti-pattern v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "stalmannen-i-karlskrona",
+    "name": "Stålmännen i Karlskrona",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "B",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "B",
+      "scoreTotal": 8,
+      "scoreBreakdown": {
+        "firmographic": 5,
+        "capacity": 1,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 2
+      },
+      "reasons": [],
+      "overrides": [
+        "CEILING → B: ICP anti-pattern — Oklart investeringsmönster",
+        "Looks like ICP men exkluderad av Lars curation — använd DNA för att inse varför"
+      ],
+      "confidence": "hög",
+      "signals": [
+        {
+          "type": "DISQUALIFICATION_BLOCKER",
+          "detail": "Oklart investeringsmönster",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        }
+      ],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "ANTI-PATTERN: Oklart investeringsmönster",
+      "icpFlaggedBy": [
+        "Lars / ICP anti-pattern v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "hj-tooling",
+    "name": "HJ-Tooling",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "B",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "B",
+      "scoreTotal": 8,
+      "scoreBreakdown": {
+        "firmographic": 5,
+        "capacity": 1,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 2
+      },
+      "reasons": [],
+      "overrides": [
+        "CEILING → B: ICP anti-pattern — Kan vara för litet",
+        "Looks like ICP men exkluderad av Lars curation — använd DNA för att inse varför"
+      ],
+      "confidence": "hög",
+      "signals": [
+        {
+          "type": "DISQUALIFICATION_BLOCKER",
+          "detail": "Kan vara för litet",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        }
+      ],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "ANTI-PATTERN: Kan vara för litet",
+      "icpFlaggedBy": [
+        "Lars / ICP anti-pattern v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "roplan",
+    "name": "Roplan",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "B",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "B",
+      "scoreTotal": 8,
+      "scoreBreakdown": {
+        "firmographic": 5,
+        "capacity": 1,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 2
+      },
+      "reasons": [],
+      "overrides": [
+        "CEILING → B: ICP anti-pattern — Oklart strategiskt värde",
+        "Looks like ICP men exkluderad av Lars curation — använd DNA för att inse varför"
+      ],
+      "confidence": "hög",
+      "signals": [
+        {
+          "type": "DISQUALIFICATION_BLOCKER",
+          "detail": "Oklart strategiskt värde",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        }
+      ],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "ANTI-PATTERN: Oklart strategiskt värde",
+      "icpFlaggedBy": [
+        "Lars / ICP anti-pattern v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "protab",
+    "name": "Protab",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "B",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "B",
+      "scoreTotal": 8,
+      "scoreBreakdown": {
+        "firmographic": 5,
+        "capacity": 1,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 2
+      },
+      "reasons": [],
+      "overrides": [
+        "CEILING → B: ICP anti-pattern — Behöver mer analys",
+        "Looks like ICP men exkluderad av Lars curation — använd DNA för att inse varför"
+      ],
+      "confidence": "hög",
+      "signals": [
+        {
+          "type": "DISQUALIFICATION_BLOCKER",
+          "detail": "Behöver mer analys",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        }
+      ],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "ANTI-PATTERN: Behöver mer analys",
+      "icpFlaggedBy": [
+        "Lars / ICP anti-pattern v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "hakfelt-produktion",
+    "name": "Hakfelt Produktion",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "B",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "B",
+      "scoreTotal": 8,
+      "scoreBreakdown": {
+        "firmographic": 5,
+        "capacity": 1,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 2
+      },
+      "reasons": [],
+      "overrides": [
+        "CEILING → B: ICP anti-pattern — Begränsad info",
+        "Looks like ICP men exkluderad av Lars curation — använd DNA för att inse varför"
+      ],
+      "confidence": "hög",
+      "signals": [
+        {
+          "type": "DISQUALIFICATION_BLOCKER",
+          "detail": "Begränsad info",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        }
+      ],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "ANTI-PATTERN: Begränsad info",
+      "icpFlaggedBy": [
+        "Lars / ICP anti-pattern v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "nmv",
+    "name": "NMV",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "B",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "B",
+      "scoreTotal": 8,
+      "scoreBreakdown": {
+        "firmographic": 5,
+        "capacity": 1,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 2
+      },
+      "reasons": [],
+      "overrides": [
+        "CEILING → B: ICP anti-pattern — Behöver valideras",
+        "Looks like ICP men exkluderad av Lars curation — använd DNA för att inse varför"
+      ],
+      "confidence": "hög",
+      "signals": [
+        {
+          "type": "DISQUALIFICATION_BLOCKER",
+          "detail": "Behöver valideras",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        }
+      ],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "ANTI-PATTERN: Behöver valideras",
+      "icpFlaggedBy": [
+        "Lars / ICP anti-pattern v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "hackas-precisionsgjuteri",
+    "name": "Hackås precisionsgjuteri",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "B",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "B",
+      "scoreTotal": 8,
+      "scoreBreakdown": {
+        "firmographic": 5,
+        "capacity": 1,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 2
+      },
+      "reasons": [],
+      "overrides": [
+        "CEILING → B: ICP anti-pattern — Kan vara nischad",
+        "Looks like ICP men exkluderad av Lars curation — använd DNA för att inse varför"
+      ],
+      "confidence": "hög",
+      "signals": [
+        {
+          "type": "DISQUALIFICATION_BLOCKER",
+          "detail": "Kan vara nischad",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        }
+      ],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "ANTI-PATTERN: Kan vara nischad",
+      "icpFlaggedBy": [
+        "Lars / ICP anti-pattern v1"
+      ],
+      "hasBrief": false
+    }
+  },
+  {
+    "id": "alfta-kvalitetslego",
+    "name": "Alfta kvalitetslego",
+    "country": "SE",
+    "city": "",
+    "segment": "SE-PRECISION",
+    "priority": "B",
+    "status": "new",
+    "assignedTo": null,
+    "deadline": null,
+    "description": "",
+    "sowPotential": "",
+    "triggers": [],
+    "decisionMakers": [],
+    "entryAngles": [],
+    "qualifyingQuestions": [],
+    "nextSteps": null,
+    "notes": null,
+    "lis": {
+      "tier": "B",
+      "scoreTotal": 8,
+      "scoreBreakdown": {
+        "firmographic": 5,
+        "capacity": 1,
+        "signals": 0,
+        "engagement": 0,
+        "strategic": 2
+      },
+      "reasons": [],
+      "overrides": [
+        "CEILING → B: ICP anti-pattern — Behöver ICP-validering",
+        "Looks like ICP men exkluderad av Lars curation — använd DNA för att inse varför"
+      ],
+      "confidence": "hög",
+      "signals": [
+        {
+          "type": "DISQUALIFICATION_BLOCKER",
+          "detail": "Behöver ICP-validering",
+          "date": null,
+          "evidenceSource": "Lars curation"
+        }
+      ],
+      "district": null,
+      "competitorIncumbent": null,
+      "managementPriority": false,
+      "rationaleKlas": "ANTI-PATTERN: Behöver ICP-validering",
+      "icpFlaggedBy": [
+        "Lars / ICP anti-pattern v1"
+      ],
+      "hasBrief": false
     }
   }
 ]
