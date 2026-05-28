@@ -31,6 +31,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        VITE_APP_ID: ravema-lis-pilot
+        VITE_DEMO_LOGIN_KEY: ${DEMO_LOGIN_KEY}
     container_name: ravema-lis-app
     restart: unless-stopped
     depends_on:

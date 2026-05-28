@@ -11,9 +11,16 @@ COPY package.json pnpm-lock.yaml ./
 COPY patches ./patches
 RUN pnpm install --frozen-lockfile
 
+# build-time env-vars som Vite ska baka in i bundle.
+# Vite läser .env-filer, inte process.env, så vi måste skriva en
+# .env.production-fil med VITE_*-vars innan vite build körs.
+ARG VITE_APP_ID
+ARG VITE_DEMO_LOGIN_KEY
+
 # bygg
 COPY . .
-RUN pnpm exec vite build && \
+RUN printf 'VITE_APP_ID=%s\nVITE_DEMO_LOGIN_KEY=%s\n' "$VITE_APP_ID" "$VITE_DEMO_LOGIN_KEY" > .env.production && \
+    pnpm exec vite build && \
     pnpm exec esbuild server/_core/index.ts \
       --platform=node --packages=external --bundle --format=esm \
       --outdir=dist

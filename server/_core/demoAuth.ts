@@ -14,22 +14,17 @@ export function registerDemoAuthRoutes(app: Express) {
     console.log("[DemoAuth] DEMO_MODE=false — skipping demo-login route");
     return;
   }
-  if (!ENV.demoLoginKey) {
-    console.error(
-      "[DemoAuth] DEMO_MODE=true but DEMO_LOGIN_KEY is empty — route disabled for safety"
-    );
-    return;
+
+  // Note: under pilot är Caddy basic auth den primära gate:n (Klas/Nejra).
+  // Demo-route har därför ingen separat key — DEMO_LOGIN_KEY behålls i env
+  // för bakåtkompatibilitet men kontrolleras ej.
+  if (ENV.demoLoginKey) {
+    console.log("[DemoAuth] /api/oauth/demo-login enabled (key check disabled — gated by Caddy basic auth)");
+  } else {
+    console.log("[DemoAuth] /api/oauth/demo-login enabled (no key set, no key check)");
   }
 
-  console.log("[DemoAuth] /api/oauth/demo-login enabled");
-
   app.get("/api/oauth/demo-login", async (req: Request, res: Response) => {
-    const key = typeof req.query.key === "string" ? req.query.key : "";
-    if (key !== ENV.demoLoginKey) {
-      res.status(403).send("Forbidden");
-      return;
-    }
-
     try {
       await db.upsertUser({
         openId: DEMO_OPEN_ID,

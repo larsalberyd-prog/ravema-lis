@@ -58,8 +58,8 @@ export default function DashboardLayout({
   }
 
   if (!user) {
-    const demoLoginKey = import.meta.env.VITE_DEMO_LOGIN_KEY as string | undefined;
-    const isDemoMode = Boolean(demoLoginKey);
+    // Under pilot: alla besökare har redan passerat Caddy basic auth.
+    // Demo-login är därför säker att exponera direkt utan extra key-gate.
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="flex flex-col items-center gap-8 p-8 max-w-md w-full">
@@ -68,23 +68,17 @@ export default function DashboardLayout({
               Logga in i Ravema LIS
             </h1>
             <p className="text-sm text-muted-foreground text-center max-w-sm">
-              {isDemoMode
-                ? "Demo-läge är aktivt. Klicka för att gå in som demo-admin."
-                : "Inloggning krävs för att komma åt dashboarden."}
+              Pilot-läge — klicka för att gå in som demo-admin.
             </p>
           </div>
           <Button
             onClick={() => {
-              if (isDemoMode && demoLoginKey) {
-                window.location.href = `/api/oauth/demo-login?key=${encodeURIComponent(demoLoginKey)}`;
-              } else {
-                window.location.href = getLoginUrl();
-              }
+              window.location.href = "/api/oauth/demo-login";
             }}
             size="lg"
             className="w-full shadow-lg hover:shadow-xl transition-all"
           >
-            {isDemoMode ? "Demo-inloggning" : "Logga in"}
+            Demo-inloggning
           </Button>
         </div>
       </div>
