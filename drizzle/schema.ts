@@ -36,6 +36,7 @@ export const companies = mysqlTable("companies", {
   // Core identifiers
   name: varchar("name", { length: 255 }).notNull(),
   domain: varchar("domain", { length: 255 }),
+  slug: varchar("slug", { length: 96 }).unique(), // stable key from seed (e.g. "acc-innovation")
 
   // Classification
   category: varchar("category", { length: 255 }),
@@ -69,6 +70,22 @@ export const companies = mysqlTable("companies", {
   scoreBreakdown: json("scoreBreakdown"),
   icpSegment: varchar("icpSegment", { length: 64 }),
 
+  // ICP-Modell v1 (spec/Ravema-ICP-Modell.pdf) — tier + curated intelligence
+  icpTier: int("icpTier"),                                  // 1 = strategisk ICP, 2 = stark potential, 3 = anti-mönster
+  confidence: mysqlEnum("confidence", ["high", "medium", "low"]),
+  sowPotential: varchar("sowPotential", { length: 255 }),
+  competitorIncumbent: varchar("competitorIncumbent", { length: 255 }),
+  managementPriority: boolean("managementPriority").default(false),
+  deadline: varchar("deadline", { length: 64 }),
+  nextSteps: text("nextSteps"),
+  // JSON blobs carrying the curated LIS payload rendered by IntelligencePack
+  triggers: json("triggers"),                               // string[]
+  entryAngles: json("entryAngles"),                         // string[]
+  qualifyingQuestions: json("qualifyingQuestions"),         // string[]
+  reasons: json("reasons"),                                 // string[] — score explanation
+  overrides: json("overrides"),                             // string[] — floor/ceiling rules
+  lisMeta: json("lisMeta"),                                 // catch-all: district, rationaleKlas, flaggedBy, hasBrief, icpFlaggedBy
+
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
   enrichedAt: timestamp("enrichedAt"),
@@ -86,8 +103,10 @@ export const signals = mysqlTable("signals", {
   id: int("id").autoincrement().primaryKey(),
   companyId: int("companyId").notNull(),
   signalType: mysqlEnum("signalType", ["job", "news", "funding", "ownership", "procurement", "engagement"]).notNull(),
+  lisType: varchar("lisType", { length: 64 }),     // precise LIS code, e.g. CAPEX_ANNOUNCEMENT, MANAGEMENT_PRIORITY
   source: varchar("source", { length: 100 }).notNull(),
   title: varchar("title", { length: 500 }),
+  detail: text("detail"),                           // human-readable evidence shown in the timeline
   url: varchar("url", { length: 1000 }),
   payload: json("payload"),
   pointsAwarded: int("pointsAwarded").default(0),
@@ -187,6 +206,25 @@ export const weeklyAssignments = mysqlTable("weekly_assignments", {
 });
 
 export type WeeklyAssignment = typeof weeklyAssignments.$inferSelect;
+
+/**
+ * ICP tier changes — audit trail for the in-app ICP editing (Klas/Nejra validate
+ * Tier 1/2/3 and approve the model's promotion/demotion recommendations).
+ */
+export const icpChanges = mysqlTable("icp_changes", {
+  id: int("id").autoincrement().primaryKey(),
+  companyId: int("companyId").notNull(),
+  fromTier: int("fromTier"),
+  toTier: int("toTier"),
+  fromFocus: varchar("fromFocus", { length: 8 }),
+  toFocus: varchar("toFocus", { length: 8 }),
+  changedByUserId: int("changedByUserId"),
+  changedByName: varchar("changedByName", { length: 255 }),
+  reason: text("reason"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type IcpChange = typeof icpChanges.$inferSelect;
 
 /**
  * Clay webhook log

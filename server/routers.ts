@@ -14,6 +14,7 @@ import {
   getDashboardStats, logWebhook,
   getAllUsers, getUserById, updateUserRole,
   createWeeklyAssignment, getWeeklyAssignments, getCompaniesByWeeklyList,
+  getSignalsByCompanyId, updateCompanyTier, getIcpChangesByCompanyId,
 } from "./db";
 
 // Admin-only middleware
@@ -86,6 +87,29 @@ export const appRouter = router({
       .query(async ({ input }) => getCompaniesByAssignedUser(input.userId)),
 
     unassigned: adminProcedure.query(async () => getUnassignedCompanies()),
+
+    // ─── ICP editing — Klas/Nejra validate Tier 1/2/3 and approve model recs ──
+    updateTier: protectedProcedure
+      .input(z.object({
+        companyId: z.number(),
+        toTier: z.number().min(1).max(3).nullable().optional(),
+        toFocus: z.enum(["AAA", "AA", "A", "B", "C"]).nullable().optional(),
+        reason: z.string().optional(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        return updateCompanyTier({
+          companyId: input.companyId,
+          toTier: input.toTier,
+          toFocus: input.toFocus,
+          changedByUserId: ctx.user.id,
+          changedByName: ctx.user.name ?? ctx.user.email ?? `user#${ctx.user.id}`,
+          reason: input.reason,
+        });
+      }),
+
+    icpHistory: publicProcedure
+      .input(z.object({ companyId: z.number() }))
+      .query(async ({ input }) => getIcpChangesByCompanyId(input.companyId)),
 
     // CSV import from Clay (admin only)
     importCsv: adminProcedure
@@ -173,48 +197,77 @@ export const appRouter = router({
         companyFocus: z.string().optional(),
         companyDescription: z.string().optional(),
         language: z.enum(["sv", "en"]).default("sv"),
+        // ─── LIS intelligence — the actual VALUE: ground the email in the
+        // prospect's PAIN, not Ravema's product catalogue. ───────────────
+        segment: z.string().optional(),                 // ICP-segment (t.ex. SE-DEF-AERO)
+        signals: z.array(z.string()).optional(),         // köpsignaler/triggers + evidens
+        entryAngle: z.string().optional(),               // curerad ingångsvinkel
+        competitorIncumbent: z.string().optional(),      // befintlig konkurrent (displacement)
+        painHypothesis: z.string().optional(),           // explicit smärt-hypotes om curerad
       }))
       .mutation(async ({ input }) => {
         const focusLabel = input.companyFocus === "AAA" ? "högsta prioritet (AAA)" :
           input.companyFocus === "AA" ? "hög prioritet (AA)" :
           input.companyFocus === "A" ? "prioritet (A)" : "prospekt";
 
-        const categoryContext = input.companyCategory?.includes("Marine") || input.companyCategory?.includes("Ship")
-          ? "marin industri (fartyg, propulsion, styrsystem)"
-          : input.companyCategory?.includes("Diesel") ? "dieselmotortillverkning"
-          : input.companyCategory?.includes("Electrical") ? "elektrisk framdrivning och motorer"
-          : input.companyCategory?.includes("Systems") ? "marina system och komponenter"
-          : input.companyCategory || "industriell tillverkning";
+        const categoryContext = input.companyCategory || "avancerad industriell tillverkning";
 
+        // Pain-first metodik. Modellen ska resonera kring mottagarens SITUATION
+        // och vad smärtan KOSTAR — och först därefter koppla EN relevant förmåga.
         const systemPrompt = input.language === "sv"
-          ? `Du är en erfaren B2B-säljare för Ravema AB som skriver personliga, professionella prospekteringsmejl på svenska.
-Ravema är distributör av Mazak CNC-maskiner (full-line inkl. laser), PAMA boring mills, Hoffmann Group-verktyg, Wenzel/Jenoptik mätsystem, Wilson Tool plåt-verktyg och automation (Fastems, Erowa, IEMCA, ABB/FANUC).
-Skriv ett kort, professionellt prospekteringsmejl (max 150-180 ord) som:
-- Adresserar mottagaren med förnamn
-- Nämner deras specifika roll och bransch
-- Kopplar Ravemas portfölj till deras produktion (CNC-kapacitet, automation, mätrum)
-- Inkluderar en tydlig, enkel CTA (t.ex. ett kort samtal eller besök)
-- Är hypotesdriven - presentera en affärshypotes, inte en produktpitch
-- Avslutas med "Med vänliga hälsningar,\\n[Ditt namn]\\nRavema AB"
+          ? `Du är en erfaren B2B-säljare för Ravema AB. Du skriver korta, vassa prospekteringsmejl på svenska som utgår från MOTTAGARENS situation och smärta — aldrig från Ravemas produktkatalog.
+
+Ravema är teknisk partner inom avancerad skärande bearbetning, automation och mätteknik (Mazak, PAMA, Fastems, Erowa, Wenzel m.fl.) — men detta är BAKGRUND, inte mejlets innehåll.
+
+Skriv mejlet i denna ordning:
+1. SMÄRTA/SIGNAL: Utgå från en konkret köpsignal eller en sannolik produktionssmärta hos mottagaren (t.ex. ny produktionschef, kapacitetstak, kvalitetskrav som cylindricitet/rundhet/toleranser, utbyggnad, ledtider, kassation, kompetensbrist).
+2. KONSEKVENS: Formulera en hypotes om vad smärtan KOSTAR dem — ledtid, kassation, missad kapacitet, kvalitetsavvikelser.
+3. KOPPLING: Knyt EN enda relevant förmåga som löser just den smärtan. Nämn produkt/varumärke bara om det stärker hypotesen. ALDRIG en lista av produkter.
+4. CTA: En tydlig, låg-friktions-uppmaning (kort samtal eller besök).
+
+Hårda regler:
+- Adressera med förnamn; nämn roll och bransch konkret.
+- Max 150–180 ord. INGA produktlistor. Ingen generisk "vi erbjuder…"-pitch.
+- Ska låta som en människa som gjort sin hemläxa på just detta bolag — inte ett massutskick.
+- Om en konkurrent är incumbent: positionera kring en specifik teknisk fördel, inte nedsättande.
+- Avsluta med "Med vänliga hälsningar,\\n[Ditt namn]\\nRavema AB".
 Returnera JSON: {"subject": "...", "body": "..."}`
-          : `You are an experienced B2B sales professional for Ravema AB writing personalized, professional prospecting emails in English.
-Ravema is the Nordic distributor of Mazak CNC machines (full line incl. laser), PAMA boring mills, Hoffmann Group tooling, Wenzel/Jenoptik metrology, Wilson Tool sheet-metal tooling, and automation (Fastems, Erowa, IEMCA, ABB/FANUC).
-Write a short, professional prospecting email (max 150-180 words) that:
-- Addresses the recipient by first name
-- Mentions their specific role and industry
-- Connects Ravema's portfolio to their production (CNC capacity, automation, metrology)
-- Includes a clear, simple CTA (e.g., a brief call or visit)
-- Is hypothesis-driven - present a business hypothesis, not a product pitch
-- Ends with "Best regards,\\n[Your name]\\nRavema AB"
+          : `You are an experienced B2B sales professional for Ravema AB. You write short, sharp prospecting emails in English that start from the RECIPIENT's situation and pain — never from Ravema's product catalogue.
+
+Ravema is a technical partner in advanced machining, automation and metrology (Mazak, PAMA, Fastems, Erowa, Wenzel, etc.) — but this is BACKGROUND, not the content of the email.
+
+Write the email in this order:
+1. PAIN/SIGNAL: Start from a concrete buying signal or a likely production pain (e.g. new production manager, capacity ceiling, quality demands such as cylindricity/roundness/tolerances, expansion, lead times, scrap, skills shortage).
+2. CONSEQUENCE: Hypothesise what that pain COSTS them — lead time, scrap, missed capacity, quality deviations.
+3. CONNECTION: Tie in ONE single relevant capability that solves that specific pain. Mention a product/brand only if it strengthens the hypothesis. NEVER a list of products.
+4. CTA: A clear, low-friction ask (a brief call or visit).
+
+Hard rules:
+- Address by first name; name their role and industry concretely.
+- Max 150–180 words. NO product lists. No generic "we offer…" pitch.
+- Must sound like a human who did their homework on this specific company — not a mass mailing.
+- If a competitor is incumbent: position around a specific technical advantage, never disparaging.
+- End with "Best regards,\\n[Your name]\\nRavema AB".
 Return JSON: {"subject": "...", "body": "..."}`;
+
+        const signalBlock = input.signals?.length
+          ? `Köpsignaler / triggers (GRUNDA MEJLET I DESSA):\n${input.signals.map(s => `- ${s}`).join("\n")}`
+          : "";
 
         const userPrompt = `Skriv ett prospekteringsmejl till:
 Namn: ${input.contactName}
 Titel: ${input.contactTitle}
 Företag: ${input.companyName}
 Bransch/Kategori: ${categoryContext}
+${input.segment ? `ICP-segment: ${input.segment}` : ""}
 Prioritet: ${focusLabel}
-${input.companyDescription ? `Företagsbeskrivning: ${input.companyDescription.substring(0, 300)}` : ""}`;
+${input.companyDescription ? `Företagsbeskrivning: ${input.companyDescription.substring(0, 400)}` : ""}
+${signalBlock}
+${input.painHypothesis ? `Smärt-hypotes att utgå från: ${input.painHypothesis}` : ""}
+${input.entryAngle ? `Curerad ingångsvinkel: ${input.entryAngle}` : ""}
+${input.competitorIncumbent ? `Befintlig konkurrent (displacement-läge): ${input.competitorIncumbent}` : ""}
+
+Skriv mejlet pain-first enligt metoden. Inga produktlistor.`;
 
         const response = await invokeLLM({
           messages: [
@@ -288,6 +341,13 @@ ${input.companyDescription ? `Företagsbeskrivning: ${input.companyDescription.s
         await addActivity(input);
         return { success: true };
       }),
+  }),
+
+  // ─── Signals (LIS buying-signal timeline per company) ─────────────────────
+  signals: router({
+    byCompany: publicProcedure
+      .input(z.object({ companyId: z.number() }))
+      .query(async ({ input }) => getSignalsByCompanyId(input.companyId)),
   }),
 
   // ─── Dashboard ────────────────────────────────────────────────────────────

@@ -8,6 +8,7 @@ import { registerDemoAuthRoutes } from "./demoAuth";
 import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
+import { seedLisIfNeeded } from "../seed/seed";
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -29,6 +30,9 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
 }
 
 async function startServer() {
+  // Seed the LIS dataset (idempotent: seeds when empty or when SEED_LIS_FORCE=1).
+  await seedLisIfNeeded().catch(err => console.error("[seed] failed:", err));
+
   const app = express();
   const server = createServer(app);
   // Configure body parser with larger size limit for file uploads

@@ -2,6 +2,7 @@ import { eq, like, or, desc, and, sql, isNull } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import {
   InsertUser, users, companies, contacts, generatedEmails, activities, webhookLogs, weeklyAssignments,
+  signals, icpChanges,
   InsertCompany, InsertContact, InsertGeneratedEmail,
 } from "../drizzle/schema";
 import { ENV } from "./_core/env";
@@ -134,6 +135,50 @@ export async function getUnassignedCompanies() {
     sql`FIELD(focus, 'AAA', 'AA', 'A', 'B', 'C', '')`,
     companies.name
   );
+}
+
+// ─── Signals ─────────────────────────────────────────────────────────────────
+export async function getSignalsByCompanyId(companyId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(signals).where(eq(signals.companyId, companyId)).orderBy(desc(signals.detectedAt));
+}
+
+// ─── ICP tier editing (Klas/Nejra validate Tier 1/2/3) ────────────────────────
+export async function updateCompanyTier(input: {
+  companyId: number;
+  toTier?: number | null;
+  toFocus?: string | null;
+  changedByUserId?: number | null;
+  changedByName?: string | null;
+  reason?: string | null;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const rows = await db.select({ icpTier: companies.icpTier, focus: companies.focus }).from(companies).where(eq(companies.id, input.companyId)).limit(1);
+  const before = rows[0] ?? { icpTier: null, focus: null };
+  await db.update(companies).set({
+    ...(input.toTier !== undefined ? { icpTier: input.toTier } : {}),
+    ...(input.toFocus !== undefined ? { focus: input.toFocus ?? undefined } : {}),
+    updatedAt: new Date(),
+  }).where(eq(companies.id, input.companyId));
+  await db.insert(icpChanges).values({
+    companyId: input.companyId,
+    fromTier: before.icpTier ?? null,
+    toTier: input.toTier ?? before.icpTier ?? null,
+    fromFocus: before.focus ?? null,
+    toFocus: input.toFocus ?? before.focus ?? null,
+    changedByUserId: input.changedByUserId ?? null,
+    changedByName: input.changedByName ?? null,
+    reason: input.reason ?? null,
+  });
+  return { success: true };
+}
+
+export async function getIcpChangesByCompanyId(companyId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(icpChanges).where(eq(icpChanges.companyId, companyId)).orderBy(desc(icpChanges.createdAt));
 }
 
 // ─── Contacts ────────────────────────────────────────────────────────────────
