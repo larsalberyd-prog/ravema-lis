@@ -1,7 +1,11 @@
 import { useState, useMemo } from "react";
 import { useParams, Link } from "wouter";
-import { useCompanies, type Company } from "@/hooks/useCompanies";
-import IntelligencePack, { getBrief } from "@/components/IntelligencePack";
+import { useCompanies, type Company, type DecisionMaker } from "@/hooks/useCompanies";
+import IntelligencePack, { getBrief, type IntelligencePackData } from "@/components/IntelligencePack";
+import EmailModal from "@/components/EmailModal";
+import ContactEditModal from "@/components/ContactEditModal";
+import { trpc } from "@/lib/trpc";
+import { useRole } from "@/contexts/RoleContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -14,7 +18,7 @@ import {
   ArrowLeft, MapPin, Users, Mail, Linkedin,
   Building2, Copy, Send, ExternalLink,
   Calendar, MessageSquare, FileText, Clock, Plus, Activity, Phone,
-  TrendingUp, Crown, Lightbulb, HelpCircle, AlertTriangle, Target,
+  TrendingUp, Crown, Lightbulb, HelpCircle, AlertTriangle, Target, Brain, RefreshCw,
 } from "lucide-react";
 
 const focusBadge: Record<string, string> = {
@@ -79,6 +83,75 @@ export default function CompanyDetail() {
   const { id = "" } = useParams<{ id: string }>();
   const { companies, loading, updateStatus } = useCompanies();
   const company = companies.find(c => c.id === id);
+
+  // ── Live Intelligence Pack (Claude, roll-styrt) ──
+  const { role } = useRole();
+  const [genPack, setGenPack] = useState<IntelligencePackData | null>(null);
+  const latestPackQuery = trpc.intelligence.latest.useQuery(
+    { companyId: company?.dbId ?? 0 },
+    { enabled: !!company?.dbId },
+  );
+  const genMutation = trpc.intelligence.generate.useMutation();
+  const handleGeneratePack = async () => {
+    if (!company?.dbId) { toast.error("Bolaget saknar DB-id"); return; }
+    try {
+      const res = await genMutation.mutateAsync({ companyId: company.dbId, role, language: "sv" });
+      setGenPack(res as IntelligencePackData);
+      toast.success("Nytt info-pack genererat");
+    } catch (e: any) {
+      toast.error("Kunde inte generera info-pack", { description: e?.message });
+    }
+  };
+
+  // Info-pack är STÄNGT tills man genererar/öppnar
+  const [packOpen, setPackOpen] = useState(false);
+  const [showAiEmail, setShowAiEmail] = useState(false);
+
+  // Manuell kontakt-inmatning (skapa ny / komplettera befintlig)
+  const [contactModal, setContactModal] = useState<{ open: boolean; dm: DecisionMaker | null }>({ open: false, dm: null });
+
+  // Discovery (SPAR) — frågor ur pack + Ravema-data, svar återförs till LIS
+  type DiscoQ = { question: string; why: string; answer: string };
+  const [discovery, setDiscovery] = useState<Record<string, DiscoQ[]> | null>(null);
+  const discoveryGen = trpc.discovery.generate.useMutation();
+  const discoverySubmit = trpc.discovery.submit.useMutation();
+
+  const handleGenerateDiscovery = async () => {
+    if (!company?.dbId) { toast.error("Bolaget saknar DB-id"); return; }
+    try {
+      const res: any = await discoveryGen.mutateAsync({ companyId: company.dbId, role, language: "sv" });
+      const shaped: Record<string, DiscoQ[]> = {};
+      for (const phase of ["situation", "pain", "affect", "resolve"]) {
+        shaped[phase] = (res[phase] || []).map((q: any) => ({ question: q.question, why: q.why, answer: "" }));
+      }
+      setDiscovery(shaped);
+      toast.success("Discovery-frågor genererade");
+    } catch (e: any) {
+      toast.error("Kunde inte generera Discovery", { description: e?.message });
+    }
+  };
+
+  const setAnswer = (phase: string, idx: number, val: string) => {
+    setDiscovery((prev) => {
+      if (!prev) return prev;
+      return { ...prev, [phase]: prev[phase].map((q, i) => (i === idx ? { ...q, answer: val } : q)) };
+    });
+  };
+
+  const handleSubmitDiscovery = async () => {
+    if (!company?.dbId || !discovery) return;
+    const answers: Array<{ phase: string; question: string; answer: string }> = [];
+    for (const phase of Object.keys(discovery)) {
+      for (const q of discovery[phase]) if (q.answer.trim()) answers.push({ phase, question: q.question, answer: q.answer });
+    }
+    if (!answers.length) { toast.error("Inga svar att spara ännu"); return; }
+    try {
+      const res: any = await discoverySubmit.mutateAsync({ companyId: company.dbId, role, answers });
+      toast.success(`Discovery sparad — ${res.signalsCreated} signal(er) återförda till LIS`);
+    } catch (e: any) {
+      toast.error("Kunde inte spara Discovery", { description: e?.message });
+    }
+  };
 
   // Activity log — local state, persisted to localStorage per company
   const [activities, setActivities] = useState<LoggedActivity[]>(() => loadActivities(id));
@@ -214,11 +287,68 @@ Ravema AB`;
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 space-y-6">
-        {/* Intelligence Pack (top section — matches spec/Intelligence pack.png) */}
+        {/* 1) Generell företagsbeskrivning — alltid synlig baslinje (topp) */}
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium text-gray-500">Beskrivning</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">
+              {company.description || "Ingen beskrivning."}
+            </p>
+            {lis?.rationaleKlas && lis.rationaleKlas !== (company.description || "").trim() && (
+              <div className="pt-3 border-t">
+                <p className="text-xs text-gray-400 mb-1">Klas rationale</p>
+                <p className="text-sm text-gray-700 leading-relaxed italic whitespace-pre-wrap">{lis.rationaleKlas}</p>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+        {/* 2) Info-pack — STÄNGT tills man genererar / öppnar */}
         {(() => {
-          const brief = getBrief(company.id);
-          return brief ? <IntelligencePack brief={brief} /> : null;
+          const activePack =
+            genPack ?? (latestPackQuery.data as IntelligencePackData | null) ?? getBrief(company.id);
+          if (packOpen && activePack) {
+            return (
+              <IntelligencePack
+                brief={activePack}
+                onRegenerate={async () => { await handleGeneratePack(); setPackOpen(true); }}
+                generating={genMutation.isPending}
+              />
+            );
+          }
+          return (
+            <Card className="border-2 border-dashed border-red-200 bg-red-50/20">
+              <CardContent className="py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <Brain className="w-7 h-7 text-red-500 flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold text-gray-900">Intelligence Pack</p>
+                    <p className="text-sm text-gray-500">
+                      {activePack ? "Färdigt att visa — eller generera ett färskt." : "Inget pack än — generera ett färskt."}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 flex-shrink-0">
+                  {activePack && (
+                    <Button variant="outline" onClick={() => setPackOpen(true)}>Visa senaste</Button>
+                  )}
+                  <Button
+                    onClick={async () => { await handleGeneratePack(); setPackOpen(true); }}
+                    disabled={genMutation.isPending}
+                    className="bg-red-600 hover:bg-red-700 gap-2"
+                  >
+                    <RefreshCw className={`w-4 h-4 ${genMutation.isPending ? "animate-spin" : ""}`} />
+                    {genMutation.isPending ? "Genererar…" : "Generera info-pack"}
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          );
         })()}
+
+        <EmailModal open={showAiEmail} onOpenChange={setShowAiEmail} company={company} />
 
         {/* LIS Score panel */}
         {lis && (
@@ -320,22 +450,65 @@ Ravema AB`;
           </Card>
         )}
 
-        {/* Description + Klas rationale */}
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium text-gray-500">Beskrivning</CardTitle>
+        {/* 4) Discovery · SPAR — frågor ur info-pack + Ravema-data, svar → LIS */}
+        <Card className="border-blue-100">
+          <CardHeader className="pb-3">
+            <CardTitle className="flex items-center gap-2 text-base">
+              <HelpCircle className="w-5 h-5 text-blue-600" />
+              Discovery · SPAR
+              <Button
+                size="sm"
+                onClick={handleGenerateDiscovery}
+                disabled={discoveryGen.isPending}
+                className="ml-auto bg-blue-600 hover:bg-blue-700 gap-1"
+              >
+                <RefreshCw className={`w-3.5 h-3.5 ${discoveryGen.isPending ? "animate-spin" : ""}`} />
+                {discoveryGen.isPending ? "Genererar…" : discovery ? "Generera om" : "Generera frågor"}
+              </Button>
+            </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-3">
-            <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">
-              {company.description || "Ingen beskrivning."}
-            </p>
-            {lis?.rationaleKlas && lis.rationaleKlas !== company.description.trim() && (
-              <div className="pt-3 border-t">
-                <p className="text-xs text-gray-400 mb-1">Klas rationale</p>
-                <p className="text-sm text-gray-700 leading-relaxed italic whitespace-pre-wrap">{lis.rationaleKlas}</p>
-              </div>
-            )}
-          </CardContent>
+          {!discovery && (
+            <CardContent>
+              <p className="text-sm text-gray-500">
+                SDR <strong>förbereder</strong> Discovery — generera SPAR-frågorna ur info-packet + Ravema-data.
+                Säljaren <strong>kör</strong> dialogen i samtalet och fyller i svaren, som återförs till LIS som signaler (reinforcement).
+              </p>
+            </CardContent>
+          )}
+          {discovery && (
+            <CardContent className="space-y-4">
+              {([
+                ["situation", "Situation — kartlägg nuläget"],
+                ["pain", "Pain — hitta gapet"],
+                ["affect", "Affect — kvantifiera kostnaden"],
+                ["resolve", "Resolve — låt dem äga visionen"],
+              ] as const).map(([phase, label]) => (
+                <div key={phase} className="space-y-2">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-blue-700">{label}</p>
+                  {(discovery[phase] || []).map((q, i) => (
+                    <div key={i} className="space-y-1">
+                      <p className="text-sm text-gray-800">{q.question}</p>
+                      <p className="text-[11px] text-gray-400 italic">→ {q.why}</p>
+                      <Textarea
+                        value={q.answer}
+                        onChange={(e) => setAnswer(phase, i, e.target.value)}
+                        placeholder="Kundens svar…"
+                        className="min-h-[56px] text-sm"
+                      />
+                    </div>
+                  ))}
+                </div>
+              ))}
+              <Button
+                onClick={handleSubmitDiscovery}
+                disabled={discoverySubmit.isPending}
+                className="w-full bg-blue-600 hover:bg-blue-700 gap-2"
+              >
+                {discoverySubmit.isPending && <RefreshCw className="w-4 h-4 animate-spin" />}
+                Spara Discovery → återför till LIS
+              </Button>
+            </CardContent>
+          )}
         </Card>
 
         {/* Triggers */}
@@ -401,112 +574,131 @@ Ravema AB`;
           </Card>
         )}
 
-        {/* Decision makers */}
-        {company.decisionMakers.length > 0 && (
-          <Card>
-            <CardHeader className="pb-2">
+        {/* Decision makers — alltid synligt så man kan lägga till manuellt */}
+        <Card>
+          <CardHeader className="pb-2">
+            <div className="flex items-center justify-between gap-2">
               <CardTitle className="flex items-center gap-2 text-sm">
                 <Users className="w-4 h-4 text-gray-600" />
                 Beslutsfattare ({company.decisionMakers.length})
               </CardTitle>
-            </CardHeader>
-            <CardContent>
+              <Button size="sm" variant="outline" className="h-7 gap-1 text-xs border-red-200 text-red-700 hover:bg-red-50"
+                onClick={() => setContactModal({ open: true, dm: null })}>
+                <Plus className="w-3.5 h-3.5" />Lägg till kontakt
+              </Button>
+            </div>
+          </CardHeader>
+          <CardContent>
+            {company.decisionMakers.length === 0 ? (
+              <div className="text-center py-6">
+                <Users className="w-8 h-8 text-gray-300 mx-auto mb-2" />
+                <p className="text-sm text-gray-500">Inga kontakter ännu</p>
+                <p className="text-xs text-gray-400 mt-0.5">Lägg till en person du hittat manuellt</p>
+              </div>
+            ) : (
               <div className="space-y-2">
                 {company.decisionMakers.map((dm, idx) => {
                   const isPlaceholder = dm.name.startsWith("Sök:");
-                  const isSelected = idx === selectedContactIdx;
+                  // Direkt personlig profil om känd, annars en förifylld LinkedIn-personsökning
+                  const li = dm.linkedin || dm.linkedin_search ||
+                    `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(`${dm.name} ${company.name}`)}`;
+                  const liDirect = !!(dm.linkedin || dm.linkedin_search);
+                  const missing = !dm.email || !dm.phone;
                   return (
-                    <div
-                      key={idx}
-                      onClick={() => setSelectedContactIdx(idx)}
-                      className={`p-3 rounded-lg border cursor-pointer transition-colors ${
-                        isSelected ? "border-red-300 bg-red-50" : "border-gray-200 hover:border-gray-300 bg-white"
-                      }`}
-                    >
+                    <div key={dm.id ?? idx} className="p-3 rounded-lg border border-gray-200 bg-white">
                       <div className="flex items-start justify-between gap-3">
-                        <div className="flex-1 min-w-0">
+                        <div className="min-w-0">
                           <p className={`font-medium text-sm ${isPlaceholder ? "text-gray-500 italic" : "text-gray-900"}`}>
                             {dm.name}
                           </p>
-                          <p className="text-xs text-gray-500 truncate">{dm.title || "—"}</p>
-                          {dm.email && <p className="text-xs text-blue-600 truncate mt-0.5">{dm.email}</p>}
-                          {(dm as any).note && (
-                            <p className="text-xs text-orange-700 mt-1">{(dm as any).note}</p>
-                          )}
+                          <p className="text-xs text-gray-500">{dm.title || "—"}</p>
                         </div>
-                        <div className="flex items-center gap-1">
+                        <div className="flex items-center gap-1.5 flex-shrink-0">
                           <Badge variant="outline" className="text-[10px]">{dm.priority}</Badge>
-                          {dm.linkedin_search && (
-                            <a href={dm.linkedin_search} target="_blank" rel="noopener noreferrer"
-                              onClick={e => e.stopPropagation()}
-                              className="p-1 hover:bg-blue-100 rounded">
-                              <Linkedin className="w-3.5 h-3.5 text-blue-600" />
-                            </a>
-                          )}
-                          {dm.email && (
-                            <button onClick={e => { e.stopPropagation(); copyToClipboard(dm.email!); }}
-                              className="p-1 hover:bg-gray-100 rounded">
-                              <Copy className="w-3.5 h-3.5 text-gray-400" />
-                            </button>
-                          )}
+                          <button onClick={() => setContactModal({ open: true, dm })}
+                            title="Komplettera kontaktuppgifter"
+                            className="inline-flex items-center gap-1 text-[11px] text-gray-500 hover:text-red-700 hover:bg-red-50 rounded px-1.5 py-1">
+                            <RefreshCw className="w-3 h-3" />Komplettera
+                          </button>
                         </div>
                       </div>
+
+                      {/* Direktkontakt: mejl · mobil · personlig LinkedIn */}
+                      <div className="flex flex-wrap items-center gap-2 mt-2">
+                        {dm.email ? (
+                          <a href={`mailto:${dm.email}`}
+                            className="inline-flex items-center gap-1 text-xs text-blue-700 bg-blue-50 hover:bg-blue-100 rounded px-2 py-1">
+                            <Mail className="w-3.5 h-3.5" />{dm.email}
+                          </a>
+                        ) : (
+                          <button onClick={() => setContactModal({ open: true, dm })}
+                            className="inline-flex items-center gap-1 text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-dashed border-amber-300 rounded px-2 py-1">
+                            <Mail className="w-3.5 h-3.5" />+ mejl
+                          </button>
+                        )}
+                        {dm.phone ? (
+                          <a href={`tel:${dm.phone.replace(/\s+/g, "")}`}
+                            className="inline-flex items-center gap-1 text-xs text-gray-700 bg-gray-100 hover:bg-gray-200 rounded px-2 py-1">
+                            <Phone className="w-3.5 h-3.5" />{dm.phone}
+                          </a>
+                        ) : (
+                          <button onClick={() => setContactModal({ open: true, dm })}
+                            className="inline-flex items-center gap-1 text-xs text-amber-700 bg-amber-50 hover:bg-amber-100 border border-dashed border-amber-300 rounded px-2 py-1">
+                            <Phone className="w-3.5 h-3.5" />+ mobil
+                          </button>
+                        )}
+                        <a href={li} target="_blank" rel="noopener noreferrer"
+                          title={liDirect ? "Öppna personlig LinkedIn-profil" : "Sök personen på LinkedIn"}
+                          className="inline-flex items-center gap-1 text-xs text-white bg-[#0A66C2] hover:bg-[#004182] rounded px-2 py-1">
+                          <Linkedin className="w-3.5 h-3.5" />{liDirect ? "LinkedIn" : "LinkedIn ⌕"}
+                        </a>
+                        {dm.email && (
+                          <button onClick={() => copyToClipboard(dm.email!)}
+                            className="inline-flex items-center gap-1 text-xs text-gray-500 hover:bg-gray-100 rounded px-2 py-1">
+                            <Copy className="w-3.5 h-3.5" />Kopiera
+                          </button>
+                        )}
+                      </div>
+                      {missing && !isPlaceholder && (
+                        <p className="text-[11px] text-amber-600 mt-2">Saknar {[!dm.email && "mejl", !dm.phone && "mobil"].filter(Boolean).join(" & ")} — fyll i manuellt</p>
+                      )}
+                      {(dm as any).note && <p className="text-xs text-orange-700 mt-2">{(dm as any).note}</p>}
                     </div>
                   );
                 })}
               </div>
-            </CardContent>
-          </Card>
+            )}
+          </CardContent>
+        </Card>
+
+        {contactModal.open && (
+          <ContactEditModal
+            companyDbId={company.dbId!}
+            companyName={company.name}
+            contact={contactModal.dm}
+            onClose={() => setContactModal({ open: false, dm: null })}
+          />
         )}
 
-        {/* AI Email draft */}
-        {emailDraft && (
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="flex items-center gap-2 text-sm">
-                <Mail className="w-4 h-4 text-purple-600" />
-                AI Mejl-utkast {selectedContact && <span className="text-xs text-gray-400 font-normal">— {selectedContact.name}</span>}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              {!showEmail ? (
-                <Button variant="outline" onClick={() => setShowEmail(true)} className="gap-2">
-                  <Mail className="w-4 h-4" />Visa utkast
-                </Button>
-              ) : (
-                <div className="border border-gray-200 rounded-lg overflow-hidden">
-                  <div className="bg-gray-50 px-4 py-2 border-b flex items-center justify-between">
-                    <div className="flex-1">
-                      <p className="text-xs text-gray-400">Ämne</p>
-                      <p className="font-medium text-sm">{emailDraft.subject}</p>
-                    </div>
-                    <Button variant="ghost" size="sm" onClick={() => copyToClipboard(emailDraft.subject)}>
-                      <Copy className="w-3.5 h-3.5" />
-                    </Button>
-                  </div>
-                  <div className="p-4">
-                    <Textarea
-                      value={emailDraft.body}
-                      readOnly
-                      className="min-h-[280px] text-sm border-0 p-0 resize-none focus-visible:ring-0 font-mono"
-                    />
-                  </div>
-                  <div className="bg-gray-50 px-4 py-2 border-t flex justify-end gap-2">
-                    <Button variant="outline" size="sm" onClick={() => copyToClipboard(`Ämne: ${emailDraft.subject}\n\n${emailDraft.body}`)}>
-                      <Copy className="w-3.5 h-3.5 mr-1" />Kopiera allt
-                    </Button>
-                    <Button size="sm" className="bg-green-600 hover:bg-green-700"
-                      onClick={() => {
-                        window.open(`mailto:?subject=${encodeURIComponent(emailDraft.subject)}&body=${encodeURIComponent(emailDraft.body)}`);
-                      }}>
-                      <Send className="w-3.5 h-3.5 mr-1" />Öppna i mejlklient
-                    </Button>
-                  </div>
-                </div>
-              )}
-            </CardContent>
-          </Card>
-        )}
+        {/* AI Mejlgenerator — live (Claude): pain-teman + sv/no/en */}
+        <Card className="border-red-100">
+          <CardHeader className="pb-2">
+            <CardTitle className="flex items-center gap-2 text-sm">
+              <Mail className="w-4 h-4 text-red-600" />
+              AI Mejlgenerator
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <p className="text-xs text-gray-500 leading-relaxed">
+              Generera ett pain-first-utkast — välj kontakt, språk (sv/no/en) och pain-tema.
+              {" "}<strong className="text-gray-700">Detta är inte massutskick — tvärtom.</strong>{" "}
+              Utkastet är en startpunkt: allt innehåll ska personifieras och ägas av dig innan du skickar.
+            </p>
+            <Button onClick={() => setShowAiEmail(true)} className="bg-red-600 hover:bg-red-700 gap-2">
+              <Mail className="w-4 h-4" /> Öppna mejlgenerator
+            </Button>
+          </CardContent>
+        </Card>
 
         {/* Activity log */}
         <Card>

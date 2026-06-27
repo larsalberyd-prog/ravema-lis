@@ -2,12 +2,25 @@ import { eq, like, or, desc, and, sql, isNull } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import {
   InsertUser, users, companies, contacts, generatedEmails, activities, webhookLogs, weeklyAssignments,
-  signals, icpChanges,
+  signals, icpChanges, generatedPacks, discoverySessions, tenantSettings,
   InsertCompany, InsertContact, InsertGeneratedEmail,
 } from "../drizzle/schema";
 import { ENV } from "./_core/env";
+import { DEFAULT_TENANT, tenantCond, assertOnlyTenant } from "./tenant";
 
 let _db: ReturnType<typeof drizzle> | null = null;
+
+/**
+ * Drizzle/mysql2 returnerar insert-resultat som en tuple [ResultSetHeader, FieldPacket[]]
+ * (se node_modules/drizzle-orm/mysql2/session.d.ts). Auto-increment-id:t ligger alltså
+ * på res[0].insertId — INTE res.insertId. Att läsa res.insertId gav tidigare alltid 0,
+ * vilket orphanade kontakter/signaler till companyId=0 vid seeding. Defensiv: hanterar
+ * både tuple- och objekt-form ifall drivern/versionen ändras.
+ */
+export function insertIdOf(res: any): number {
+  const header = Array.isArray(res) ? res[0] : res;
+  return Number(header?.insertId ?? 0);
+}
 
 export async function getDb() {
   if (!_db && process.env.DATABASE_URL) {
@@ -69,20 +82,34 @@ export async function updateUserRole(id: number, role: "user" | "admin") {
 }
 
 // ─── Companies ───────────────────────────────────────────────────────────────
-export async function getAllCompanies() {
+export async function getAllCompanies(tenantId: number = DEFAULT_TENANT) {
   const db = await getDb();
   if (!db) return [];
-  return db.select().from(companies).orderBy(
+  const rows = await db.select().from(companies).where(tenantCond(companies, tenantId)).orderBy(
     sql`FIELD(focus, 'AAA', 'AA', 'A', 'B', 'C', '')`,
     companies.name
   );
+  return assertOnlyTenant(rows as any[], tenantId);
 }
 
-export async function getCompanyById(id: number) {
+export async function getCompanyById(id: number, tenantId: number = DEFAULT_TENANT) {
   const db = await getDb();
   if (!db) return null;
-  const result = await db.select().from(companies).where(eq(companies.id, id)).limit(1);
+  const result = await db.select().from(companies).where(and(eq(companies.id, id), tenantCond(companies, tenantId))).limit(1);
   return result[0] ?? null;
+}
+
+export async function updateCompanyDescription(id: number, description: string): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(companies).set({ description, updatedAt: new Date() }).where(eq(companies.id, id));
+}
+
+export async function getGeneratedEmailCount(): Promise<number> {
+  const db = await getDb();
+  if (!db) return 0;
+  const rows = await db.select({ c: sql<number>`count(*)` }).from(generatedEmails);
+  return Number((rows[0] as any)?.c ?? 0);
 }
 
 export async function searchCompanies(query: string) {
@@ -104,7 +131,7 @@ export async function upsertCompany(data: InsertCompany): Promise<number> {
     }
   }
   const result = await db.insert(companies).values(data);
-  return Number((result as any).insertId ?? 0);
+  return insertIdOf(result);
 }
 
 export async function updateCompanyStatus(id: number, status: "new" | "contacted" | "meeting" | "qualified" | "lost", assignedTo?: string, notes?: string) {
@@ -142,6 +169,171 @@ export async function getSignalsByCompanyId(companyId: number) {
   const db = await getDb();
   if (!db) return [];
   return db.select().from(signals).where(eq(signals.companyId, companyId)).orderBy(desc(signals.detectedAt));
+}
+
+export async function getAllSignals() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(signals).orderBy(desc(signals.detectedAt));
+}
+
+export async function getCompanyBySlug(slug: string) {
+  const db = await getDb();
+  if (!db) return null;
+  const result = await db.select().from(companies).where(eq(companies.slug, slug)).limit(1);
+  return result[0] ?? null;
+}
+
+// ─── Generated Intelligence Packs (intelligence.generate) ─────────────────────
+export async function saveGeneratedPack(data: {
+  companyId: number; role?: string; headlineHypothesis?: string; payload: any; generatedBy?: string;
+}): Promise<number> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const res = await db.insert(generatedPacks).values({
+    companyId: data.companyId,
+    role: data.role,
+    headlineHypothesis: (data.headlineHypothesis || "").slice(0, 500),
+    payload: data.payload,
+    generatedBy: data.generatedBy,
+  });
+  return insertIdOf(res);
+}
+
+export async function getPacksByCompanyId(companyId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(generatedPacks).where(eq(generatedPacks.companyId, companyId)).orderBy(desc(generatedPacks.createdAt));
+}
+
+export async function getLatestPack(companyId: number): Promise<any | null> {
+  const rows = await getPacksByCompanyId(companyId);
+  if (!rows.length) return null;
+  const p: any = rows[0].payload;
+  // MariaDB returnerar JSON-kolumner som strängar — parsa defensivt
+  return typeof p === "string" ? JSON.parse(p) : p;
+}
+
+// ─── Discovery (SPAR) + reinforcement → LIS ───────────────────────────────────
+export async function saveDiscoverySession(data: {
+  companyId: number; role?: string; payload: any; createdBy?: string;
+}): Promise<number> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const res = await db.insert(discoverySessions).values({
+    companyId: data.companyId, role: data.role, payload: data.payload, createdBy: data.createdBy,
+  });
+  return insertIdOf(res);
+}
+
+export async function getLatestDiscovery(companyId: number): Promise<any | null> {
+  const db = await getDb();
+  if (!db) return null;
+  const rows = await db.select().from(discoverySessions)
+    .where(eq(discoverySessions.companyId, companyId)).orderBy(desc(discoverySessions.createdAt)).limit(1);
+  if (!rows.length) return null;
+  const p: any = rows[0].payload;
+  return typeof p === "string" ? JSON.parse(p) : p;
+}
+
+// Återför en Discovery-insikt till LIS som en signal (reinforcement).
+export async function addSignal(data: {
+  companyId: number; signalType?: string; lisType?: string; source?: string; title?: string; detail?: string;
+}): Promise<void> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.insert(signals).values({
+    companyId: data.companyId,
+    signalType: (["job", "news", "funding", "ownership", "procurement", "engagement"].includes(String(data.signalType)) ? data.signalType : "engagement") as any,
+    lisType: (data.lisType || "").slice(0, 64) || undefined,
+    source: (data.source || "discovery").slice(0, 100),
+    title: (data.title || "").slice(0, 500) || undefined,
+    detail: data.detail || undefined,
+  });
+}
+
+// ─── Tenant-fas (test / pilot / normal) — åtkomststyrning ─────────────────────
+export type Phase = "test" | "pilot" | "normal";
+export type ConfigStatus = "draft" | "reviewed" | "live";
+export interface TenantPhase { accountPhase: Phase; testUnlockLimit: number; testStartedAt: Date | null; configStatus: ConfigStatus; }
+
+// Config-granskningsgrind (Order 2): en tenant kan INTE gå till test-fas på en draft-config.
+// Ren funktion (testbar utan DB) — ENDA källan för grind-logiken.
+export function phaseTransitionError(targetPhase: Phase, configStatus: ConfigStatus): string | null {
+  if (targetPhase === "test" && configStatus === "draft") {
+    return "Config är i 'draft' och måste granskas (status 'reviewed') innan tenanten kan gå till test-fas.";
+  }
+  return null;
+}
+
+// Default för DENNA (Ravemas egna) instans = pilot (allt upplåst), config 'live' (gat:ar inte operatören).
+const PHASE_DEFAULTS: TenantPhase = { accountPhase: "pilot", testUnlockLimit: 12, testStartedAt: null, configStatus: "live" };
+
+export async function getTenantSettings(): Promise<TenantPhase> {
+  const db = await getDb();
+  if (!db) return PHASE_DEFAULTS;
+  const rows = await db.select().from(tenantSettings).where(eq(tenantSettings.id, 1)).limit(1);
+  if (!rows.length) {
+    // Skapa default-rad första gången (test startar vid leverans)
+    try { await db.insert(tenantSettings).values({ id: 1, accountPhase: "pilot", configStatus: "live", testUnlockLimit: 12 }); } catch {}
+    return { ...PHASE_DEFAULTS };
+  }
+  const r: any = rows[0];
+  return { accountPhase: r.accountPhase, testUnlockLimit: r.testUnlockLimit, testStartedAt: r.testStartedAt ?? null, configStatus: r.configStatus ?? "draft" };
+}
+
+export async function setTenantSettings(patch: Partial<TenantPhase>): Promise<TenantPhase> {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const cur = await getTenantSettings();
+  const next: any = { ...cur, ...patch };
+  // test börjar räkna när man går in i test-läget om det inte redan startat
+  if (next.accountPhase === "test" && !next.testStartedAt) next.testStartedAt = new Date();
+  // Config-grind: blockera test-fas på draft-config.
+  const gate = phaseTransitionError(next.accountPhase, next.configStatus);
+  if (gate) throw new Error(gate);
+  await db.update(tenantSettings).set({
+    accountPhase: next.accountPhase, configStatus: next.configStatus,
+    testUnlockLimit: next.testUnlockLimit, testStartedAt: next.testStartedAt, updatedAt: new Date(),
+  }).where(eq(tenantSettings.id, 1));
+  return next;
+}
+
+// Är ett konto låst? ENDA källan för låslogiken.
+// I test-läget är de första `testUnlockLimit` i kanonisk ordning upplåsta; resten låsta.
+// Normalisera lands-strängen (datan har både "SE"/"Sverige" och "NO"/"Norge").
+export function normalizeCountry(c?: string | null): "SE" | "NO" | "OTHER" {
+  const s = String(c || "").trim().toLowerCase();
+  if (s === "se" || s === "sverige" || s === "sweden") return "SE";
+  if (s === "no" || s === "norge" || s === "norway") return "NO";
+  return "OTHER";
+}
+
+// Test-fasens erbjudande: lås upp N per land (12 svenska + 6 norska), resten låst.
+// Vill man ändra fördelningen byts denna konstant (eller görs UI-konfigurerbar senare).
+export const TEST_UNLOCK_BY_COUNTRY: Record<string, number> = { SE: 12, NO: 6 };
+
+// ENDA källan för vilka konton som är upplåsta i test-läget. Plockar topp-N per land
+// i kanonisk ordning (tier AAA→C, sedan namn — från getAllCompanies).
+export async function getTestUnlockedIds(): Promise<Set<number>> {
+  const all = await getAllCompanies();
+  const counts: Record<string, number> = {};
+  const ids = new Set<number>();
+  for (const c of all as any[]) {
+    const cc = normalizeCountry(c.country);
+    const cap = TEST_UNLOCK_BY_COUNTRY[cc];
+    if (cap == null) continue; // land utan kvot → låst
+    counts[cc] = counts[cc] ?? 0;
+    if (counts[cc] < cap) { ids.add(c.id); counts[cc]++; }
+  }
+  return ids;
+}
+
+export async function isCompanyLocked(companyId: number): Promise<boolean> {
+  const s = await getTenantSettings();
+  if (s.accountPhase !== "test") return false;
+  const unlocked = await getTestUnlockedIds();
+  return !unlocked.has(companyId);
 }
 
 // ─── ICP tier editing (Klas/Nejra validate Tier 1/2/3) ────────────────────────
@@ -182,10 +374,11 @@ export async function getIcpChangesByCompanyId(companyId: number) {
 }
 
 // ─── Contacts ────────────────────────────────────────────────────────────────
-export async function getContactsByCompanyId(companyId: number) {
+export async function getContactsByCompanyId(companyId: number, tenantId: number = DEFAULT_TENANT) {
   const db = await getDb();
   if (!db) return [];
-  return db.select().from(contacts).where(eq(contacts.companyId, companyId));
+  const rows = await db.select().from(contacts).where(and(eq(contacts.companyId, companyId), tenantCond(contacts, tenantId)));
+  return assertOnlyTenant(rows as any[], tenantId);
 }
 
 export async function getContactById(id: number) {
@@ -206,13 +399,14 @@ export async function upsertContact(data: InsertContact): Promise<number> {
     }
   }
   const result = await db.insert(contacts).values(data);
-  return Number((result as any).insertId ?? 0);
+  return insertIdOf(result);
 }
 
-export async function getAllContacts() {
+export async function getAllContacts(tenantId: number = DEFAULT_TENANT) {
   const db = await getDb();
   if (!db) return [];
-  return db.select().from(contacts).orderBy(contacts.companyId, contacts.fullName);
+  const rows = await db.select().from(contacts).where(tenantCond(contacts, tenantId)).orderBy(contacts.companyId, contacts.fullName);
+  return assertOnlyTenant(rows as any[], tenantId);
 }
 
 export async function updateContactPhone(contactId: number, phone: string) {
@@ -221,6 +415,45 @@ export async function updateContactPhone(contactId: number, phone: string) {
   await db.update(contacts).set({ phone, updatedAt: new Date() }).where(eq(contacts.id, contactId));
   const result = await db.select().from(contacts).where(eq(contacts.id, contactId)).limit(1);
   return result[0] ?? null;
+}
+
+const CONTACT_EDITABLE = ["firstName", "lastName", "fullName", "title", "email", "phone", "linkedinUrl"] as const;
+
+// Manuell inmatning: skapa en helt ny kontakt (för personer enrichment inte hittade).
+export async function createContact(
+  data: { companyId: number } & Partial<Record<(typeof CONTACT_EDITABLE)[number], string>>
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const fullName =
+    data.fullName?.trim() ||
+    [data.firstName, data.lastName].filter(Boolean).join(" ").trim() ||
+    null;
+  const values: any = { companyId: data.companyId, tenantId: DEFAULT_TENANT, fullName };
+  for (const k of CONTACT_EDITABLE) {
+    if (k === "fullName") continue;
+    if (data[k] !== undefined) values[k] = data[k] === "" ? null : data[k];
+  }
+  const result = await db.insert(contacts).values(values);
+  const id = insertIdOf(result);
+  const row = await db.select().from(contacts).where(eq(contacts.id, id)).limit(1);
+  return row[0] ?? null;
+}
+
+// Manuell inmatning: komplettera en befintlig kontakt (t.ex. lägg till mejl/mobil/LinkedIn).
+export async function updateContact(
+  id: number,
+  fields: Partial<Record<(typeof CONTACT_EDITABLE)[number], string>>
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  const patch: any = { updatedAt: new Date() };
+  for (const k of CONTACT_EDITABLE) {
+    if (fields[k] !== undefined) patch[k] = fields[k] === "" ? null : fields[k];
+  }
+  await db.update(contacts).set(patch).where(eq(contacts.id, id));
+  const row = await db.select().from(contacts).where(eq(contacts.id, id)).limit(1);
+  return row[0] ?? null;
 }
 
 // ─── Generated Emails ────────────────────────────────────────────────────────
@@ -234,7 +467,7 @@ export async function saveGeneratedEmail(data: InsertGeneratedEmail): Promise<nu
   const db = await getDb();
   if (!db) throw new Error("Database not available");
   const result = await db.insert(generatedEmails).values(data);
-  return Number((result as any).insertId ?? 0);
+  return insertIdOf(result);
 }
 
 export async function updateEmailStatus(id: number, status: "draft" | "sent" | "opened" | "replied", editedBody?: string) {
@@ -273,7 +506,7 @@ export async function createWeeklyAssignment(data: { assignedToUserId: number; a
     weekLabel: data.weekLabel,
     createdByUserId: data.createdByUserId,
   });
-  const weeklyId = Number((result as any).insertId);
+  const weeklyId = insertIdOf(result);
   if (data.companyIds.length > 0) {
     for (const cid of data.companyIds) {
       await db.update(companies).set({

@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "wouter";
 import { useCompanies } from "@/hooks/useCompanies";
+import StatOpener from "@/components/StatOpener";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -9,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Skeleton } from "@/components/ui/skeleton";
 import {
   Building2, TrendingUp, Search, Filter,
-  MapPin, ChevronRight, Zap, Shield, Activity, AlertTriangle, Crown,
+  MapPin, ChevronRight, Zap, Shield, Activity, AlertTriangle, Crown, Lock, Unlock,
 } from "lucide-react";
 
 const focusBadge: Record<string, string> = {
@@ -68,89 +69,18 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <div className="bg-white border-b border-gray-200 px-4 sm:px-6 py-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
-              <Zap className="w-5 h-5 text-white" />
-            </div>
-            <div>
-              <h1 className="text-base sm:text-lg font-bold text-gray-900">Ravema LIS</h1>
-              <p className="text-xs text-gray-500 hidden sm:block">Pilot Board · Sorterat AAA → C · Ravema AB</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <Link href="/admin">
-              <Button variant="outline" size="sm" className="gap-1 hidden sm:flex border-red-200 text-red-700 hover:bg-red-50">
-                <Shield className="w-4 h-4" />
-                Klas (Leadership)
-              </Button>
-            </Link>
-            <Link href="/my-sales">
-              <Button variant="outline" size="sm" className="hidden sm:flex">
-                Nejra (SDR)
-              </Button>
-            </Link>
-          </div>
+      {/* Sid-titel (global roll-nav ligger i TopNav ovanför) */}
+      <div className="bg-white border-b border-gray-200 px-4 sm:px-6 py-3">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-lg font-bold text-gray-900">Bolag</h1>
+          <p className="text-xs text-gray-500">Sorterat AAA → C · Ravema AB</p>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-6">
-          {loadingCompanies ? (
-            Array(4).fill(0).map((_, i) => (
-              <Card key={i}><CardContent className="p-4"><Skeleton className="h-12 w-full" /></CardContent></Card>
-            ))
-          ) : (
-            <>
-              <Card>
-                <CardContent className="p-3 sm:p-4">
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <div className="p-1.5 sm:p-2 bg-blue-50 rounded-lg"><Building2 className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" /></div>
-                    <div>
-                      <p className="text-xl sm:text-2xl font-bold">{stats.totalCompanies}</p>
-                      <p className="text-xs text-gray-500">Pilot-konton</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="p-3 sm:p-4">
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <div className="p-1.5 sm:p-2 bg-red-50 rounded-lg"><Crown className="w-4 h-4 sm:w-5 sm:h-5 text-red-600" /></div>
-                    <div>
-                      <p className="text-xl sm:text-2xl font-bold">{stats.aaaCount + stats.aaCount}</p>
-                      <p className="text-xs text-gray-500">AAA + AA</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="p-3 sm:p-4">
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <div className="p-1.5 sm:p-2 bg-green-50 rounded-lg"><Activity className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" /></div>
-                    <div>
-                      <p className="text-xl sm:text-2xl font-bold">{stats.activeSignals}</p>
-                      <p className="text-xs text-gray-500">Aktiva signaler</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="p-3 sm:p-4">
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <div className="p-1.5 sm:p-2 bg-gray-100 rounded-lg"><AlertTriangle className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" /></div>
-                    <div>
-                      <p className="text-xl sm:text-2xl font-bold">{stats.blocked}</p>
-                      <p className="text-xs text-gray-500">Anti-fit / B-C</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </>
-          )}
+        {/* Roll-scopad fyrkorts-opener (FC: hela portföljen) */}
+        <div className="mb-6">
+          <StatOpener companies={companies} />
         </div>
 
         {/* Filters */}
@@ -215,11 +145,11 @@ export default function Dashboard() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {filtered.map(company => (
               <Link key={company.id} href={`/company/${company.id}`}>
-                <Card className="hover:shadow-md transition-all cursor-pointer border hover:border-red-200 group h-full">
+                <Card className={`transition-all cursor-pointer border group h-full ${company.locked ? "opacity-70 bg-slate-50 border-dashed border-slate-300" : "hover:shadow-md hover:border-red-200"}`}>
                   <CardContent className="p-4">
                     <div className="flex items-start justify-between mb-3">
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-gray-900 truncate group-hover:text-red-700 transition-colors">
+                        <h3 className={`font-semibold truncate transition-colors ${company.locked ? "text-slate-500" : "text-gray-900 group-hover:text-red-700"}`}>
                           {company.name}
                         </h3>
                         <div className="flex items-center gap-1 mt-0.5 text-xs text-gray-500">
@@ -228,12 +158,25 @@ export default function Dashboard() {
                         </div>
                       </div>
                       <div className="flex items-center gap-1 ml-2">
-                        {company.priority && (
-                          <Badge className={`text-xs border ${focusBadge[company.priority] || focusBadge.C}`}>
-                            {company.priority}
+                        {company.locked ? (
+                          <Badge className="text-xs gap-1 bg-slate-200 text-slate-600 border-slate-300">
+                            <Lock className="w-3 h-3" />Låst
                           </Badge>
+                        ) : (
+                          <>
+                            {company.testOpen && (
+                              <Badge className="text-xs gap-1 bg-emerald-100 text-emerald-700 border-emerald-200">
+                                <Unlock className="w-3 h-3" />Öppen
+                              </Badge>
+                            )}
+                            {company.priority && (
+                              <Badge className={`text-xs border ${focusBadge[company.priority] || focusBadge.C}`}>
+                                {company.priority}
+                              </Badge>
+                            )}
+                            <ChevronRight className="w-4 h-4 text-gray-300 group-hover:text-red-400 transition-colors" />
+                          </>
                         )}
-                        <ChevronRight className="w-4 h-4 text-gray-300 group-hover:text-red-400 transition-colors" />
                       </div>
                     </div>
 

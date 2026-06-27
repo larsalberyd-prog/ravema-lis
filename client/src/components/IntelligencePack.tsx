@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -91,20 +90,12 @@ const ROLE_ORDER = ["Ägare", "VD / CEO", "COO / Produktionschef", "Teknikchef",
 interface Props {
   brief: IntelligencePackData;
   onRegenerate?: () => void;
+  generating?: boolean;
 }
 
-export default function IntelligencePack({ brief, onRegenerate }: Props) {
-  const [regenerating, setRegenerating] = useState(false);
-
+export default function IntelligencePack({ brief, onRegenerate, generating }: Props) {
   const handleRegenerate = () => {
-    setRegenerating(true);
-    toast.info("Genererar om Intelligence Pack...", {
-      description: "Live LLM-call kräver Anthropic API-nyckel + backend (kommer i v2.1)",
-    });
-    setTimeout(() => {
-      setRegenerating(false);
-      onRegenerate?.();
-    }, 1500);
+    onRegenerate?.();
   };
 
   const copyAll = () => {
@@ -147,11 +138,11 @@ export default function IntelligencePack({ brief, onRegenerate }: Props) {
             <Button
               size="sm"
               onClick={handleRegenerate}
-              disabled={regenerating}
+              disabled={generating}
               className="bg-red-600 hover:bg-red-700 gap-1"
             >
-              <RefreshCw className={`w-3.5 h-3.5 ${regenerating ? "animate-spin" : ""}`} />
-              Generera om
+              <RefreshCw className={`w-3.5 h-3.5 ${generating ? "animate-spin" : ""}`} />
+              {generating ? "Genererar…" : "Generera om"}
             </Button>
           </div>
         </div>

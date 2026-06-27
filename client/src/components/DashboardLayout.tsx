@@ -21,17 +21,22 @@ import {
 } from "@/components/ui/sidebar";
 import { getLoginUrl } from "@/const";
 import { useIsMobile } from "@/hooks/useMobile";
-import { LayoutDashboard, LogOut, PanelLeft, Target, Settings } from "lucide-react";
+import { LogOut, PanelLeft, Target, Settings, Building2, LayoutGrid, Activity } from "lucide-react";
 import { CSSProperties, useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
+import { useRole } from "@/contexts/RoleContext";
 import { DashboardLayoutSkeleton } from './DashboardLayoutSkeleton';
 import { Button } from "./ui/button";
 
-const menuItems = [
-  { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
-  { icon: Target, label: "Mina prospekt", path: "/my-sales" },
-  { icon: Settings, label: "Admin", path: "/admin" },
+type RoleKey = "fc" | "sdr" | "salesperson";
+const ALL_ITEMS: Array<{ icon: any; label: string; path: string; roles: RoleKey[] }> = [
+  { icon: Building2, label: "Bolag", path: "/dashboard", roles: ["fc", "sdr"] },
+  { icon: Target, label: "Mina prospekt", path: "/my-sales", roles: ["fc", "sdr", "salesperson"] },
+  { icon: LayoutGrid, label: "Growth Grid", path: "/growth-grid", roles: ["fc"] },
+  { icon: Activity, label: "Aktivitet", path: "/activity", roles: ["fc", "sdr", "salesperson"] },
+  { icon: Settings, label: "Admin", path: "/admin", roles: ["fc"] },
 ];
+const ROLE_LABELS: Array<[RoleKey, string]> = [["fc", "FC"], ["sdr", "SDR"], ["salesperson", "Säljare"]];
 
 const SIDEBAR_WIDTH_KEY = "sidebar-width";
 const DEFAULT_WIDTH = 280;
@@ -111,6 +116,8 @@ function DashboardLayoutContent({
 }: DashboardLayoutContentProps) {
   const { user, logout } = useAuth();
   const [location, setLocation] = useLocation();
+  const { role, setRole } = useRole();
+  const menuItems = ALL_ITEMS.filter((i) => i.roles.includes(role));
   const { state, toggleSidebar } = useSidebar();
   const isCollapsed = state === "collapsed";
   const [isResizing, setIsResizing] = useState(false);
@@ -205,6 +212,22 @@ function DashboardLayoutContent({
           </SidebarContent>
 
           <SidebarFooter className="p-3">
+            {/* Roll-växlare (FC / SDR / Säljare) — styr nav + roll-anpassade vyer */}
+            <div className="flex gap-1 mb-2 group-data-[collapsible=icon]:hidden">
+              {ROLE_LABELS.map(([r, lbl]) => (
+                <button
+                  key={r}
+                  onClick={() => setRole(r)}
+                  className={`flex-1 text-[11px] rounded px-1.5 py-1 border transition-colors ${
+                    role === r
+                      ? "bg-primary text-primary-foreground border-primary"
+                      : "bg-background hover:bg-accent border-border text-muted-foreground"
+                  }`}
+                >
+                  {lbl}
+                </button>
+              ))}
+            </div>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="flex items-center gap-3 rounded-lg px-1 py-1 hover:bg-accent/50 transition-colors w-full text-left group-data-[collapsible=icon]:justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-ring">

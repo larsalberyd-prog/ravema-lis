@@ -552,65 +552,76 @@
     ],
     "decisionMakers": [
       {
-        "name": "Muhammad Siddiqui",
-        "title": "Co-Founder & CEO",
-        "role": "Executive",
-        "role_label_sv": "Ägare",
-        "priority": "high",
+        "name": "Andreas Danielsson",
+        "title": "Beslutsfattare",
+        "role": "Other",
+        "email": "andreas.danielsson@kinnex.se",
+        "phone": "0730-775 972",
+        "linkedin": "https://se.linkedin.com/in/andreas-danielsson-4b950243",
+        "priority": "medium"
+      },
+      {
+        "name": "Göran Bergh",
+        "title": "Ägare & Styrelseordförande (Owner & Chairman)",
+        "role": "Ägare & Styrelseordförande (Owner & Chairman)",
         "email": null,
-        "email_confidence": null,
         "phone": null,
-        "linkedin": "http://www.linkedin.com/in/muhammad-arham-siddiqui-9a088167",
-        "country": null,
-        "seniority": "founder",
-        "source": "apollo+lusha"
+        "linkedin": "https://www.linkedin.com/in/g%C3%B6ran-bergh-828b778",
+        "priority": "high"
       },
       {
         "name": "Henrik Oldin",
-        "title": "Site Manager",
-        "role": "Technical",
-        "role_label_sv": "Fabrikschef",
-        "priority": "medium",
+        "title": "Försäljning & Marknad / Platschef (Site & Market Manager ≈ Fabrikschef/Platschef)",
+        "role": "Försäljning & Marknad / Platschef (Site & Market Manager ≈ Fabrikschef/Platschef)",
         "email": "henrik.oldin@kinnex.se",
-        "email_confidence": null,
-        "phone": "+46 511 303 34",
-        "linkedin": "http://www.linkedin.com/in/henrik-oldin-261a2b13a",
-        "country": "Sweden",
-        "seniority": "manager",
-        "source": "apollo+lusha"
+        "phone": "0730-885 971",
+        "linkedin": "https://se.linkedin.com/in/henrik-oldin-261a2b13a",
+        "priority": "medium"
       },
       {
-        "name": "Sök: VD Kinnex",
-        "title": "VD Kinnex",
-        "role": "Executive",
-        "priority": "high",
-        "email": null,
-        "phone": null,
+        "name": "Niklas Lundgren",
+        "title": "Beredare / Planeringstekniker (Planning/Methods Technician ≈ Teknik)",
+        "role": "Beredare / Planeringstekniker (Planning/Methods Technician ≈ Teknik)",
+        "email": "niklas.lundgren@kinnex.se",
+        "phone": "070-998 88 13",
         "linkedin": null,
-        "note": null,
-        "source": "placeholder"
+        "priority": "medium"
       },
       {
-        "name": "Sök: Produktionschef",
-        "title": "Produktionschef",
-        "role": "Technical",
-        "priority": "high",
-        "email": null,
-        "phone": null,
+        "name": "Andreas Joelsson",
+        "title": "Beredare / Planeringstekniker (Planning/Methods Technician ≈ Teknik)",
+        "role": "Beredare / Planeringstekniker (Planning/Methods Technician ≈ Teknik)",
+        "email": "andreas.joelsson@kinnex.se",
+        "phone": "073-380 43 62",
         "linkedin": null,
-        "note": null,
-        "source": "placeholder"
+        "priority": "medium"
       },
       {
-        "name": "Sök: VD RZ-gruppen",
-        "title": "VD RZ-gruppen",
-        "role": "Executive",
-        "priority": "medium",
-        "email": null,
+        "name": "Peter Bredh",
+        "title": "Skärande bearbetning / Produktionsledning (Cutting/Machining Operations ≈ Produktionschef)",
+        "role": "Skärande bearbetning / Produktionsledning (Cutting/Machining Operations ≈ Produktionschef)",
+        "email": "peter@kinnex.se",
+        "phone": "733804351",
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Michael Vänerljung",
+        "title": "Teknisk rådgivare (Technical Advisor ≈ Teknik)",
+        "role": "Teknisk rådgivare (Technical Advisor ≈ Teknik)",
+        "email": "micke@kinnex.se",
         "phone": null,
         "linkedin": null,
-        "note": "Grupp-nivå beslutsfattare",
-        "source": "placeholder"
+        "priority": "medium"
+      },
+      {
+        "name": "Tommy Jylhä",
+        "title": "Kvalitet & Inköp (Quality/Procurement)",
+        "role": "Kvalitet & Inköp (Quality/Procurement)",
+        "email": "tommy.jylha@kinnex.se",
+        "phone": "076-833 6998",
+        "linkedin": null,
+        "priority": "medium"
       }
     ],
     "entryAngles": [
@@ -695,31 +706,48 @@
     "decisionMakers": [
       {
         "name": "Filippa Lindberg",
-        "title": "CEO",
-        "role": "Executive",
-        "role_label_sv": "VD / CEO",
-        "priority": "high",
+        "title": "VD/CEO (Ägare/VD target)",
+        "role": "VD/CEO (Ägare/VD target)",
         "email": "filippa.lindberg@rzg.se",
-        "email_confidence": null,
-        "phone": null,
-        "linkedin": "http://www.linkedin.com/in/filippa-lindberg-65140a73",
-        "country": null,
-        "seniority": "c_suite",
-        "source": "apollo+lusha"
+        "phone": "26 77 96",
+        "linkedin": "https://www.linkedin.com/in/filippa-lindberg-65140a73",
+        "priority": "high"
       },
       {
-        "name": "Jon Werme",
-        "title": "Production Manager",
-        "role": "Technical",
-        "role_label_sv": "COO / Produktionschef",
-        "priority": "medium",
-        "email": "jon.werme@rzg.se",
-        "email_confidence": "A+",
-        "phone": "+46 70 353 27 20",
-        "linkedin": "http://www.linkedin.com/in/jon-werme-228a5188",
-        "country": "Sweden",
-        "seniority": "manager",
-        "source": "apollo+lusha"
+        "name": "Anders Helgesson",
+        "title": "Produktionschef (COO/Produktionschef target)",
+        "role": "Produktionschef (COO/Produktionschef target)",
+        "email": "anders.helgesson@rzg.se",
+        "phone": "38 68 22",
+        "linkedin": "https://www.linkedin.com/in/anders-helgesson-524245174",
+        "priority": "high"
+      },
+      {
+        "name": "Anders Hallin",
+        "title": "Teknikchef / KAM Automotive (Teknikchef target)",
+        "role": "Teknikchef / KAM Automotive (Teknikchef target)",
+        "email": "anders.hallin@rzg.se",
+        "phone": "50 88 13",
+        "linkedin": "https://www.linkedin.com/in/anders-hallin-736993b0",
+        "priority": "medium"
+      },
+      {
+        "name": "Patrik Wäseby",
+        "title": "CFO/Ekonomichef ( — adjacent C-level)",
+        "role": "CFO/Ekonomichef ( — adjacent C-level)",
+        "email": "patrik.waseby@rzg.se",
+        "phone": "492 97 59",
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Patrik Rolandsson",
+        "title": "Marketing Mgr / KAM Defence ( — )",
+        "role": "Marketing Mgr / KAM Defence ( — )",
+        "email": "patrik.rolandsson@rzg.se",
+        "phone": "64 78 07",
+        "linkedin": null,
+        "priority": "medium"
       }
     ],
     "entryAngles": [
@@ -1077,10 +1105,92 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Industrial Machinery Manufacturing",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Olav Inge Søreide",
+        "title": "Fabrikssjef / Director Operations (Fabrikschef/Platschef + de-facto COO)",
+        "role": "Fabrikssjef / Director Operations (Fabrikschef/Platschef + de-facto COO)",
+        "email": "olav.soreide@bergenengines.com",
+        "phone": null,
+        "linkedin": "https://no.linkedin.com/in/olav-soreide-5bb75938",
+        "priority": "high"
+      },
+      {
+        "name": "Jon Erik Røv",
+        "title": "Managing Director (VD/CEO)",
+        "role": "Managing Director (VD/CEO)",
+        "email": "jon.rov@bergenengines.com",
+        "phone": null,
+        "linkedin": "https://no.linkedin.com/in/jon-erik-r%C3%B8v-812927111",
+        "priority": "high"
+      },
+      {
+        "name": "Therese Aalhus",
+        "title": "Head of Engineering (Teknikchef)",
+        "role": "Head of Engineering (Teknikchef)",
+        "email": "therese.aalhus@bergenengines.com",
+        "phone": "+47 90 59 65 26",
+        "linkedin": "https://www.linkedin.com/in/therese-aalhus-7618a461",
+        "priority": "medium"
+      },
+      {
+        "name": "Sjur Herheim",
+        "title": "Manager Manufacturing & Foundry (mapped COO/Produktionschef, role corrected)",
+        "role": "Manager Manufacturing & Foundry (mapped COO/Produktionschef, role corrected)",
+        "email": "sjur.herheim@bergenengines.com",
+        "phone": "+4795745752",
+        "linkedin": "https://no.linkedin.com/in/sjurherheim",
+        "priority": "high"
+      },
+      {
+        "name": "Venkateswara Rao Rajamandry",
+        "title": "Electrical Manager (Teknikchef sub-role)",
+        "role": "Electrical Manager (Teknikchef sub-role)",
+        "email": "venkateswara.rajamandry@bergenengines.com",
+        "phone": null,
+        "linkedin": "https://www.linkedin.com/in/venkateswara-rao-rajamandry-5509b4242",
+        "priority": "medium"
+      },
+      {
+        "name": "Jos Nelemans",
+        "title": "Service/Technical, Bergen Engines Benelux (Teknikchef — peripheral)",
+        "role": "Service/Technical, Bergen Engines Benelux (Teknikchef — peripheral)",
+        "email": "jos.nelemans@bergenengines.com",
+        "phone": "+31 6 50528285",
+        "linkedin": "https://www.linkedin.com/in/jos-nelemans-93157728",
+        "priority": "medium"
+      },
+      {
+        "name": "Erlend Hansen",
+        "title": "Produksjonsleder / Production Leader (COO/Produktionschef sub)",
+        "role": "Produksjonsleder / Production Leader (COO/Produktionschef sub)",
+        "email": "erlend.hansen@bergenengines.com",
+        "phone": "+4745130708",
+        "linkedin": "https://www.linkedin.com/in/erlend-hansen-594a47122",
+        "priority": "high"
+      },
+      {
+        "name": "Espen Meland",
+        "title": "Production Leader / Leder, Bergen Engines (COO/Produktionschef sub) — LINKEDIN AMBIGUITY",
+        "role": "Production Leader / Leder, Bergen Engines (COO/Produktionschef sub) — LINKEDIN AMBIGUITY",
+        "email": "espen.meland@bergenengines.com",
+        "phone": "+4799339823",
+        "linkedin": "https://www.linkedin.com/in/espen-meland-3155b05a",
+        "priority": "high"
+      },
+      {
+        "name": "Karoline Engen Tveitevåg",
+        "title": "Manager Engine Performance and Systems (Övrig — not a core target role)",
+        "role": "Manager Engine Performance and Systems (Övrig — not a core target role)",
+        "email": "karoline.tveitevag@bergenengines.com",
+        "phone": null,
+        "linkedin": "https://www.linkedin.com/in/karoline-engen-tveitev%c3%a5g",
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -1465,10 +1575,38 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Världens ledande oberoende tillverkare av containerspridare; all produktion in-house i Älmhult (Elme Spreader AB)",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Örjan Karlsson",
+        "title": "Vice President (part-owner, founding family)",
+        "role": "Vice President (part-owner, founding family)",
+        "email": "orjan.karlsson@elme.com",
+        "phone": null,
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Alexander Bengtsson",
+        "title": "Head of Production (COO/Produktionschef)",
+        "role": "Head of Production (COO/Produktionschef)",
+        "email": "alexander.bengtsson@elme.com",
+        "phone": null,
+        "linkedin": "https://www.linkedin.com/in/alexander-bengtsson-286a8324",
+        "priority": "high"
+      },
+      {
+        "name": "Martin Nilsson",
+        "title": "Head of Engineering (Teknisk chef)",
+        "role": "Head of Engineering (Teknisk chef)",
+        "email": "martin.nilsson@elme.com",
+        "phone": null,
+        "linkedin": "https://se.linkedin.com/in/martin-nilsson-4a85aa164",
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -1510,10 +1648,47 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Marknadsledande tillverkare av precisionssiktesfästen (ISMS) för försvar; 99% in-house i Löddeköpinge; ägt av Colt CZ Group (Spuhr i Dalby AB)",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Ulf (Roland) Nilsson",
+        "title": "VD/CEO",
+        "role": "VD/CEO",
+        "email": "ulf@spuhr.com",
+        "phone": null,
+        "linkedin": "https://www.linkedin.com/in/ulf-nilsson-23645a13",
+        "priority": "high"
+      },
+      {
+        "name": "Per Håkan Esbjörn Spuhr (\"Håkan Spuhr\")",
+        "title": "Grundare/Owner (legacy)",
+        "role": "Grundare/Owner (legacy)",
+        "email": "hakan@spuhr.com",
+        "phone": "+46 40 92 36 05",
+        "linkedin": "https://www.linkedin.com/in/h%C3%A5kan-spuhr-644253aa",
+        "priority": "high"
+      },
+      {
+        "name": "Leif Madsen",
+        "title": "COO / Produktionschef-equivalent ()",
+        "role": "COO / Produktionschef-equivalent ()",
+        "email": "leif@spuhr.com",
+        "phone": null,
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Tony Carlson",
+        "title": "Teknikchef (Lead Mechanical Engineer / Technical Project Manager) ()",
+        "role": "Teknikchef (Lead Mechanical Engineer / Technical Project Manager) ()",
+        "email": "tony@spuhr.com",
+        "phone": null,
+        "linkedin": null,
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -1780,10 +1955,65 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Skärande bearbetning - svarv, fräs, slip, kuggbearbetning, gradning; legotillverkare (familjeägt via Repro Service)",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Lars Fernow",
+        "title": "Ägare-nära / Registered VD (entity-level)",
+        "role": "Ägare-nära / Registered VD (entity-level)",
+        "email": "lars.fernow@skaraverken.se",
+        "phone": null,
+        "linkedin": "https://www.linkedin.com/in/lars-fernow-93382027",
+        "priority": "high"
+      },
+      {
+        "name": "Andreas Danielsson",
+        "title": "Group CEO / Koncernchef ( — primary decision-maker)",
+        "role": "Group CEO / Koncernchef ( — primary decision-maker)",
+        "email": "andreas.danielsson@kinnex.se",
+        "phone": "0730-77 59 72",
+        "linkedin": "https://se.linkedin.com/in/andreas-danielsson-4b950243",
+        "priority": "high"
+      },
+      {
+        "name": "Emil Fransson",
+        "title": "Produktionschef (Svarvning) [target: COO/Produktionschef]",
+        "role": "Produktionschef (Svarvning) [target: COO/Produktionschef]",
+        "email": "emil.fransson@skaraverken.se",
+        "phone": null,
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Daniel Bergh",
+        "title": "Produktionschef (Fräs/Slip/Kugg/Gradning) [target: COO/Produktionschef]",
+        "role": "Produktionschef (Fräs/Slip/Kugg/Gradning) [target: COO/Produktionschef]",
+        "email": "daniel.bergh@skaraverken.se",
+        "phone": null,
+        "linkedin": "https://www.linkedin.com/in/daniel-bergh-3605704a",
+        "priority": "high"
+      },
+      {
+        "name": "Martin Starck",
+        "title": "Sales & Marketing / IT ( — commercial contact)",
+        "role": "Sales & Marketing / IT ( — commercial contact)",
+        "email": "martin.starck@skaraverken.se",
+        "phone": null,
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Marcus Hjalmarsson",
+        "title": "Quality ( — secondary)",
+        "role": "Quality ( — secondary)",
+        "email": "marcus.hjalmarsson@skaraverken.se",
+        "phone": null,
+        "linkedin": null,
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -1825,10 +2055,65 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Mekanisk verkstad (sedan 1987) - engineering, svets, industrirör, maskinbearbetning, montering; offshore/subsea/marine/process (PDS Mecan AS, PDS Gruppen)",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "John R. Lohne",
+        "title": "VD/CEO   EXISTING, VERIFIED",
+        "role": "VD/CEO   EXISTING, VERIFIED",
+        "email": "john.lohne@mecan.no",
+        "phone": "+47 917 45 769",
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Frode Gismarvik",
+        "title": "Teknikchef / COO-Produktion (Maskinering)",
+        "role": "Teknikchef / COO-Produktion (Maskinering)",
+        "email": "frode.gismarvik@mecan.no",
+        "phone": "+47 950 30 109",
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Tore Steinsland",
+        "title": "COO/Produktionschef (Fabrikasjon)",
+        "role": "COO/Produktionschef (Fabrikasjon)",
+        "email": "tore.steinsland@mecan.no",
+        "phone": "+47 932 04 970",
+        "linkedin": "https://no.linkedin.com/in/tore-steinsland-1174aa30",
+        "priority": "high"
+      },
+      {
+        "name": "Anders Høvring",
+        "title": "Produksjonsleder Fabrikasjon (secondary)",
+        "role": "Produksjonsleder Fabrikasjon (secondary)",
+        "email": "anders.hovring@mecan.no",
+        "phone": "+47 480 29 252",
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Rune Helgeland",
+        "title": "Produksjonsleder Maskinering (secondary)",
+        "role": "Produksjonsleder Maskinering (secondary)",
+        "email": "rune.helgeland@mecan.no",
+        "phone": "+47 918 84 082",
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Evy Tangjerd Lyngstad",
+        "title": "Økonomiansvarlig (Finance, support contact)",
+        "role": "Økonomiansvarlig (Finance, support contact)",
+        "email": "evy.lyngstad@mecan.no",
+        "phone": "+47 977 26 481",
+        "linkedin": null,
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -1870,10 +2155,38 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Design och produktion av framdriftssystem för fartyg - reduktionsgir, vridbara propellrar (CPP), dysor; marknadsledare maritim (Finnøy Gear & Propeller AS)",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Nils Erling Finnøy",
+        "title": "General Manager / Technical Manager (daglig leder, owner family, 4th gen)",
+        "role": "General Manager / Technical Manager (daglig leder, owner family, 4th gen)",
+        "email": "nils@finnoygear.no",
+        "phone": null,
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Jan-Olof Karlsson",
+        "title": "Foreman Production (closest to COO/Produktionschef)",
+        "role": "Foreman Production (closest to COO/Produktionschef)",
+        "email": "jan-olof@finnoygear.no",
+        "phone": "+47 922 30 778",
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Jakub Kozlowski",
+        "title": "Technical and Project Engineer (NOT Teknikchef)",
+        "role": "Technical and Project Engineer (NOT Teknikchef)",
+        "email": "jakub@finnoygear.no",
+        "phone": "+47 932 16 590",
+        "linkedin": null,
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -1915,10 +2228,56 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Mekanisk verkstad (sedan 1958) - konstruktion, maskinbearbetning, montering, testning; industrimaskiner för vattenkraft/process/subsea/offshore (Sunnhordland Mek. Verksted SMV AS)",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Lars Hovda",
+        "title": "CEO / Daglig leder  [EXISTING, verified + enriched]",
+        "role": "CEO / Daglig leder  [EXISTING, verified + enriched]",
+        "email": "lars@smv.as",
+        "phone": "+47 908 40 855",
+        "linkedin": "https://www.linkedin.com/in/lars-hovda-81b36324",
+        "priority": "high"
+      },
+      {
+        "name": "Vidar Ølfarnes",
+        "title": "Teknikchef / Technical Manager  [ — target role]",
+        "role": "Teknikchef / Technical Manager  [ — target role]",
+        "email": "vlo@smv.as",
+        "phone": "+47 959 66 233",
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "John Brakstad",
+        "title": "Fabrikschef / Production Manager  [ — target role]",
+        "role": "Fabrikschef / Production Manager  [ — target role]",
+        "email": "john@smv.as",
+        "phone": "+47 911 47 935",
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Åsmund E. Holmedal",
+        "title": "R&D Manager  [ — Teknikchef-adjacent]",
+        "role": "R&D Manager  [ — Teknikchef-adjacent]",
+        "email": "asmund@smv.as",
+        "phone": "+47 971 88 163",
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Marius Grønstøl",
+        "title": "Project Manager  [ — secondary]",
+        "role": "Project Manager  [ — secondary]",
+        "email": "marius@smv.as",
+        "phone": "+47 934 58 266",
+        "linkedin": null,
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -1960,10 +2319,38 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Design och tillverkning av subsea-system inkl. work-class ROV för olja/gas, offshore, forskning, aquaculture; uppköpt av Chouest Group 2025 (Kystdesign AS)",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Tore Nedland",
+        "title": "CEO / Daglig leder",
+        "role": "CEO / Daglig leder",
+        "email": "nedland@kystdesign.no",
+        "phone": null,
+        "linkedin": "https://www.linkedin.com/in/tore-nedland-76119179",
+        "priority": "high"
+      },
+      {
+        "name": "Åge Holsbrekken",
+        "title": "Strategisk rådgiver (was CCO / daglig leder)",
+        "role": "Strategisk rådgiver (was CCO / daglig leder)",
+        "email": "holsbrekken@kystdesign.no",
+        "phone": null,
+        "linkedin": "https://www.linkedin.com/in/%C3%A5ge-holsbrekken-57a2871a0",
+        "priority": "high"
+      },
+      {
+        "name": "Frode Rabben",
+        "title": "Technical Manager  — , added",
+        "role": "Technical Manager  — , added",
+        "email": "rabben@kystdesign.no",
+        "phone": null,
+        "linkedin": "https://no.linkedin.com/in/frode-rabben-79aa59355",
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -2005,10 +2392,47 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Mekanisk industri/stålbearbetning - stålkonstruktioner, svets, precisionsmaskinering, projektleverans; industri/maritim (Stryvo AS)",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Torgeir Aarøen",
+        "title": "CEO / Daglig leder (Stryvo AS)",
+        "role": "CEO / Daglig leder (Stryvo AS)",
+        "email": "torgeir.aaroen@stryvo.no",
+        "phone": "+47 911 72 984",
+        "linkedin": "https://no.linkedin.com/in/torgeir-aar%C3%B8en-5aa75046",
+        "priority": "high"
+      },
+      {
+        "name": "Nicolas Bakkebø",
+        "title": "Teknikchef / Head of Technical (Teknisk sjef)",
+        "role": "Teknikchef / Head of Technical (Teknisk sjef)",
+        "email": "nicolas.bakkebo@stryvo.no",
+        "phone": "+47 941 71 150",
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Terje Blaalid",
+        "title": "COO / Produktionschef (Produksjonssjef)",
+        "role": "COO / Produktionschef (Produksjonssjef)",
+        "email": "terje.blaalid@stryvo.no",
+        "phone": "+47 907 45 232",
+        "linkedin": "https://www.linkedin.com/in/terje-blaalid-b403a765",
+        "priority": "high"
+      },
+      {
+        "name": "Jostein Bøe",
+        "title": "ex-Group CEO; now MD Stryvo Oslo AS + Group advisor/board ()",
+        "role": "ex-Group CEO; now MD Stryvo Oslo AS + Group advisor/board ()",
+        "email": "jostein.boe@stryvo.no",
+        "phone": "+47 480 83 333",
+        "linkedin": "https://www.linkedin.com/in/jostein-b%C3%B8e-705a035a",
+        "priority": "high"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -2050,10 +2474,29 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Konstruerar och tillverkar fixturer och industriutrustning (Tooltech Töre AB; OBS namn-tvetydigt mot Tooltech Gislaved)",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Person 1",
+        "title": "Göran Lindvall  (★ actual VD/CEO — corrects briefing)",
+        "role": "Göran Lindvall  (★ actual VD/CEO — corrects briefing)",
+        "email": "info@tooltech.se",
+        "phone": null,
+        "linkedin": "https://se.linkedin.com/in/g%C3%B6ran-lindvall-96051897",
+        "priority": "high"
+      },
+      {
+        "name": "Person 2",
+        "title": "Henrik Fjellström  (NOT CEO — briefing role error)",
+        "role": "Henrik Fjellström  (NOT CEO — briefing role error)",
+        "email": "info@tooltech.se",
+        "phone": null,
+        "linkedin": "https://se.linkedin.com/in/henrik-fjellstr%C3%B6m-5ba137160",
+        "priority": "high"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -2095,10 +2538,83 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Världsledande tillverkare av gripar och kapsågar för skogs-/anläggningsmaskiner; egen skärande bearbetning (Hultdin System AB)",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Tobias Åman",
+        "title": "VD / CEO",
+        "role": "VD / CEO",
+        "email": "tobias.aman@hultdins.se",
+        "phone": "953-418 27",
+        "linkedin": "https://www.linkedin.com/in/tobias-%C3%A5man-6163928b",
+        "priority": "high"
+      },
+      {
+        "name": "Josef Alenius",
+        "title": "Styrelseordförande / Chairman",
+        "role": "Styrelseordförande / Chairman",
+        "email": "josef.alenius@hultdins.se",
+        "phone": "+46 70 588 23 78",
+        "linkedin": "https://se.linkedin.com/in/josef-alenius-9abb8791",
+        "priority": "medium"
+      },
+      {
+        "name": "Tobias Bodén Lundberg",
+        "title": "Sales & Marketing Manager",
+        "role": "Sales & Marketing Manager",
+        "email": "tobias.bodenlundberg@hultdins.se",
+        "phone": "953-418 31",
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Jonas Lundström",
+        "title": "Production Manager / Produktionschef",
+        "role": "Production Manager / Produktionschef",
+        "email": "jonas.lundstrom@hultdins.se",
+        "phone": "953-418 11",
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Leif Engberg",
+        "title": "Quality Manager / Kvalitetschef  (secondary)",
+        "role": "Quality Manager / Kvalitetschef  (secondary)",
+        "email": "leif.engberg@hultdins.se",
+        "phone": "953-418 10",
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Mats Wikberg",
+        "title": "Purchasing Manager / Inköpschef  (secondary)",
+        "role": "Purchasing Manager / Inköpschef  (secondary)",
+        "email": "mats.wikberg@hultdins.se",
+        "phone": "953-418 24",
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Veronica Brännström",
+        "title": "Finance Manager / Ekonomichef  (secondary)",
+        "role": "Finance Manager / Ekonomichef  (secondary)",
+        "email": "veronica.brannstrom@hultdins.se",
+        "phone": "953-418 15",
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Source URLs",
+        "title": "Beslutsfattare",
+        "role": "Other",
+        "email": null,
+        "phone": null,
+        "linkedin": "https://www.linkedin.com/in/tobias-%C3%A5man-6163928b",
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -2140,10 +2656,65 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Machinery Manufacturing",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Håkan Bäckström",
+        "title": "VD / CEO",
+        "role": "VD / CEO",
+        "email": "hakan.backstrom@huddig.se",
+        "phone": null,
+        "linkedin": "https://www.linkedin.com/in/h%C3%A5kan-b%C3%A4ckstr%C3%B6m-069a39a",
+        "priority": "high"
+      },
+      {
+        "name": "Bertil Gyllner",
+        "title": "Konstruktionschef / Design Manager",
+        "role": "Konstruktionschef / Design Manager",
+        "email": "bertil.gyllner@huddig.se",
+        "phone": null,
+        "linkedin": "https://www.linkedin.com/in/bertil-gyllner-1440ab22",
+        "priority": "medium"
+      },
+      {
+        "name": "Malin Ekroos",
+        "title": "Produktionschef / Production Manager",
+        "role": "Produktionschef / Production Manager",
+        "email": "malin.ekroos@huddig.se",
+        "phone": null,
+        "linkedin": "https://www.linkedin.com/in/malin-ekroos-44a89527",
+        "priority": "high"
+      },
+      {
+        "name": "Daniel Myrgren",
+        "title": "Global Marketing & Sales Manager  *(bonus — commercial decision-maker)",
+        "role": "Global Marketing & Sales Manager  *(bonus — commercial decision-maker)",
+        "email": "daniel.myrgren@huddig.se",
+        "phone": null,
+        "linkedin": "https://www.linkedin.com/in/danielmyrgren",
+        "priority": "medium"
+      },
+      {
+        "name": "Magnus Sahlberg",
+        "title": "CFO / Ekonomichef  *(bonus — finance/economic buyer)",
+        "role": "CFO / Ekonomichef  *(bonus — finance/economic buyer)",
+        "email": "magnus.sahlberg@huddig.se",
+        "phone": null,
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Maria Thurin",
+        "title": "Aftersales/Commercial Aftermarket Manager  *(bonus — AGE-layer / aftermarket)",
+        "role": "Aftersales/Commercial Aftermarket Manager  *(bonus — AGE-layer / aftermarket)",
+        "email": "maria.thurin@huddig.se",
+        "phone": null,
+        "linkedin": "https://se.linkedin.com/in/maria-thurin-12955a20",
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -2185,10 +2756,47 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Världsledande tillverkare av hydrauliska rotatorer för skogs- och materialhanteringsmaskiner (del av Rototilt Group)",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Samuel Gottnersson",
+        "title": "VD/CEO  *(BEFINTLIG, kompletterad)",
+        "role": "VD/CEO  *(BEFINTLIG, kompletterad)",
+        "email": "samuel.gottnersson@indexator.com",
+        "phone": "+46 70 203 26 12",
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Mattias Edin",
+        "title": "Produktionschef (COO/Produktionschef-spåret)",
+        "role": "Produktionschef (COO/Produktionschef-spåret)",
+        "email": "mattias.edin@indexator.com",
+        "phone": null,
+        "linkedin": "https://www.linkedin.com/in/mattias-edin-32724b131",
+        "priority": "high"
+      },
+      {
+        "name": "Erik Svensson",
+        "title": "Marknadschef / Sales & Marketing Manager",
+        "role": "Marknadschef / Sales & Marketing Manager",
+        "email": "erik.svensson@indexator.com",
+        "phone": "70-314 96 40",
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Josef Alenius",
+        "title": "Styrelseordförande (tidigare VD)",
+        "role": "Styrelseordförande (tidigare VD)",
+        "email": "josef.alenius@indexator.com",
+        "phone": null,
+        "linkedin": null,
+        "priority": "high"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -2230,10 +2838,38 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Utvecklar och tillverkar hydrauliska gripar för skogsbruk/bygg/terminal; plåt, svets, laserskärning",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Maria Flöjt",
+        "title": "VD/CEO (target: VD/CEO) — CONFIRMED",
+        "role": "VD/CEO (target: VD/CEO) — CONFIRMED",
+        "email": "maria@hsp.se",
+        "phone": "+46 70 218 88 17",
+        "linkedin": "https://se.linkedin.com/in/mariaflojt",
+        "priority": "high"
+      },
+      {
+        "name": "Tomas Jonsson",
+        "title": "Ägare / Affärsutvecklare (target: Ägare/Owner) — CONFIRMED role, LinkedIn unverified",
+        "role": "Ägare / Affärsutvecklare (target: Ägare/Owner) — CONFIRMED role, LinkedIn unverified",
+        "email": "tomas@hsp.se",
+        "phone": "+46 70 634 66 50",
+        "linkedin": "https://www.linkedin.com/in/tomas-jonsson-9a55b31",
+        "priority": "high"
+      },
+      {
+        "name": "Daniel Fors",
+        "title": "Produktionschef (target: COO/Produktionschef)",
+        "role": "Produktionschef (target: COO/Produktionschef)",
+        "email": "daniel@hsp.se",
+        "phone": "+46 70 357 03 54",
+        "linkedin": "https://www.linkedin.com/in/daniel-fors",
+        "priority": "high"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -2275,10 +2911,56 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Legotillverkning i tunnplåt - laserskärning, stansning, bockning, svetsning, montering; ISO 9001/14001",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Therese (Jenny Therese) Elmelind",
+        "title": "VD / CEO  [TARGET ROLE: VD/CEO]",
+        "role": "VD / CEO  [TARGET ROLE: VD/CEO]",
+        "email": "therese@pepab.se",
+        "phone": "073-024 12 49",
+        "linkedin": "https://www.linkedin.com/in/therese-elmelind",
+        "priority": "high"
+      },
+      {
+        "name": "Stig-Olof Elmelind",
+        "title": "Styrelseordförande / Ägare  [TARGET ROLE: Ägare]",
+        "role": "Styrelseordförande / Ägare  [TARGET ROLE: Ägare]",
+        "email": "stig-olof@pepab.se",
+        "phone": null,
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Torbjörn (\"Tobbe\") Norell",
+        "title": "Sales Representative / Säljare  [possible COMMERCIAL contact]",
+        "role": "Sales Representative / Säljare  [possible COMMERCIAL contact]",
+        "email": "tobbe@pepab.se",
+        "phone": "070-692 88 08",
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Mikael Edh",
+        "title": "Project Coordinator / Projektledare  [possible Teknik/Produktion proxy]",
+        "role": "Project Coordinator / Projektledare  [possible Teknik/Produktion proxy]",
+        "email": "mikael@pepab.se",
+        "phone": "0270-42 91 56",
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Margareta (\"Maggan\") Bäck",
+        "title": "Finance Manager / Ekonomichef  [non-target, ref]",
+        "role": "Finance Manager / Ekonomichef  [non-target, ref]",
+        "email": "maggan@pepab.se",
+        "phone": "0270-42 91 52",
+        "linkedin": null,
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -2320,10 +3002,47 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Mekanisk verkstad - tillverkning i enstaka/mindre serier för stål-, pappers-, varv/offshore- och fordonsindustri; ISO 9001/14001 (Tramek AB)",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Ola Sernelin",
+        "title": "VD / Försäljning (target role: VD/CEO + Ägare)  EXISTING (corrected)",
+        "role": "VD / Försäljning (target role: VD/CEO + Ägare)  EXISTING (corrected)",
+        "email": "ola.sernelin@tramek.se",
+        "phone": "070-56 65 033",
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Bodil Sernelin",
+        "title": "Ekonomi & ISO / Styrelseordförande (target role: ~admin/owner)",
+        "role": "Ekonomi & ISO / Styrelseordförande (target role: ~admin/owner)",
+        "email": "bodil.sernelin@tramek.se",
+        "phone": "073-33 96 019",
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Jonas Stridh",
+        "title": "Produktion / Produktionschef (target role: COO/Produktionschef) ⭐ KEY DM",
+        "role": "Produktion / Produktionschef (target role: COO/Produktionschef) ⭐ KEY DM",
+        "email": "jonas.stridh@tramek.se",
+        "phone": "073-32 68 248",
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Alzen Aljimi",
+        "title": "Försäljning & Produktion (target role: ~sales/production)",
+        "role": "Försäljning & Produktion (target role: ~sales/production)",
+        "email": "alzen.aljimi@tramek.se",
+        "phone": null,
+        "linkedin": null,
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -2365,10 +3084,74 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Utvecklar och producerar förpackningsmaskiner för kartong/well; egen maskinpark inkl. nollpunktssystem (Spitze AB)",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Peter Kjellberg",
+        "title": "VD/CEO",
+        "role": "VD/CEO",
+        "email": "peter.kjellberg@spitze.se",
+        "phone": "+46 73 38 74 424",
+        "linkedin": "https://se.linkedin.com/in/spitze-peter-kjellberg-62717494",
+        "priority": "high"
+      },
+      {
+        "name": "Torben Salander",
+        "title": "Ägare/Grundare/Senior Advisor",
+        "role": "Ägare/Grundare/Senior Advisor",
+        "email": "torben.salander@spitze.se",
+        "phone": "+46 70 57 63 500",
+        "linkedin": "https://se.linkedin.com/in/torben-salander-5b816391",
+        "priority": "high"
+      },
+      {
+        "name": "Daniel Rolfsson",
+        "title": "Chef Produktion",
+        "role": "Chef Produktion",
+        "email": "daniel.rolfsson@spitze.se",
+        "phone": "+46 76 833 33 15",
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Tim Andreasson",
+        "title": "Chef Konstruktion",
+        "role": "Chef Konstruktion",
+        "email": "tim.andreasson@spitze.se",
+        "phone": "+46 76 852 09 08",
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Magnus Johansson",
+        "title": "Chef El & Automation",
+        "role": "Chef El & Automation",
+        "email": "magnus.johansson@spitze.se",
+        "phone": "+46 73 42 78 000",
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Markus Philipsson",
+        "title": "Chef Verkstad",
+        "role": "Chef Verkstad",
+        "email": "markus.philipsson@spitze.se",
+        "phone": "+46 73 962 84 20",
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Marcus Ingelmark",
+        "title": "Chef Eftermarknad (supporting / aftermarket)",
+        "role": "Chef Eftermarknad (supporting / aftermarket)",
+        "email": "marcus.ingelmark@spitze.se",
+        "phone": "+46 76 11 31 933",
+        "linkedin": null,
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -2410,10 +3193,47 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "CNC-fräsning av gjutgods (stål/segjärn/gråjärn/brons), full NDT-kedja; kunder inom energi/tunga fordon/marin (Hyngarps Frästeknik AB)",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Nicholas Ståhl",
+        "title": "VD/Marknad  (målroll: VD/CEO + Ägarsfär)",
+        "role": "VD/Marknad  (målroll: VD/CEO + Ägarsfär)",
+        "email": "nicholas@hyngarp.se",
+        "phone": "736-588804",
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Mirsad Sehmehmedovic",
+        "title": "Produktionschef  (målroll: COO/Produktionschef — STRATEGISK)",
+        "role": "Produktionschef  (målroll: COO/Produktionschef — STRATEGISK)",
+        "email": "mirsad@hyngarp.se",
+        "phone": "76-3363860",
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Jonas Neij",
+        "title": "Ekonomi/Admin",
+        "role": "Ekonomi/Admin",
+        "email": "neij@hyngarp.se",
+        "phone": "72-8588801",
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Patrik Carlsson",
+        "title": "Order/inköp",
+        "role": "Order/inköp",
+        "email": "info@hyngarp.se",
+        "phone": "70-8765707",
+        "linkedin": null,
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -2458,7 +3278,44 @@
     "description": "",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Anders Rundqvist",
+        "title": "VD / Ägare",
+        "role": "VD/Ägare",
+        "email": "anders@tremek.se",
+        "phone": "0709-221516",
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Conny Olin",
+        "title": "Produktionschef",
+        "role": "Produktionschef",
+        "email": "conny@tremek.se",
+        "phone": "0721-603 666",
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Mats Lantz",
+        "title": "Produktionsteknik/CAD",
+        "role": "Teknik",
+        "email": "mats@tremek.se",
+        "phone": "0733-50 73 61",
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Rickard Johansson",
+        "title": "Operativ chef (COO)",
+        "role": "COO",
+        "email": "rickard.johansson@tremek.se",
+        "phone": "0707-580 277",
+        "linkedin": null,
+        "priority": "high"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -2555,7 +3412,35 @@
     "description": "",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Mattias Eriksson",
+        "title": "VD/CEO",
+        "role": "VD/CEO",
+        "email": "mattias.eriksson@ateknik.se",
+        "phone": null,
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Erik Nilsson",
+        "title": "Plats- och produktionschef",
+        "role": "Produktionschef",
+        "email": "erik.nilsson@ateknik.se",
+        "phone": "0934-397 10",
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Robert Olofsson",
+        "title": "Tekniker och säljare",
+        "role": "Teknik/Försäljning",
+        "email": "robert.olofsson@ateknik.se",
+        "phone": "0934-397 06",
+        "linkedin": null,
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -2604,10 +3489,56 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Mekanisk legotillverkning av komplicerade metalldetaljer - fräs, svarv, slip, svets, ytbehandling; förvärvad av Opima 2025 (ZIWA Mekanisk Tillverkning AB)",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Suad Samardzic",
+        "title": "VD (CEO) [MÅLROLL: VD/CEO]",
+        "role": "VD (CEO) [MÅLROLL: VD/CEO]",
+        "email": "suad.samardzic@ziwa.se",
+        "phone": null,
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Magnus Zinnerström",
+        "title": "Delägare, Kalkylering/Offert [MÅLROLL: Ägare]",
+        "role": "Delägare, Kalkylering/Offert [MÅLROLL: Ägare]",
+        "email": "magnus.zinnerstrom@ziwa.se",
+        "phone": null,
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Mats Waltersson",
+        "title": "Delägare, Senior rådgivare & Ekonomi [MÅLROLL: Ägare / ev. registrerad VD]",
+        "role": "Delägare, Senior rådgivare & Ekonomi [MÅLROLL: Ägare / ev. registrerad VD]",
+        "email": "mats.waltersson@ziwa.se",
+        "phone": null,
+        "linkedin": "https://se.linkedin.com/in/mats-waltersson-68a662136",
+        "priority": "high"
+      },
+      {
+        "name": "Micke Stening",
+        "title": "Produktionschef [MÅLROLL: COO/Produktionschef]",
+        "role": "Produktionschef [MÅLROLL: COO/Produktionschef]",
+        "email": "micke.stening@ziwa.se",
+        "phone": null,
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Per Säljö",
+        "title": "Sälj- och marknadsansvarig [MÅLROLL: kompletterande — Sälj]",
+        "role": "Sälj- och marknadsansvarig [MÅLROLL: kompletterande — Sälj]",
+        "email": "per.saljo@ziwa.se",
+        "phone": null,
+        "linkedin": null,
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -2656,10 +3587,38 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Bearbetning - svets, svarv, fräs i fleroperationsmaskiner, CAD/CAM; även materialförsäljning; ISO 9001/14001 (Stålmännen i Karlskrona AB)",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Patrik Karlsson",
+        "title": "Beslutsfattare",
+        "role": "Other",
+        "email": "patrik@stalmannenab.com",
+        "phone": null,
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Peter Thalin",
+        "title": "Styrelseordförande & Ägare (Chairman & co-owner ≈ owner/board) *(high)",
+        "role": "Styrelseordförande & Ägare (Chairman & co-owner ≈ owner/board) *(high)",
+        "email": "peter@stalmannenab.com",
+        "phone": null,
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Fredrik Sandqvist",
+        "title": "Projektledare CAD (≈ Teknik / produktionsberedning) *(high)",
+        "role": "Projektledare CAD (≈ Teknik / produktionsberedning) *(high)",
+        "email": "fredrik@stalmannenab.com",
+        "phone": null,
+        "linkedin": "https://se.linkedin.com/in/fredrik-sandqvist-b4ab62207",
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -2711,7 +3670,35 @@
     "description": "",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Johan Petersson",
+        "title": "VD / Verkstad",
+        "role": "VD",
+        "email": "johan.pettersson@hj-tooling.se",
+        "phone": "070-938 22 57",
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Peter Nilsson",
+        "title": "CNC Svarvning",
+        "role": "Produktion",
+        "email": "peter.nilsson@hj-tooling.se",
+        "phone": null,
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Peter Yngvesson",
+        "title": "CNC / Programmering",
+        "role": "Teknik",
+        "email": "peter.yngvesson@hj-tooling.se",
+        "phone": null,
+        "linkedin": null,
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -2760,10 +3747,56 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "OEM-tillverkning av mekaniska axeltätningar och magnetdrivna omrörare (CNC); IDEX Corp-ägt",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "1. Guido Jeifetz",
+        "title": "General Manager (= VD / CEO) ★ PRIMARY TARGET (Ägare-proxy/VD)",
+        "role": "General Manager (= VD / CEO) ★ PRIMARY TARGET (Ägare-proxy/VD)",
+        "email": "guido.jeifetz@roplan.com",
+        "phone": null,
+        "linkedin": "https://www.linkedin.com/in/guidojeifetz",
+        "priority": "high"
+      },
+      {
+        "name": "2. Henrik Nedlich",
+        "title": "VP Technology (= Teknikchef) ★ TARGET (Teknikchef)",
+        "role": "VP Technology (= Teknikchef) ★ TARGET (Teknikchef)",
+        "email": "henrik.nedlich@roplan.com",
+        "phone": null,
+        "linkedin": "https://se.linkedin.com/in/henriknedlich",
+        "priority": "medium"
+      },
+      {
+        "name": "3. Barbora Callegari",
+        "title": "Global Sales Director",
+        "role": "Global Sales Director",
+        "email": "barbora.callegari@roplan.com",
+        "phone": null,
+        "linkedin": "https://www.linkedin.com/in/barbora-callegari",
+        "priority": "medium"
+      },
+      {
+        "name": "4. Megan Evans, CPA",
+        "title": "Director of Finance (Financial Director)",
+        "role": "Director of Finance (Financial Director)",
+        "email": "megan.evans@roplan.com",
+        "phone": null,
+        "linkedin": "https://se.linkedin.com/in/megan-evans-cpa-28b80871",
+        "priority": "medium"
+      },
+      {
+        "name": "5. Jason Sychterz",
+        "title": "Global Business Line Leader",
+        "role": "Global Business Line Leader",
+        "email": "jason.sychterz@roplan.com",
+        "phone": null,
+        "linkedin": "https://www.linkedin.com/in/jason-sychterz-a33107102",
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -2812,10 +3845,38 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Legobearbetning (svarv/fräs) och systemlösningar för skogs-, anläggnings- och lantbruksmaskiner",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Person 1",
+        "title": "Jens Johansson (BEFINTLIG, korrigerad)",
+        "role": "Jens Johansson (BEFINTLIG, korrigerad)",
+        "email": "jens.johansson@protab.se",
+        "phone": "+46 70-333 03 42",
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Person 2",
+        "title": "David Granström (NY)",
+        "role": "David Granström (NY)",
+        "email": "david.granstrom@protab.se",
+        "phone": null,
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Person 3",
+        "title": "Roger Hägglund (LEAD, ej slutförd)",
+        "role": "Roger Hägglund (LEAD, ej slutförd)",
+        "email": null,
+        "phone": null,
+        "linkedin": "https://www.linkedin.com/in/roger-h%C3%A4gglund-ba1330107",
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -2864,10 +3925,47 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Legotillverkning - laser-/gasskärning, svets, skärande bearbetning, ytbehandling; familjeägt",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Fredric Hakfelt",
+        "title": "Ägare / VD (CEO + Owner)",
+        "role": "Ägare / VD (CEO + Owner)",
+        "email": "fredric@hakfelt.se",
+        "phone": "070-219 49 09",
+        "linkedin": "https://se.linkedin.com/in/fredric-hakfelt-a76938105",
+        "priority": "high"
+      },
+      {
+        "name": "Pontus Hakfelt",
+        "title": "Ägare / Marknadschef (Co-owner, Sales/Marketing)",
+        "role": "Ägare / Marknadschef (Co-owner, Sales/Marketing)",
+        "email": "pontus@hakfelt.se",
+        "phone": "070-373 27 69",
+        "linkedin": "https://se.linkedin.com/in/pontus-hakfelt-098154279",
+        "priority": "high"
+      },
+      {
+        "name": "Christian Källgren",
+        "title": "Produktionschef Kvalité/Miljö (COO/Produktionschef)",
+        "role": "Produktionschef Kvalité/Miljö (COO/Produktionschef)",
+        "email": "christian@hakfelt.se",
+        "phone": "070-322 73 59",
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Anders Hansson",
+        "title": "Planeringschef (Planning Manager)",
+        "role": "Planeringschef (Planning Manager)",
+        "email": "anders@hakfelt.se",
+        "phone": "070-341 79 69",
+        "linkedin": "https://se.linkedin.com/in/anders-hansson-b3216027a",
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -2968,10 +4066,38 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Precisionsgjuteri av avancerade aluminiumkomponenter (investment casting) för medtech, fordon, försvar (HPG AB)",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Clas Henrik (\"Henrik\") Boström",
+        "title": "VD, ägare & styrelseordförande",
+        "role": "VD, ägare & styrelseordförande",
+        "email": "henrik.bostrom@hpgab.se",
+        "phone": null,
+        "linkedin": "https://www.linkedin.com/in/henrik-bostr%C3%B6m-9170a220",
+        "priority": "high"
+      },
+      {
+        "name": "Mikael Forss",
+        "title": "Produktions- & kvalitetsansvarig / Platschef (maps to COO-Produktionschef + Teknikchef + Platschef)",
+        "role": "Produktions- & kvalitetsansvarig / Platschef (maps to COO-Produktionschef + Teknikchef + Platschef)",
+        "email": "mikael.forss@hpgab.se",
+        "phone": null,
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Mats Englund",
+        "title": "Produktionsplanering & inköp",
+        "role": "Produktionsplanering & inköp",
+        "email": "mats.englund@hpgab.se",
+        "phone": null,
+        "linkedin": null,
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,
@@ -3020,10 +4146,47 @@
     "status": "new",
     "assignedTo": null,
     "deadline": null,
-    "description": "",
+    "description": "Legobearbetning, avancerad CNC (30 Okuma + Fastems FMS); Storskogen-ägt",
     "sowPotential": "",
     "triggers": [],
-    "decisionMakers": [],
+    "decisionMakers": [
+      {
+        "name": "Niklas Näslund",
+        "title": "VD/CEO (+ ägar-/familjeled, Kvalitet & Miljö)",
+        "role": "VD/CEO (+ ägar-/familjeled, Kvalitet & Miljö)",
+        "email": "niklas.naslund@kvalitetslego.se",
+        "phone": null,
+        "linkedin": null,
+        "priority": "high"
+      },
+      {
+        "name": "Elisabeth Bäcklund",
+        "title": "Teknikchef",
+        "role": "Teknikchef",
+        "email": "elisabeth.backlund@kvalitetslego.se",
+        "phone": null,
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Jesper Näslund",
+        "title": "Order- & Inköpsansvarig",
+        "role": "Order- & Inköpsansvarig",
+        "email": "jesper.naslund@kvalitetslego.se",
+        "phone": null,
+        "linkedin": null,
+        "priority": "medium"
+      },
+      {
+        "name": "Linda Mårtens",
+        "title": "Ekonomi",
+        "role": "Ekonomi",
+        "email": "linda.martens@kvalitetslego.se",
+        "phone": null,
+        "linkedin": null,
+        "priority": "medium"
+      }
+    ],
     "entryAngles": [],
     "qualifyingQuestions": [],
     "nextSteps": null,

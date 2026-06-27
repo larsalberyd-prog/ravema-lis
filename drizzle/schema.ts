@@ -32,6 +32,7 @@ export type InsertUser = typeof users.$inferInsert;
  */
 export const companies = mysqlTable("companies", {
   id: int("id").autoincrement().primaryKey(),
+  tenantId: int("tenantId").default(1).notNull(),     // multi-tenant-isolering (Order 3)
 
   // Core identifiers
   name: varchar("name", { length: 255 }).notNull(),
@@ -122,6 +123,7 @@ export type InsertSignal = typeof signals.$inferInsert;
  */
 export const contacts = mysqlTable("contacts", {
   id: int("id").autoincrement().primaryKey(),
+  tenantId: int("tenantId").default(1).notNull(),     // multi-tenant-isolering (Order 3)
   companyId: int("companyId").notNull(),
 
   firstName: varchar("firstName", { length: 100 }),
@@ -239,3 +241,51 @@ export const webhookLogs = mysqlTable("webhook_logs", {
   contactsCreated: int("contactsCreated").default(0),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
 });
+
+/**
+ * Generated Intelligence Packs — live, roll-styrda info-packs (intelligence.generate).
+ * Persisteras så packen ACKUMULERAS över tid (moaten) och så varje ny generering kan
+ * ta hänsyn till tidigare vinklar (icke-repetition). Se APP-STRATEGI.md.
+ */
+export const generatedPacks = mysqlTable("generated_packs", {
+  id: int("id").autoincrement().primaryKey(),
+  companyId: int("companyId").notNull(),
+  role: varchar("role", { length: 64 }),                          // fc | salesperson
+  headlineHypothesis: varchar("headlineHypothesis", { length: 500 }),
+  payload: json("payload").notNull(),                             // full IntelligencePackData
+  generatedBy: varchar("generatedBy", { length: 255 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type GeneratedPack = typeof generatedPacks.$inferSelect;
+
+/**
+ * Discovery-sessioner — SPAR-frågor (genererade ur info-pack + Ravema-data) och
+ * säljarens svar. Svaren återförs till LIS som signaler (reinforcement-loopen).
+ */
+export const discoverySessions = mysqlTable("discovery_sessions", {
+  id: int("id").autoincrement().primaryKey(),
+  companyId: int("companyId").notNull(),
+  role: varchar("role", { length: 64 }),
+  payload: json("payload").notNull(),                  // { questions, answers }
+  createdBy: varchar("createdBy", { length: 255 }),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type DiscoverySession = typeof discoverySessions.$inferSelect;
+
+/**
+ * Tenant-inställningar (en rad) — driftläge per kund: test / pilot / normal.
+ * Styr hur många prospekt-konton som är upplåsta (test = N st, resten låsta).
+ * Lås = dölj/spärra, ALDRIG radera. testUnlockLimit är konfigurerbar.
+ */
+export const tenantSettings = mysqlTable("tenant_settings", {
+  id: int("id").primaryKey(),                                          // alltid 1
+  accountPhase: mysqlEnum("accountPhase", ["test", "pilot", "normal"]).default("test").notNull(),
+  configStatus: mysqlEnum("configStatus", ["draft", "reviewed", "live"]).default("draft").notNull(),
+  testUnlockLimit: int("testUnlockLimit").default(12).notNull(),
+  testStartedAt: timestamp("testStartedAt"),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type TenantSettings = typeof tenantSettings.$inferSelect;

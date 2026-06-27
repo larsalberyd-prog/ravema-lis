@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import companiesData from "@/data/companies.json";
+import { trpc } from "@/lib/trpc";
 
 export interface DecisionMaker {
+  id?: number;
   name: string;
   title: string;
   role: "Executive" | "Technical" | "Buyer" | "Gatekeeper" | "Other";
@@ -50,7 +50,8 @@ export interface LisMeta {
 }
 
 export interface Company {
-  id: string;
+  id: string;            // stable slug — used for routing + as the public key
+  dbId?: number;         // numeric DB id — mutations key on this (set by the backend mapper)
   name: string;
   country: string;
   city: string;
@@ -68,55 +69,58 @@ export interface Company {
   qualifierAnswers?: QualifierAnswer[];
   nextSteps: string | null;
   notes: string | null;
+  updatedAt?: string | null;
+  locked?: boolean;          // test-läge: konton utanför den upplåsta kvoten (12 SE + 6 NO)
+  testOpen?: boolean;        // test-läge: konto inom kvoten = öppet
   lis?: LisMeta;
 }
 
-const STORAGE_KEY = "ravema-lis-companies-v2";
-
+/**
+ * Live data hook — reads companies from the tRPC/MySQL backend (was: static
+ * companies.json + localStorage). The hook API is unchanged so the consuming
+ * pages need no edits; mutations persist to the DB and invalidate the query.
+ *
+ * Slice 1 of the rebuild (APP-STRATEGI: "gör appen levande"). Note: only
+ * status/assignment persist for now via `companies.updateStatus`; richer field
+ * edits (qualifierAnswers etc.) get their own mutations in a later slice.
+ */
 export function useCompanies() {
-  const [companies, setCompanies] = useState<Company[]>([]);
-  const [loading, setLoading] = useState(true);
+  const utils = trpc.useUtils();
+  const { data, isLoading } = trpc.companies.list.useQuery(undefined, { staleTime: 60_000 });
+  const companies = (data ?? []) as Company[];
 
-  useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored) {
-      try {
-        setCompanies(JSON.parse(stored));
-      } catch (e) {
-        console.error("Failed to parse stored companies:", e);
-        setCompanies(companiesData as Company[]);
-      }
-    } else {
-      setCompanies(companiesData as Company[]);
-    }
-    setLoading(false);
-  }, []);
+  const statusMutation = trpc.companies.updateStatus.useMutation({
+    onSuccess: () => utils.companies.list.invalidate(),
+  });
 
-  useEffect(() => {
-    if (!loading && companies.length > 0) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(companies));
-    }
-  }, [companies, loading]);
-
-  const updateCompany = (id: string, updates: Partial<Company>) => {
-    setCompanies((prev) =>
-      prev.map((company) =>
-        company.id === id ? { ...company, ...updates } : company
-      )
-    );
-  };
-
-  const assignCompany = (id: string, assignedTo: string, deadline: string) => {
-    updateCompany(id, { assignedTo, deadline, status: "contacted" });
-  };
+  const dbIdOf = (id: string) => companies.find((c) => c.id === id)?.dbId;
 
   const updateStatus = (id: string, status: "new" | "contacted" | "meeting" | "qualified") => {
-    updateCompany(id, { status });
+    const dbId = dbIdOf(id);
+    if (dbId != null) statusMutation.mutate({ id: dbId, status });
   };
 
-  const addCompany = (company: Company) => {
-    setCompanies((prev) => [...prev, company]);
+  const assignCompany = (id: string, assignedTo: string, _deadline: string) => {
+    const dbId = dbIdOf(id);
+    if (dbId != null) statusMutation.mutate({ id: dbId, status: "contacted", assignedTo });
   };
 
-  return { companies, loading, updateCompany, assignCompany, updateStatus, addCompany };
+  const updateCompany = (id: string, updates: Partial<Company>) => {
+    const dbId = dbIdOf(id);
+    if (dbId == null) return;
+    if (updates.status || updates.notes !== undefined) {
+      statusMutation.mutate({
+        id: dbId,
+        status: (updates.status ?? companies.find((c) => c.id === id)?.status ?? "new"),
+        ...(updates.notes !== undefined ? { notes: updates.notes ?? undefined } : {}),
+      });
+    }
+  };
+
+  // New companies are created server-side (Clay webhook / import); refresh the list.
+  const addCompany = (_company: Company) => {
+    utils.companies.list.invalidate();
+  };
+
+  return { companies, loading: isLoading, updateCompany, assignCompany, updateStatus, addCompany };
 }

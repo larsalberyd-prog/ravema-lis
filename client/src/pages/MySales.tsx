@@ -1,6 +1,9 @@
 import { useState, useMemo } from "react";
 import { Link } from "wouter";
-import { useCompanies } from "@/hooks/useCompanies";
+import { useCompanies, type Company } from "@/hooks/useCompanies";
+import { useRole } from "@/contexts/RoleContext";
+import StatOpener from "@/components/StatOpener";
+import QualifyModal from "@/components/QualifyModal";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -8,7 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
-  Building2, Search, MapPin, ChevronRight, Zap, User, Activity, Crown, Shield,
+  Building2, Search, MapPin, ChevronRight, Zap, User, Activity, Crown, Shield, UserCheck, ArrowRight, Lock, Unlock,
 } from "lucide-react";
 
 const focusBadge: Record<string, string> = {
@@ -30,6 +33,8 @@ const PRIORITY_ORDER: Record<string, number> = { AAA: 0, AA: 1, A: 2, B: 3, C: 4
 
 export default function MySales() {
   const { companies, loading } = useCompanies();
+  const { role } = useRole();
+  const [qualifyTarget, setQualifyTarget] = useState<Company | null>(null);
   const [search, setSearch] = useState("");
   const [salesperson, setSalesperson] = useState<string>("nejra-queue");
 
@@ -67,6 +72,17 @@ export default function MySales() {
     });
   }, [mine, search]);
 
+  // SDR-cockpit: konton SDR kvalificerat & överlämnat idag
+  const handedToday = useMemo(() => {
+    const now = new Date();
+    const isToday = (d?: string | null) => {
+      if (!d) return false;
+      const x = new Date(d);
+      return x.getFullYear() === now.getFullYear() && x.getMonth() === now.getMonth() && x.getDate() === now.getDate();
+    };
+    return companies.filter(c => c.status === "qualified" && c.assignedTo && isToday(c.updatedAt));
+  }, [companies]);
+
   const newCount = mine.filter(c => c.status === "new").length;
   const contactedCount = mine.filter(c => c.status === "contacted").length;
   const meetingCount = mine.filter(c => c.status === "meeting").length;
@@ -78,42 +94,21 @@ export default function MySales() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <div className="bg-white border-b border-gray-200 px-4 sm:px-6 py-4">
-        <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
-              <Zap className="w-5 h-5 text-white" />
-            </div>
-            <div>
-              <h1 className="text-base sm:text-lg font-bold text-gray-900">{heading}</h1>
-              <p className="text-xs text-gray-500">{subheading}</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <Link href="/dashboard">
-              <Button variant="ghost" size="sm" className="hidden sm:flex">Pilot Board</Button>
-            </Link>
-            <Link href="/admin">
-              <Button variant="outline" size="sm" className="hidden sm:flex gap-1 border-red-200 text-red-700 hover:bg-red-50">
-                <Shield className="w-4 h-4" />Klas (Leadership)
-              </Button>
-            </Link>
-            <div className="flex items-center gap-2">
-              <div className="w-7 h-7 bg-gray-100 rounded-full flex items-center justify-center">
-                <User className="w-4 h-4 text-gray-500" />
-              </div>
-              <div className="hidden sm:flex flex-col">
-                <span className="text-sm font-medium text-gray-700 leading-tight">Nejra</span>
-                <span className="text-xs text-gray-400">Commercial Intelligence (SDR)</span>
-              </div>
-            </div>
-          </div>
+      {/* Sid-titel (global roll-nav i TopNav ovanför) */}
+      <div className="bg-white border-b border-gray-200 px-4 sm:px-6 py-3">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-lg font-bold text-gray-900">{heading}</h1>
+          <p className="text-xs text-gray-500">{subheading}</p>
         </div>
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6">
-        {/* Stats */}
+        {/* Roll-scopad fyrkorts-opener (SDR/Säljare: min kö) */}
+        <div className="mb-4">
+          <StatOpener companies={mine} scopeLabel="min kö" />
+        </div>
+
+        {/* Resultat-rad (progression) */}
         <div className="grid grid-cols-3 gap-3 mb-6">
           <Card>
             <CardContent className="p-3 sm:p-4 text-center">
@@ -134,6 +129,33 @@ export default function MySales() {
             </CardContent>
           </Card>
         </div>
+
+        {/* SDR-cockpit: Överlämnade idag */}
+        {role === "sdr" && (
+          <div className="mb-6 rounded-xl border border-emerald-100 bg-emerald-50/50 p-4">
+            <div className="flex items-center justify-between mb-2">
+              <p className="text-sm font-semibold text-emerald-800 flex items-center gap-2">
+                <UserCheck className="w-4 h-4" />Överlämnade idag
+              </p>
+              <span className="text-lg font-bold text-emerald-700">{handedToday.length}</span>
+            </div>
+            {handedToday.length === 0 ? (
+              <p className="text-xs text-emerald-700/70">Inga överlämningar idag än — kvalificera ett konto i kön.</p>
+            ) : (
+              <div className="flex flex-wrap gap-2">
+                {handedToday.map(c => (
+                  <Link key={c.id} href={`/company/${c.id}`}>
+                    <span className="inline-flex items-center gap-1.5 text-xs bg-white border border-emerald-200 rounded-full px-2.5 py-1 hover:border-emerald-400 cursor-pointer">
+                      <span className="font-medium text-gray-800">{c.name}</span>
+                      <ArrowRight className="w-3 h-3 text-gray-400" />
+                      <span className="text-emerald-700">{c.assignedTo}</span>
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Filters */}
         <div className="flex flex-col sm:flex-row gap-3 mb-4">
@@ -179,7 +201,7 @@ export default function MySales() {
           <div className="space-y-3">
             {filtered.map(company => (
               <Link key={company.id} href={`/company/${company.id}`}>
-                <Card className="hover:shadow-md transition-all cursor-pointer border hover:border-red-200 group">
+                <Card className={`transition-all cursor-pointer border group ${company.locked ? "opacity-70 bg-slate-50 border-dashed border-slate-300" : "hover:shadow-md hover:border-red-200"}`}>
                   <CardContent className="p-4">
                     <div className="flex items-center gap-3">
                       <div className="flex-1 min-w-0">
@@ -217,11 +239,34 @@ export default function MySales() {
                         </div>
                       </div>
                       <div className="flex items-center gap-2 flex-shrink-0">
-                        <div className="flex items-center gap-1.5">
-                          <span className={`w-2 h-2 rounded-full ${statusConfig[company.status]?.color || "bg-gray-400"}`} />
-                          <span className="text-xs text-gray-600 hidden sm:block">{statusConfig[company.status]?.label}</span>
-                        </div>
-                        <ChevronRight className="w-4 h-4 text-gray-300 group-hover:text-red-400 transition-colors" />
+                        {company.locked ? (
+                          <Badge className="text-xs gap-1 bg-slate-200 text-slate-600 border-slate-300">
+                            <Lock className="w-3 h-3" />Låst
+                          </Badge>
+                        ) : (
+                          <>
+                            {company.testOpen && (
+                              <Badge className="text-xs gap-1 bg-emerald-100 text-emerald-700 border-emerald-200">
+                                <Unlock className="w-3 h-3" />Öppen
+                              </Badge>
+                            )}
+                            {role === "sdr" && company.status === "new" && (
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                className="h-7 gap-1 text-xs border-red-200 text-red-700 hover:bg-red-50"
+                                onClick={(e) => { e.preventDefault(); e.stopPropagation(); setQualifyTarget(company); }}
+                              >
+                                <UserCheck className="w-3.5 h-3.5" />Kvalificera
+                              </Button>
+                            )}
+                            <div className="flex items-center gap-1.5">
+                              <span className={`w-2 h-2 rounded-full ${statusConfig[company.status]?.color || "bg-gray-400"}`} />
+                              <span className="text-xs text-gray-600 hidden sm:block">{statusConfig[company.status]?.label}</span>
+                            </div>
+                            <ChevronRight className="w-4 h-4 text-gray-300 group-hover:text-red-400 transition-colors" />
+                          </>
+                        )}
                       </div>
                     </div>
                   </CardContent>
@@ -231,6 +276,14 @@ export default function MySales() {
           </div>
         )}
       </div>
+
+      {qualifyTarget && (
+        <QualifyModal
+          company={qualifyTarget}
+          salespeople={salespeople}
+          onClose={() => setQualifyTarget(null)}
+        />
+      )}
     </div>
   );
 }

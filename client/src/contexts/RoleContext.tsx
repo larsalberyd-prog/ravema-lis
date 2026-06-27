@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
-type Role = "fc" | "salesperson";
+type Role = "fc" | "sdr" | "salesperson";
 
 interface RoleContextType {
   role: Role;

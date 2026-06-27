@@ -7,7 +7,7 @@
  * the JSON import into the server bundle, so no data files are needed at runtime.
  */
 import { eq, sql } from "drizzle-orm";
-import { getDb } from "../db";
+import { getDb, insertIdOf } from "../db";
 import { companies, contacts, signals } from "../../drizzle/schema";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 import companiesRaw from "../../client/src/data/companies.json";
@@ -133,7 +133,7 @@ export async function seedLisIfNeeded(): Promise<void> {
       await db.update(companies).set({ ...companyRow, updatedAt: new Date() }).where(eq(companies.id, companyId));
     } else {
       const res = await db.insert(companies).values(companyRow);
-      companyId = Number((res as any).insertId ?? 0);
+      companyId = insertIdOf(res);
     }
     companiesUpserted++;
 
